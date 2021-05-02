@@ -1,6 +1,7 @@
-# LabVIEW TCP/IP Module
+# LabVIEW TCP/IP Module for Json String
 
 LabVIEW TCP/IP module to transfer the packet of JSON string.
+This module should be compatable with the Python TCP/IP client.
 
 ## Platform
 
