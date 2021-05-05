@@ -1,6 +1,7 @@
 import asyncio
 from enum import auto, IntEnum
 import json
+import copy
 
 
 class TopicType(IntEnum):
@@ -75,15 +76,16 @@ class TcpClient(object):
             Topic type.
         """
 
+        topic_details_with_header = copy.copy(topic_details)
         if topic_type == TopicType.CMD:
-            self._add_cmd_header(topic, topic_details)
+            self._add_cmd_header(topic, topic_details_with_header)
         elif topic_type == TopicType.EVT:
-            self._add_evt_header(topic, topic_details)
+            self._add_evt_header(topic, topic_details_with_header)
         else:
             raise ValueError(f"The topic type: {topic_type} is not supported.")
 
         # Transfer to json string and do the encode
-        msg = json.dumps(topic_details, indent=4).encode()
+        msg = json.dumps(topic_details_with_header, indent=4).encode()
 
         self.writer.write(msg)
         await self.writer.drain()
