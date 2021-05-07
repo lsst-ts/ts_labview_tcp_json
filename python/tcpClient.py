@@ -85,7 +85,8 @@ class TcpClient(object):
             raise ValueError(f"The topic type: {topic_type} is not supported.")
 
         # Transfer to json string and do the encode
-        msg = json.dumps(topic_details_with_header, indent=4).encode()
+        # Add the "\r\n" in end for LabVIEW server to use
+        msg = (json.dumps(topic_details_with_header, indent=4) + "\r\n").encode()
 
         self.writer.write(msg)
         await self.writer.drain()
