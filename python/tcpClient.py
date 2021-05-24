@@ -31,9 +31,6 @@ class TcpClient(object):
         # Unique ID
         self._uniq_id = self._uniq_id_gen()
 
-        # Event loop
-        self._loop = asyncio.get_event_loop()
-
         # List of telemetry
         self._list_tel = []
 
@@ -84,7 +81,7 @@ class TcpClient(object):
             host=ip_addr, port=port
         )
 
-    async def write(self, topic, topic_details, topic_type):
+    async def write(self, topic, topic_details, topic_type, custom_id=None):
         """Write the message.
 
         Parameters
@@ -95,12 +92,15 @@ class TcpClient(object):
             Topic details.
         topic_type : TopicType
             Topic type.
+        custom_id : int or None, optional
+            Customed Id of command if not None. This is for the test purpose
+            only. (the default is None)
         """
 
         topic_details_with_header = copy.copy(topic_details)
         if topic_type == TopicType.CMD:
             self._check_cmd_expect(topic_details)
-            self._add_cmd_header(topic, topic_details_with_header)
+            self._add_cmd_header(topic, topic_details_with_header, custom_id=custom_id)
         elif topic_type == TopicType.EVT:
             self._add_evt_header(topic, topic_details_with_header)
         elif topic_type == TopicType.TEL:
@@ -127,7 +127,7 @@ class TcpClient(object):
             if cmd_details["cmdExpect"] not in ("success", "fail"):
                 raise ValueError("The 'cmdExpect' can only be 'success' or 'fail'.")
 
-    def _add_cmd_header(self, topic, topic_details):
+    def _add_cmd_header(self, topic, topic_details, custom_id=None):
         """Add the command header.
 
         Parameters
@@ -136,6 +136,9 @@ class TcpClient(object):
             Topic name.
         topic_details : dict
             Topic details.
+        custom_id : int or None, optional
+            Customed Id of command if not None. This is for the test purpose
+            only. (the default is None)
 
         Raises
         ------
@@ -147,7 +150,11 @@ class TcpClient(object):
             raise ValueError("The 'cmdName' is in the topic details already.")
 
         topic_details["cmdName"] = topic
-        topic_details["cmdId"] = self.get_uniq_id()
+
+        if custom_id is not None:
+            topic_details["cmdId"] = int(custom_id)
+        else:
+            topic_details["cmdId"] = self.get_uniq_id()
 
     def _add_evt_header(self, topic, topic_details):
         """Add the event header.
@@ -207,7 +214,9 @@ class TcpClient(object):
         self.writer.write(msg)
         await self.writer.drain()
 
-    async def write_cmd_and_wait_result(self, cmd, cmd_details, timeout=5.0):
+    async def write_cmd_and_wait_result(
+        self, cmd, cmd_details, timeout=5.0, custom_id=None
+    ):
         """Write the command and wait for the result.
 
         This function is used to check the feedback of command from the server.
@@ -221,11 +230,14 @@ class TcpClient(object):
             Command details.
         timeout : float, optional
             Timeout of command. (the default is 5.0)
+        custom_id : int or None, optional
+            Customed Id of command if not None. This is for the test purpose
+            only. (the default is None)
         """
 
         self._check_cmd_expect(cmd_details)
         command_details_with_header = copy.copy(cmd_details)
-        self._add_cmd_header(cmd, command_details_with_header)
+        self._add_cmd_header(cmd, command_details_with_header, custom_id=custom_id)
 
         await asyncio.gather(
             self._write_msg_to_socket(command_details_with_header),
