@@ -1,5 +1,11 @@
 # Version History
 
+0.1.1
+
+- Add the Python **TcpServerComp** class.
+- Update the details of JSON string in **README.md**.
+- Support to assign the specific command ID instead of the auto-generated one.
+
 0.1.0
 
 - Add the LabVIEW TCP server.
