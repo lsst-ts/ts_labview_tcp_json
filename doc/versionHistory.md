@@ -1,9 +1,15 @@
 # Version History
 
+0.1.0
+
+- Add the LabVIEW tcp Server
+- Add the Component Simulator to interact with server and client
+- Add the Jenkinsfile to do Unit Test
+
 0.0.2
 
 - Publish and subscribe the telemetry in Python test TCP/IP client.
-- Add the Python **TcpServer** class. 
+- Add the Python **TcpServer** class.
 
 0.0.1
 
