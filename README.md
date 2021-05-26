@@ -68,6 +68,7 @@ The TCP/IP server should acknowledge the Python client actively for the command 
 
 1. The command is in the list of registered commands by LabVIEW component.
 2. The **cmdId** is bigger than the previous by one if it is not the first command.
+Let the Python client decides the first value of **cmdId**.
 
 Otherwise, the `noAck` should be used.
 In the condition 2 above, if the TCP/IP server received a command with **cmdId: 1** followed by **cmdId: 3**, it should do the `noAck` as the following and vice versa:
@@ -94,9 +95,9 @@ For example, the Python client might issue a `move` command with `x`, `y`, and `
 }
 ```
 
-The TCP/IP server pass the above information to the LabVIEW component except the `cmdId`.
-This means the TCP/IP server should have a mechanism to track the command status of execution.
-The Python client might issue multiple commands in a short time, but the TCP/IP server should only pass a single command to LabVIEW component in a single time and wait for the result.
+The TCP/IP server pass the above information to the LabVIEW component.
+This means the LabVIEW component should have a mechanism to track the command status of execution.
+The Python client might issue multiple commands in a short time, but the LabVIEW component should only execute a single command in a single time and reply for the result.
 
 Take the above command as an example, the acknowledgement from TCP/IP server at each time of receiving the command will be:
 
@@ -144,21 +145,22 @@ The main difference is that the telemetry will be in a fixed rate (in the ideal 
 
 The TCP/IP module should provide the following functions for the LabVIEW component to use as a TCP/IP server:
 
-1. `configure()`: Configure the TCP/IP server with the port, user event, queue, notifier, or other parameters.
+1. `configure()`: Configure the TCP/IP server with the port or other parameters.
 This function might be realized by multiple functions for different configuration groups.
 2. `registerCommand()`: Register the commands that the LabVIEW component supports.
 3. `registerEvent()`: Register the events that the LabVIEW component wants to subscribe from other components.
 4. `registerTelemetry()`: Register the telemetry that the LabVIEW component wants to subscribe from other components.
 5. `run()`: Main method that the LabVIEW component can execute by the asynchronous call and put the TCP/IP server as a process to run in the background.
-After this, the communication between the TCP/IP server and LabVIEW component will be by the user event, queue, or notifier.
+After this, the communication between the TCP/IP server and LabVIEW component will be by the user event, reference queue, or notifier.
 The TCP/IP server should be able to stop gracefully after get the signal from the LabVIEW component.
 The global variables and functional global variables should not be used in any case.
+6. `get()`: Get the user event, reference queue, and notifier hold by the TCP/IP module.
 
 Note: The TCP/IP server should just pass the command, event, and telemetry to the LabVIEW component that are registered.
 
 ## Note
 
-1. For the **cmdId**, there is the discussion in T&S team to unify the name to be **sequence**, **seq**, or **private_seqNum**.
+1. For the **cmdId**, there is the discussion in T&S team to unify the name to be **sequence**, **seq**, **seqId**, or **private_seqNum**.
 2. Suggestion from Russell: Command ack should include an estimate of duration (this can be 0 if the command is quick).
 (I do not know how to support this in M2.)
 
