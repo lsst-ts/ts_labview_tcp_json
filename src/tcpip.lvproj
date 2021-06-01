@@ -441,6 +441,49 @@
 			</Item>
 			<Item Name="provcom_StringGlobals.vi" Type="VI" URL="/&lt;resource&gt;/Framework/Providers/Common/provcom_StringGlobals.vi"/>
 		</Item>
-		<Item Name="Build Specifications" Type="Build"/>
+		<Item Name="Build Specifications" Type="Build">
+			<Item Name="ComponentSimulator" Type="EXE">
+				<Property Name="App_copyErrors" Type="Bool">true</Property>
+				<Property Name="App_INI_aliasGUID" Type="Str">{5F670F7E-C3BD-11EB-91FF-02428DC4B39C}</Property>
+				<Property Name="App_INI_GUID" Type="Str">{5F670E66-C3BD-11EB-91FF-02428DC4B39C}</Property>
+				<Property Name="App_serverConfig.httpPort" Type="Int">8002</Property>
+				<Property Name="Bld_autoIncrement" Type="Bool">true</Property>
+				<Property Name="Bld_buildCacheID" Type="Str">{5F6718F0-C3BD-11EB-91FF-02428DC4B39C}</Property>
+				<Property Name="Bld_buildSpecDescription" Type="Str">Component Simulator to run the LabVIEW TCP Server.</Property>
+				<Property Name="Bld_buildSpecName" Type="Str">ComponentSimulator</Property>
+				<Property Name="Bld_excludeInlineSubVIs" Type="Bool">true</Property>
+				<Property Name="Bld_excludeLibraryItems" Type="Bool">true</Property>
+				<Property Name="Bld_excludePolymorphicVIs" Type="Bool">true</Property>
+				<Property Name="Bld_localDestDir" Type="Path">../build</Property>
+				<Property Name="Bld_localDestDirType" Type="Str">relativeToCommon</Property>
+				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
+				<Property Name="Bld_previewCacheID" Type="Str">{5F67191D-C3BD-11EB-91FF-02428DC4B39C}</Property>
+				<Property Name="Bld_userLogFile" Type="Path">../build/buildComponentSimulator.txt</Property>
+				<Property Name="Bld_userLogFile.pathType" Type="Str">relativeToCommon</Property>
+				<Property Name="Bld_version.build" Type="Int">2</Property>
+				<Property Name="Bld_version.major" Type="Int">1</Property>
+				<Property Name="DestinationCount" Type="Int">2</Property>
+				<Property Name="Destination[0].destName" Type="Str">ComponentSimulator</Property>
+				<Property Name="Destination[0].path" Type="Path">../build/ComponentSimulator</Property>
+				<Property Name="Destination[0].preserveHierarchy" Type="Bool">true</Property>
+				<Property Name="Destination[0].type" Type="Str">App</Property>
+				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
+				<Property Name="Destination[1].path" Type="Path">../build/data</Property>
+				<Property Name="SourceCount" Type="Int">2</Property>
+				<Property Name="Source[0].itemID" Type="Str">{9BE08F12-C3BA-11EB-A973-02428DC4B39C}</Property>
+				<Property Name="Source[0].type" Type="Str">Container</Property>
+				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
+				<Property Name="Source[1].itemID" Type="Ref">/My Computer/simulator/ComponentSimulator.vi</Property>
+				<Property Name="Source[1].sourceInclusion" Type="Str">TopLevel</Property>
+				<Property Name="Source[1].type" Type="Str">VI</Property>
+				<Property Name="TgtF_fileDescription" Type="Str">ComponentSimulator</Property>
+				<Property Name="TgtF_internalName" Type="Str">ComponentSimulator</Property>
+				<Property Name="TgtF_legalCopyright" Type="Str">Copyright 2021 </Property>
+				<Property Name="TgtF_productName" Type="Str">ComponentSimulator</Property>
+				<Property Name="TgtF_targetfileGUID" Type="Str">{5F6717C2-C3BD-11EB-91FF-02428DC4B39C}</Property>
+				<Property Name="TgtF_targetfileName" Type="Str">ComponentSimulator</Property>
+				<Property Name="TgtF_versionIndependent" Type="Bool">true</Property>
+			</Item>
+		</Item>
 	</Item>
 </Project>
