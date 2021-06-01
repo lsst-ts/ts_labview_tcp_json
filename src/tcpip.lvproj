@@ -15,8 +15,11 @@
 			<Item Name="TcpServer" Type="Folder">
 				<Item Name="testCase" Type="Folder">
 					<Item Name="testConfigServer.vi" Type="VI" URL="../../tests/TcpServer/testCase/testConfigServer.vi"/>
-					<Item Name="testRegCmd.vi" Type="VI" URL="../../tests/TcpServer/testCase/testRegCmd.vi"/>
 					<Item Name="testSendCmdStatus.vi" Type="VI" URL="../../tests/TcpServer/testCase/testSendCmdStatus.vi"/>
+					<Item Name="testGetCmdUserEventInstance.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetCmdUserEventInstance.vi"/>
+					<Item Name="testGetEventUserEventInstance.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetEventUserEventInstance.vi"/>
+					<Item Name="testGetAllUserEventInstance.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetAllUserEventInstance.vi"/>
+					<Item Name="testRegisterCommand.vi" Type="VI" URL="../../tests/TcpServer/testCase/testRegisterCommand.vi"/>
 				</Item>
 				<Item Name="testAll.vi" Type="VI" URL="../../tests/testAll.vi"/>
 				<Item Name="testAllWithXmlReport.vi" Type="VI" URL="../../tests/testAllWithXmlReport.vi"/>
@@ -435,9 +438,9 @@
 				<Item Name="Split Cluster TD__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Split Cluster TD__ogtk.vi"/>
 				<Item Name="Parse String with TDs__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Parse String with TDs__ogtk.vi"/>
 			</Item>
-			<Item Name="eventTypeDef.ctl" Type="VI" URL="../TcpServer/eventTypeDef.ctl"/>
 			<Item Name="setDefaultServer.vi" Type="VI" URL="../../tests/TcpServer/setDefaultServer.vi"/>
 			<Item Name="provcom_StringGlobals.vi" Type="VI" URL="/&lt;resource&gt;/Framework/Providers/Common/provcom_StringGlobals.vi"/>
+			<Item Name="testRegCmd.vi" Type="VI" URL="../../tests/TcpServer/testCase/testRegCmd.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
