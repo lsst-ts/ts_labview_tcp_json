@@ -2,9 +2,9 @@
 
 0.1.0
 
-- Add the LabVIEW tcp Server
-- Add the Component Simulator to interact with server and client
-- Add the Jenkinsfile to do Unit Test
+- Add the LabVIEW TCP server.
+- Add the Component Simulator to interact with server and slient.
+- Add the Jenkinsfile to do Unit Test.
 
 0.0.2
 

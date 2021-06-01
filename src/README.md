@@ -1,114 +1,75 @@
 # Use of LabVIEW Component Simulator
 
-The Component Simulator allows you to call the a LabVIEW TcpServer to test the tcp communication between the tcp Server and the tcp Client. The LabVIEW Tcp Server receives json commands from a Python Tcp Client, and send Ack and Events back to the Client, using tcp packets.
-
-## Platform
-
-- LabVIEW Professional 2018 Sp1
+The Component Simulator allows you to call a LabVIEW TCP Server to test the TCP communication between the TCP Server and the TCP Client. 
+The LabVIEW TCP Server receives json commands from a Python TCP Client, and send Ack and Events back to the Client, using TCP packets.
 
 ## Needed Package
 
 - Caraya 1.0.2.115 (for Unit Testing)
 
-## Use of TcpServer
+## Use of TCP Server
 
-**Start Component Simulator:**
+### Build the Executable
+
+The LabVIEW professional version is needed to build the executable. 
+You can build the executable from within LabVIEW or from the command line, as you prefer:
+
+- From within LabVIEW: select the build all under Build Specifications of tcpip.lvproj. The ComponentSimulator executable will be in the `build/` directory.
+The output log is in the build/buildComponentSimulator.txt.
+- From the command line:
+```sh
+labview64 src/buildApp.vi
+```
+
+### Start Component Simulator
 
 From terminal:
 
-Go to the build directory:
+Go to the `build/` directory:
 ```sh
 cd  ts_labview_tcp_json/build
 ```
 Execute Component Simulator:
 
 ```sh
-./componentSimulator
+./ComponentSimulator
 ```
 
 Check:
 - IP = 127.0.0.1
 - Port = 8888
 
-note: this configuration cannot be modify in runtime
+Note: this configuration cannot be modify in runtime.
 
-**Start Tcp Client:**
+### Start TCP Client
 
-Go to python tcp client directory:
+For the use of TCP Python Client to send commands to TCP Server, you can follow [here](python/README.md).
 
-```sh
-cd ts_labview_tcp_json/python
-```
-Use IPython to interact with tcp server:
+### Send Command Status to TCP Client
 
-```sh
-ipython
-```
-To start Tcp Client, do:
+If you want to send the Command Status to the TCP Cliente, do:
 
-```python
-from tcpClient import TopicType, TcpClient
-tcpClient = TcpClient()
-await tcpClient.connect("127.0.0.1", 8888)
-```
+- Go to tab "Set Ack Cmd Status".
+- Click "Success" to inform the TCP Client the command was executed successfully.
+- Click "Fail" to inform the TCP Client the command was executed with fails.
+- Read the Command Status in TCP Client.
 
-To write a command message, do:
+If you want to send an Event to TCP Client, do:
 
-```python
-cmd_details = {"state": 1, "move": [1, 2, 3]}
-await tcpClient.write("cmd_name", cmd_details, TopicType.CMD)
-```
-The command should appears in the TcpServer  json_cmd indicator.
+- Go to tab "Send Event".
+- Write a name in Event Name control.
+- Click "Send Event" to send the event.
+- Read the event in TCP Client.
 
-To receive the ack sent by the server, do:
+### Stop TCP Server
 
-```python
-await tcpClient.read(timeout=1.0)
-```
+To stop the TCP Server click to "Stop Server" button in Component Simulator.
 
-The ack will appear with the same "cmdId" received by the server, and the "cmdStatus" (ack or noAck).
+## Stop Component Simulator
 
-Repeat same command and you will see that the "cmdId" will increment every time you send the command from client.
+To stop the Component Simulator click to "Stop Simulator" button.
 
-To modify the Command Status, do:
+Note:
 
-- Go to tab "Send Ack Cmd Status"
-- Press "Send Ack" to send success to the client
-- Press "Send noAck" to send fail to the client
-
-After that, you have to send another command from tcp Client and do the timeout command, you will see that the ack received has the same cmdId that the last command received in Server.
-
-To receive and Event in the Client, do:
-
-- Go to tab "Send Event" in tcp Server
-- Modify the "Event Name" control
-- Press "Send Event" button
-- Go the python tcp Client
-- Write the tcpClient.read command, 
-
-```python
-await tcpClient.read(timeout=10.0)
-```
-You should see the event name you wrote in tcp Server.
-
-To close the tcp Client, do:
-
-```python
-await tcpClient.close()
-```
-
-To stop the tcp Server:
-
-- Go tp tcp Server
-- Press "Stop Server" button
-
-To close the Component Simulator:
-
-- press "Stop Simulator" button 
-
-note: you only can stop the simulator if you stop de server before.
-
-note: if you want to stop the client, while the server is running, the server will wait for a tcp client connection, until you stop the server. If you want to start the client again, don´t stop the server and try to connect the client.
-
-
-
+1. You can only stop the Simulator Component if you stop de TCP Server before.
+2. If you want to stop the TCP Client while the TCP Server is running, the Server will wait for a new Client connection.

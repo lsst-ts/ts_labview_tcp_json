@@ -1,8 +1,5 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
 <Project Type="Project" LVVersion="18008000">
-	<Property Name="CCSymbols" Type="Str"></Property>
-	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
-	<Property Name="NI.Project.Description" Type="Str"></Property>
 	<Item Name="My Computer" Type="My Computer">
 		<Property Name="NI.SortType" Type="Int">3</Property>
 		<Property Name="server.app.propertiesEnabled" Type="Bool">true</Property>
@@ -18,20 +15,15 @@
 			<Item Name="TcpServer" Type="Folder">
 				<Item Name="testCase" Type="Folder">
 					<Item Name="testConfigServer.vi" Type="VI" URL="../../tests/TcpServer/testCase/testConfigServer.vi"/>
-					<Item Name="testSendCmdStatus.vi" Type="VI" URL="../../tests/TcpServer/testCase/testSendCmdStatus.vi"/>
 					<Item Name="testRegCmd.vi" Type="VI" URL="../../tests/TcpServer/testCase/testRegCmd.vi"/>
-					<Item Name="testSendEvent.vi" Type="VI" URL="../../tests/TcpServer/testCase/testSendEvent.vi"/>
+					<Item Name="testSendCmdStatus.vi" Type="VI" URL="../../tests/TcpServer/testCase/testSendCmdStatus.vi"/>
 				</Item>
+				<Item Name="testAll.vi" Type="VI" URL="../../tests/testAll.vi"/>
+				<Item Name="testAllWithXmlReport.vi" Type="VI" URL="../../tests/testAllWithXmlReport.vi"/>
 			</Item>
-			<Item Name="Utility" Type="Folder">
-				<Item Name="testCase" Type="Folder"/>
-				<Item Name="testUtility.vi" Type="VI" URL="../../tests/Utility/testUtility.vi"/>
-			</Item>
-			<Item Name="testAll.vi" Type="VI" URL="../../tests/testAll.vi"/>
-			<Item Name="testAllWithXmlReport.vi" Type="VI" URL="../../tests/testAllWithXmlReport.vi"/>
 		</Item>
 		<Item Name="simulator" Type="Folder">
-			<Item Name="componentSimulator.vi" Type="VI" URL="../../simulator/componentSimulator.vi"/>
+			<Item Name="ComponentSimulator.vi" Type="VI" URL="../../simulator/ComponentSimulator.vi"/>
 		</Item>
 		<Item Name="TcpServer" Type="Folder">
 			<Item Name="TcpServer.lvclass" Type="LVClass" URL="../TcpServer/TcpServer.lvclass"/>
@@ -44,9 +36,9 @@
 		</Item>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
+				<Item Name="Clear Errors.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Clear Errors.vi"/>
 				<Item Name="Caraya.lvlib" Type="Library" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/Caraya/Caraya.lvlib"/>
 				<Item Name="Error Cluster From Error Code.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Error Cluster From Error Code.vi"/>
-				<Item Name="Clear Errors.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Clear Errors.vi"/>
 				<Item Name="Parse State Queue__JKI_lib_State_Machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Parse State Queue__JKI_lib_State_Machine.vi"/>
 				<Item Name="Add State(s) to Queue__JKI_lib_State_Machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Add State(s) to Queue__JKI_lib_State_Machine.vi"/>
 				<Item Name="General Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/General Error Handler.vi"/>
@@ -122,11 +114,11 @@
 				<Item Name="Caraya Interactive Menu.rtm" Type="Document" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/Caraya/menu/Caraya Interactive Menu.rtm"/>
 				<Item Name="VariantType.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/VariantDataType/VariantType.lvlib"/>
 				<Item Name="TRef Traverse.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/traverseref.llb/TRef Traverse.vi"/>
-				<Item Name="Invoke BuildTarget.vi" Type="VI" URL="/&lt;vilib&gt;/AppBuilder/Invoke BuildTarget.vi"/>
-				<Item Name="AB_Generate_Error_Cluster.vi" Type="VI" URL="/&lt;vilib&gt;/AppBuilder/AB_Generate_Error_Cluster.vi"/>
-				<Item Name="GetTargetBuildSpecs (project reference).vi" Type="VI" URL="/&lt;vilib&gt;/AppBuilder/GetTargetBuildSpecs (project reference).vi"/>
 				<Item Name="NI_App_Builder_API.lvlib" Type="Library" URL="/&lt;vilib&gt;/AppBuilder/AB_API_Simple/NI_App_Builder_API.lvlib"/>
 				<Item Name="GetTargetBuildSpecs.vi" Type="VI" URL="/&lt;vilib&gt;/AppBuilder/GetTargetBuildSpecs.vi"/>
+				<Item Name="GetTargetBuildSpecs (project reference).vi" Type="VI" URL="/&lt;vilib&gt;/AppBuilder/GetTargetBuildSpecs (project reference).vi"/>
+				<Item Name="AB_Generate_Error_Cluster.vi" Type="VI" URL="/&lt;vilib&gt;/AppBuilder/AB_Generate_Error_Cluster.vi"/>
+				<Item Name="Invoke BuildTarget.vi" Type="VI" URL="/&lt;vilib&gt;/AppBuilder/Invoke BuildTarget.vi"/>
 			</Item>
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="Conditional Auto-Indexing Tunnel__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/array/array.llb/Conditional Auto-Indexing Tunnel__ogtk.vi"/>
@@ -443,57 +435,10 @@
 				<Item Name="Split Cluster TD__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Split Cluster TD__ogtk.vi"/>
 				<Item Name="Parse String with TDs__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Parse String with TDs__ogtk.vi"/>
 			</Item>
+			<Item Name="eventTypeDef.ctl" Type="VI" URL="../TcpServer/eventTypeDef.ctl"/>
+			<Item Name="setDefaultServer.vi" Type="VI" URL="../../tests/TcpServer/setDefaultServer.vi"/>
 			<Item Name="provcom_StringGlobals.vi" Type="VI" URL="/&lt;resource&gt;/Framework/Providers/Common/provcom_StringGlobals.vi"/>
 		</Item>
-		<Item Name="Build Specifications" Type="Build">
-			<Item Name="componentSimulator" Type="EXE">
-				<Property Name="App_copyErrors" Type="Bool">true</Property>
-				<Property Name="App_INI_aliasGUID" Type="Str">{C741A1F2-B7F3-11EB-91FF-0242253588C2}</Property>
-				<Property Name="App_INI_GUID" Type="Str">{C741A0BD-B7F3-11EB-91FF-0242253588C2}</Property>
-				<Property Name="App_serverConfig.httpPort" Type="Int">8002</Property>
-				<Property Name="Bld_autoIncrement" Type="Bool">true</Property>
-				<Property Name="Bld_buildCacheID" Type="Str">{C741AC3F-B7F3-11EB-91FF-0242253588C2}</Property>
-				<Property Name="Bld_buildSpecDescription" Type="Str">This application runs a LabVIEW Tcp Server.</Property>
-				<Property Name="Bld_buildSpecName" Type="Str">componentSimulator</Property>
-				<Property Name="Bld_excludeInlineSubVIs" Type="Bool">true</Property>
-				<Property Name="Bld_excludeLibraryItems" Type="Bool">true</Property>
-				<Property Name="Bld_excludePolymorphicVIs" Type="Bool">true</Property>
-				<Property Name="Bld_localDestDir" Type="Path">../build</Property>
-				<Property Name="Bld_localDestDirType" Type="Str">relativeToCommon</Property>
-				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
-				<Property Name="Bld_previewCacheID" Type="Str">{C741AC7B-B7F3-11EB-91FF-0242253588C2}</Property>
-				<Property Name="Bld_userLogFile" Type="Path">../build/tcpip_componentSimulator_log.txt</Property>
-				<Property Name="Bld_userLogFile.pathType" Type="Str">relativeToCommon</Property>
-				<Property Name="Bld_version.build" Type="Int">15</Property>
-				<Property Name="Bld_version.major" Type="Int">1</Property>
-				<Property Name="DestinationCount" Type="Int">2</Property>
-				<Property Name="Destination[0].destName" Type="Str">componentSimulator</Property>
-				<Property Name="Destination[0].path" Type="Path">../build/componentSimulator</Property>
-				<Property Name="Destination[0].preserveHierarchy" Type="Bool">true</Property>
-				<Property Name="Destination[0].type" Type="Str">App</Property>
-				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
-				<Property Name="Destination[1].path" Type="Path">../build/data</Property>
-				<Property Name="SourceCount" Type="Int">4</Property>
-				<Property Name="Source[0].itemID" Type="Str">{8AED6135-B7F2-11EB-A973-0242253588C2}</Property>
-				<Property Name="Source[0].type" Type="Str">Container</Property>
-				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
-				<Property Name="Source[1].itemID" Type="Ref">/My Computer/simulator/componentSimulator.vi</Property>
-				<Property Name="Source[1].sourceInclusion" Type="Str">TopLevel</Property>
-				<Property Name="Source[1].type" Type="Str">VI</Property>
-				<Property Name="Source[2].destinationIndex" Type="Int">0</Property>
-				<Property Name="Source[2].itemID" Type="Ref">/My Computer/TcpServer/TcpServer.lvclass</Property>
-				<Property Name="Source[2].type" Type="Str">Library</Property>
-				<Property Name="Source[3].destinationIndex" Type="Int">0</Property>
-				<Property Name="Source[3].itemID" Type="Ref"></Property>
-				<Property Name="Source[3].type" Type="Str">VI</Property>
-				<Property Name="TgtF_fileDescription" Type="Str">componentSimulator</Property>
-				<Property Name="TgtF_internalName" Type="Str">componentSimulator</Property>
-				<Property Name="TgtF_legalCopyright" Type="Str">Copyright 2021 </Property>
-				<Property Name="TgtF_productName" Type="Str">componentSimulator</Property>
-				<Property Name="TgtF_targetfileGUID" Type="Str">{C741AAF8-B7F3-11EB-91FF-0242253588C2}</Property>
-				<Property Name="TgtF_targetfileName" Type="Str">componentSimulator</Property>
-				<Property Name="TgtF_versionIndependent" Type="Bool">true</Property>
-			</Item>
-		</Item>
+		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
 </Project>
