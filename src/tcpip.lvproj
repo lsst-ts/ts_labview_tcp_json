@@ -460,7 +460,7 @@
 				<Property Name="Bld_previewCacheID" Type="Str">{5F67191D-C3BD-11EB-91FF-02428DC4B39C}</Property>
 				<Property Name="Bld_userLogFile" Type="Path">../build/buildComponentSimulator.txt</Property>
 				<Property Name="Bld_userLogFile.pathType" Type="Str">relativeToCommon</Property>
-				<Property Name="Bld_version.build" Type="Int">2</Property>
+				<Property Name="Bld_version.build" Type="Int">3</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
 				<Property Name="Destination[0].destName" Type="Str">ComponentSimulator</Property>
