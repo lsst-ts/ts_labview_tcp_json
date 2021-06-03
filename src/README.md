@@ -17,6 +17,7 @@ You can build the executable from within LabVIEW or from the command line, as yo
 - From within LabVIEW: select the build all under Build Specifications of tcpip.lvproj. The ComponentSimulator executable will be in the `build/` directory.
 The output log is in the build/buildComponentSimulator.txt.
 - From the command line:
+
 ```sh
 labview64 src/buildApp.vi
 ```
@@ -26,9 +27,11 @@ labview64 src/buildApp.vi
 From terminal:
 
 Go to the `build/` directory:
+
 ```sh
 cd  ts_labview_tcp_json/build
 ```
+
 Execute Component Simulator:
 
 ```sh
@@ -36,18 +39,29 @@ Execute Component Simulator:
 ```
 
 Check:
+
 - IP = 127.0.0.1
 - Port = 8888
 
-Note: this configuration cannot be modify in runtime.
+Note: this configuration cannot be modified in runtime.
 
 ### Start TCP Client
 
-For the use of TCP Python Client to send commands to TCP Server, you can follow [here](python/README.md).
+For the use of TCP Python Client to send commands to TCP Server, you can follow [here](../python/README.md).
+
+### Available Commands
+
+As User you will have the possibility to tell TCP Server which commands are allowed. For this Component Simulator you will have only three available commands. If you send any of them, you will get the "Ack" in TCP Client. If you send a different command, you will get the "noAck" in TCP Client.
+
+Available Commands:
+
+- move
+- jump
+- go
 
 ### Send Command Status to TCP Client
 
-If you want to send the Command Status to the TCP Cliente, do:
+If you want to send the Command Status to the TCP Client, do:
 
 - Go to tab "Set Ack Cmd Status".
 - Click "Success" to inform the TCP Client the command was executed successfully.
