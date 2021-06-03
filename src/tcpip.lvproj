@@ -1,5 +1,7 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
 <Project Type="Project" LVVersion="18008000">
+	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
+	<Property Name="NI.Project.Description" Type="Str"></Property>
 	<Item Name="My Computer" Type="My Computer">
 		<Property Name="NI.SortType" Type="Int">3</Property>
 		<Property Name="server.app.propertiesEnabled" Type="Bool">true</Property>
@@ -460,7 +462,7 @@
 				<Property Name="Bld_previewCacheID" Type="Str">{5F67191D-C3BD-11EB-91FF-02428DC4B39C}</Property>
 				<Property Name="Bld_userLogFile" Type="Path">../build/buildComponentSimulator.txt</Property>
 				<Property Name="Bld_userLogFile.pathType" Type="Str">relativeToCommon</Property>
-				<Property Name="Bld_version.build" Type="Int">3</Property>
+				<Property Name="Bld_version.build" Type="Int">7</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
 				<Property Name="Destination[0].destName" Type="Str">ComponentSimulator</Property>
@@ -470,7 +472,7 @@
 				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
 				<Property Name="Destination[1].path" Type="Path">../build/data</Property>
 				<Property Name="SourceCount" Type="Int">2</Property>
-				<Property Name="Source[0].itemID" Type="Str">{9BE08F12-C3BA-11EB-A973-02428DC4B39C}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{67A849B3-C53E-11EB-A973-02428DC4B39C}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/simulator/ComponentSimulator.vi</Property>
