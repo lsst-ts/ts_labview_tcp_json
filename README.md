@@ -13,6 +13,11 @@ This module should be compatable with the Python TCP/IP client.
 The python scripts are in `python/` directory.
 You can follow [here](python/README.md) for the details.
 
+## LabVIEW Componente Simulator
+
+The LabVIEW Component Simulator code is in `scr/` directory.
+You can follow [here](src/README.md) for detailes.
+
 ## Header of JSON String
 
 ### Command

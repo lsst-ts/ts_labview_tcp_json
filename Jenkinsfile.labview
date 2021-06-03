@@ -1,0 +1,68 @@
+#!/usr/bin/env groovy
+
+pipeline {
+
+    agent {
+        // Enter the docker as the root for the permission issue of Xvnc
+        // Run the Jenkins job at the 'master' node (Linux) by label
+        docker {
+            label 'master'
+            image 'cagvm3.ctio.noao.edu:8082/centos7/labview2018sp1_pro:caraya_vnc'
+            registryUrl 'http://cagvm3.ctio.noao.edu:8082/'
+            registryCredentialsId 'docker-nexus'
+            args '-u root'
+        }
+    }
+
+    triggers {
+        pollSCM('H * * * *')
+    }
+
+    environment {
+        // XML report path
+        XML_REPORT = "log/testReport.xml"
+    }
+
+    stages {
+
+        stage('Unit Tests') {
+            // Add a timeout to abort the stage if needed. This is important
+            // for the GUI test because Xvnc or LabVIEW may fail.
+            options {
+                timeout(time: 80, unit: "SECONDS")
+            }
+
+            steps {
+                wrap([$class: 'Xvnc']){
+                    withEnv(["HOME=${env.WORKSPACE}"]) {
+                        sh """
+                            xdotool key --repeat 5 --delay 1000 Return | timeout 60 labview64 tests/testAllWithXmlReport.vi || true
+                        """
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            // Change the ownership of workspace to Jenkins for the clean up
+            // This is to work around the condition that the user ID of jenkins
+            // is 1000 on CTIO Jenkins instance. In this post stage, it is the
+            // jenkins to do the following clean up instead of the root in the
+            // docker container.
+            withEnv(["HOME=${env.WORKSPACE}"]) {
+                sh 'chown -R 1000:1000 ${HOME}/'
+            }
+
+            // The path of xml needed by JUnit is relative to
+            // the workspace.
+            junit "${env.XML_REPORT}"
+        }
+
+        cleanup {
+            // clean up the workspace
+            deleteDir()
+        }
+    }
+}

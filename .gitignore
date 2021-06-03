@@ -27,6 +27,9 @@ __pycache__/
 # Log files
 log/
 
+# Build directory
+build/
+
 # Vscode setting
 .vscode/
 
