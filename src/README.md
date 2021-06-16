@@ -9,6 +9,16 @@ The LabVIEW TCP Server receives json commands from a Python TCP Client, and send
 
 ## Use of TCP Server
 
+### Do the Unit Test
+
+1. You can run the testAll.vi under the `tests/` directory in tcpip.lvproj to do the unit tests by using the Caraya unit test framework.
+2. To do the unit tests and generate the JUnit xml report from the command line, do the following command. 
+The generated report (testReport.xml) will be in the `log/` directory.
+
+```sh
+labview64 tests/testAllWithXmlReport.vi
+```
+
 ### Build the Executable
 
 The LabVIEW professional version is needed to build the executable. 

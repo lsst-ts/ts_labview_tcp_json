@@ -17,11 +17,12 @@
 			<Item Name="TcpServer" Type="Folder">
 				<Item Name="testCase" Type="Folder">
 					<Item Name="testConfigServer.vi" Type="VI" URL="../../tests/TcpServer/testCase/testConfigServer.vi"/>
-					<Item Name="testSendCmdStatus.vi" Type="VI" URL="../../tests/TcpServer/testCase/testSendCmdStatus.vi"/>
 					<Item Name="testGetCmdUserEventInstance.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetCmdUserEventInstance.vi"/>
 					<Item Name="testGetEventUserEventInstance.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetEventUserEventInstance.vi"/>
-					<Item Name="testTCPServerUserEventInstance.vi" Type="VI" URL="../../tests/TcpServer/testCase/testTCPServerUserEventInstance.vi"/>
+					<Item Name="testProcessPacket.vi" Type="VI" URL="../../tests/TcpServer/testCase/testProcessPacket.vi"/>
 					<Item Name="testRegisterCommand.vi" Type="VI" URL="../../tests/TcpServer/testCase/testRegisterCommand.vi"/>
+					<Item Name="testSendCmdStatus.vi" Type="VI" URL="../../tests/TcpServer/testCase/testSendCmdStatus.vi"/>
+					<Item Name="testTCPServerUserEventInstance.vi" Type="VI" URL="../../tests/TcpServer/testCase/testTCPServerUserEventInstance.vi"/>
 				</Item>
 				<Item Name="setDefaultServer.vi" Type="VI" URL="../../tests/TcpServer/setDefaultServer.vi"/>
 			</Item>
@@ -462,7 +463,7 @@
 				<Property Name="Bld_previewCacheID" Type="Str">{5F67191D-C3BD-11EB-91FF-02428DC4B39C}</Property>
 				<Property Name="Bld_userLogFile" Type="Path">../build/buildComponentSimulator.txt</Property>
 				<Property Name="Bld_userLogFile.pathType" Type="Str">relativeToCommon</Property>
-				<Property Name="Bld_version.build" Type="Int">9</Property>
+				<Property Name="Bld_version.build" Type="Int">10</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
 				<Property Name="Destination[0].destName" Type="Str">ComponentSimulator</Property>
