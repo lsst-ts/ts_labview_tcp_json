@@ -1,5 +1,12 @@
 # Version History
 
+0.1.2
+
+- TCP Server sends noAck to TCP Client if command received is not registered.
+- TCP Server replies noAck to TCP Client when cmdId and lastCmdId are different by more than 1 unit. 
+- TCP Server sends ack to TCP Client for every command is received and if this command is registered.
+- TCP Client decides which cmdId is the first if the received command is registered, and TCP Server saves it as lastCmdId.
+
 0.1.1
 
 - Add the Python **TcpServerComp** class.
