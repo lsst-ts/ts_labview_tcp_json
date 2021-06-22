@@ -1,5 +1,12 @@
 # Version History
 
+0.1.3
+
+- Add evtDetailsToJSON.vi to format event name and event details into JSON string.
+- Add error constant -375003 when User puts an empty string in evtName.
+- Add test case for evtDetailsToJSON.vi.
+- Remove tcpConnectionId references and replace them by Notifier with tcpConnectionId in all dependecies.
+
 0.1.2
 
 - TCP Server sends noAck to TCP Client if command received is not registered.
