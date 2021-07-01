@@ -1,5 +1,10 @@
 # Version History
 
+0.1.4
+
+- LabVIEW Component can register events using registerEvent.vi.
+- TCP Server can filter incomming events checking if are registered or not.
+
 0.1.3
 
 - Add evtDetailsToJSON.vi to format event name and event details into JSON string.
