@@ -20,8 +20,10 @@
 					<Item Name="testEvtDetailsToJSON.vi" Type="VI" URL="../../tests/TcpServer/testCase/testEvtDetailsToJSON.vi"/>
 					<Item Name="testGetCmdUserEventInstance.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetCmdUserEventInstance.vi"/>
 					<Item Name="testGetEventUserEventInstance.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetEventUserEventInstance.vi"/>
-					<Item Name="testProcessPacket.vi" Type="VI" URL="../../tests/TcpServer/testCase/testProcessPacket.vi"/>
+					<Item Name="testProcessEvent.vi" Type="VI" URL="../../tests/TcpServer/testCase/testProcessEvent.vi"/>
+					<Item Name="testProcessCmd.vi" Type="VI" URL="../../tests/TcpServer/testCase/testProcessCmd.vi"/>
 					<Item Name="testRegisterCommand.vi" Type="VI" URL="../../tests/TcpServer/testCase/testRegisterCommand.vi"/>
+					<Item Name="testRegisterEvent.vi" Type="VI" URL="../../tests/TcpServer/testCase/testRegisterEvent.vi"/>
 					<Item Name="testSendCmdStatus.vi" Type="VI" URL="../../tests/TcpServer/testCase/testSendCmdStatus.vi"/>
 					<Item Name="testTCPServerUserEventInstance.vi" Type="VI" URL="../../tests/TcpServer/testCase/testTCPServerUserEventInstance.vi"/>
 				</Item>
@@ -464,7 +466,7 @@
 				<Property Name="Bld_previewCacheID" Type="Str">{5F67191D-C3BD-11EB-91FF-02428DC4B39C}</Property>
 				<Property Name="Bld_userLogFile" Type="Path">../build/buildComponentSimulator.txt</Property>
 				<Property Name="Bld_userLogFile.pathType" Type="Str">relativeToCommon</Property>
-				<Property Name="Bld_version.build" Type="Int">19</Property>
+				<Property Name="Bld_version.build" Type="Int">20</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
 				<Property Name="Destination[0].destName" Type="Str">ComponentSimulator</Property>
