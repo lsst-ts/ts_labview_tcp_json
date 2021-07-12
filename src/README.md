@@ -32,6 +32,15 @@ The output log is in the build/buildComponentSimulator.txt.
 ```sh
 labview64 src/buildApp.vi
 ```
+### TCP Server Conventions
+
+1. TCP Server will receive events and telemetry as TCP Packet, but to be more generic, we will define them as a "message" (msg) which can be an event or a telemetry.
+2. We will define a new type of received TCP Packet called "generic" (gen) that is different to command and message.
+3. When TCP Server receives a Packet, we will need to "read" it and when TCP Server sends a Packet to TCP Client, we will need to "write" it, so we will define differents actions:
+
+- CmdRead / CmdWrite --> to read / write command packets
+- MsgRead / MsgWrite --> to read / write message packets
+- GenRead / GenWrite --> to read / write generic packets
 
 ### Start Component Simulator
 
@@ -88,15 +97,25 @@ If you want to send an Event to TCP Client, do:
 - Click "Send Event" to send the event.
 - Read the event in TCP Client.
 
+Availables Events:
+
+| compName |   evtName  |
+|:--------:|:----------:|
+|  MTMount | InPosition |
+|   M1M3   | InPosition |
+|   Dome   |    move    |
+|   Dome   |    stop    |
+
 Note:
 
-1. If you want to send a boolean as an event, please use `true` or `false` in non capitals letters.
+1. If you want to send a boolean as an event from Component Simulator, please use non capital letters, for instance `true` or `inposition`.
+2. We will use the configuration file in a latter time in DM-30844 to define which event will be registered in TCP Server.
 
 ### Stop TCP Server
 
 To stop the TCP Server click to "Stop Server" button in Component Simulator.
 
-## Stop Component Simulator
+### Stop Component Simulator
 
 To stop the Component Simulator click to "Stop Simulator" button.
 

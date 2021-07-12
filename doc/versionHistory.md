@@ -1,5 +1,14 @@
 # Version History
 
+0.1.4
+
+- LabVIEW Component can register events using registerEvent.vi.
+- TCP Server can filter incoming events checking if are registered or not.
+- Replace event names for Msg (message) to have more generic functions and use them in Events and Telemetry.
+- Modify Cmd and Event user event instances for CmdRead, CmdWrite, MsgRead and MsgWrite.
+- Add the new user event instance GenRead and GenWrite to handle generic packets in TCP Server.
+- Two string indicators to receive Commands and Events independiently.
+
 0.1.3
 
 - Add evtDetailsToJSON.vi to format event name and event details into JSON string.
