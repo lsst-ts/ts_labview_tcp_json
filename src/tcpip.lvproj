@@ -17,6 +17,7 @@
 			<Item Name="TcpServer" Type="Folder">
 				<Item Name="testCase" Type="Folder">
 					<Item Name="testConfigServer.vi" Type="VI" URL="../../tests/TcpServer/testCase/testConfigServer.vi"/>
+					<Item Name="testConvertToKeyValuePair.vi" Type="VI" URL="../../tests/TcpServer/testCase/testConvertToKeyValuePair.vi"/>
 					<Item Name="testMsgDetailsToJSON.vi" Type="VI" URL="../../tests/TcpServer/testCase/testMsgDetailsToJSON.vi"/>
 					<Item Name="testGetInstanceCmd.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetInstanceCmd.vi"/>
 					<Item Name="testGetInstanceGen.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetInstanceGen.vi"/>
@@ -43,6 +44,17 @@
 			<Item Name="buildApp.vi" Type="VI" URL="../buildApp.vi"/>
 		</Item>
 		<Item Name="Utility" Type="Folder">
+			<Item Name="keyValuePair" Type="Folder">
+				<Item Name="convertToKeyValuePair.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair.vi"/>
+				<Item Name="convertToKeyValuePair_example.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_example.vi"/>
+				<Item Name="convertToKeyValuePair_1DArray.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_1DArray.vi"/>
+				<Item Name="convertToKeyValuePair_2DArray.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_2DArray.vi"/>
+				<Item Name="convertToKeyValuePair_boolean.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_boolean.vi"/>
+				<Item Name="convertToKeyValuePair_double.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_double.vi"/>
+				<Item Name="convertToKeyValuePair_integer.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_integer.vi"/>
+				<Item Name="convertToKeyValuePair_string.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_string.vi"/>
+				<Item Name="arrayToStringWithBrackets.vi" Type="VI" URL="../Utility/keyValuePair/arrayToStringWithBrackets.vi"/>
+			</Item>
 			<Item Name="buildPathFromStrArr.vi" Type="VI" URL="../Utility/buildPathFromStrArr.vi"/>
 		</Item>
 		<Item Name="Dependencies" Type="Dependencies">
@@ -467,7 +479,7 @@
 				<Property Name="Bld_previewCacheID" Type="Str">{5F67191D-C3BD-11EB-91FF-02428DC4B39C}</Property>
 				<Property Name="Bld_userLogFile" Type="Path">../build/buildComponentSimulator.txt</Property>
 				<Property Name="Bld_userLogFile.pathType" Type="Str">relativeToCommon</Property>
-				<Property Name="Bld_version.build" Type="Int">23</Property>
+				<Property Name="Bld_version.build" Type="Int">24</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
 				<Property Name="Destination[0].destName" Type="Str">ComponentSimulator</Property>
