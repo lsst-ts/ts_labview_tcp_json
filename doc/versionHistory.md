@@ -1,5 +1,9 @@
 # Version History
 
+0.1.5
+
+- Provide a group of functions to transform the controls to string for the event/telemetry publish, in Polymorphic VIs.
+
 0.1.4
 
 - LabVIEW Component can register events using registerEvent.vi.
