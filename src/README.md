@@ -72,8 +72,10 @@ For the use of TCP Python Client to send commands to TCP Server, you can follow 
 
 ### Available Commands
 
-As User you will have the possibility to tell TCP Server which commands are allowed. For this Component Simulator you will have only three available commands.
-If you send any of them, you will get the "Ack" in TCP Client. If you send a different command, you will get the "noAck" in TCP Client.
+As User you will have the possibility to tell TCP Server which commands are allowed.
+For this Component Simulator you will have only three available commands.
+If you send any of them, you will get the "Ack" in TCP Client.
+If you send a different command, you will get the "noAck" in TCP Client.
 
 Available Commands:
 
@@ -140,4 +142,10 @@ Data types provided are:
 - Numeric 1D-Array.
 - Numeric 2D-Array.
 
-Please us the `convertToKeyValuePair.vi` to call all functions or the `convertToKeyValuePair_example.vi` to use as an example.
+Please use the `convertToKeyValuePair.vi` to call all functions.
+If you want to know how to use this function, please go to `tests/Utility/keyValuePair/testConvertToKeyValuePairWithJSON.vi`.
+
+Note:
+
+1. The polymorphic `convertToKeyValuePair.vi` does not support `Inf` value.
+Please try to avoid use this value.

@@ -17,7 +17,6 @@
 			<Item Name="TcpServer" Type="Folder">
 				<Item Name="testCase" Type="Folder">
 					<Item Name="testConfigServer.vi" Type="VI" URL="../../tests/TcpServer/testCase/testConfigServer.vi"/>
-					<Item Name="testConvertToKeyValuePair.vi" Type="VI" URL="../../tests/TcpServer/testCase/testConvertToKeyValuePair.vi"/>
 					<Item Name="testMsgDetailsToJSON.vi" Type="VI" URL="../../tests/TcpServer/testCase/testMsgDetailsToJSON.vi"/>
 					<Item Name="testGetInstanceCmd.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetInstanceCmd.vi"/>
 					<Item Name="testGetInstanceGen.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetInstanceGen.vi"/>
@@ -30,6 +29,17 @@
 					<Item Name="testSendCmdStatus.vi" Type="VI" URL="../../tests/TcpServer/testCase/testSendCmdStatus.vi"/>
 				</Item>
 				<Item Name="setDefaultServer.vi" Type="VI" URL="../../tests/TcpServer/setDefaultServer.vi"/>
+				<Item Name="testTcpServer.vi" Type="VI" URL="../../tests/TcpServer/testTcpServer.vi"/>
+			</Item>
+			<Item Name="Utility" Type="Folder">
+				<Item Name="keyValuePair" Type="Folder">
+					<Item Name="testCase" Type="Folder">
+						<Item Name="testConvertToKeyValuePair.vi" Type="VI" URL="../../tests/Utility/keyValuePair/testCase/testConvertToKeyValuePair.vi"/>
+						<Item Name="testArrayToStringWithBrackets.vi" Type="VI" URL="../../tests/Utility/keyValuePair/testCase/testArrayToStringWithBrackets.vi"/>
+						<Item Name="testConvertToKeyValuePairWithJSON.vi" Type="VI" URL="../../tests/Utility/keyValuePair/testCase/testConvertToKeyValuePairWithJSON.vi"/>
+					</Item>
+				</Item>
+				<Item Name="testUtility.vi" Type="VI" URL="../../tests/Utility/testUtility.vi"/>
 			</Item>
 			<Item Name="testAll.vi" Type="VI" URL="../../tests/testAll.vi"/>
 			<Item Name="testAllWithXmlReport.vi" Type="VI" URL="../../tests/testAllWithXmlReport.vi"/>
@@ -46,7 +56,6 @@
 		<Item Name="Utility" Type="Folder">
 			<Item Name="keyValuePair" Type="Folder">
 				<Item Name="convertToKeyValuePair.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair.vi"/>
-				<Item Name="convertToKeyValuePair_example.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_example.vi"/>
 				<Item Name="convertToKeyValuePair_1DArray.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_1DArray.vi"/>
 				<Item Name="convertToKeyValuePair_2DArray.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_2DArray.vi"/>
 				<Item Name="convertToKeyValuePair_boolean.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_boolean.vi"/>
