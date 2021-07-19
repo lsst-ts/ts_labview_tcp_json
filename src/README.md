@@ -32,15 +32,16 @@ The output log is in the build/buildComponentSimulator.txt.
 ```sh
 labview64 src/buildApp.vi
 ```
+
 ### TCP Server Conventions
 
 1. TCP Server will receive events and telemetry as TCP Packet, but to be more generic, we will define them as a "message" (msg) which can be an event or a telemetry.
 2. We will define a new type of received TCP Packet called "generic" (gen) that is different to command and message.
-3. When TCP Server receives a Packet, we will need to "read" it and when TCP Server sends a Packet to TCP Client, we will need to "write" it, so we will define differents actions:
+3. When TCP Server receives a Packet, we will need to "read" it and when TCP Server sends a Packet to TCP Client, we will need to "write" it, so we will define different words:
 
-- CmdRead / CmdWrite --> to read / write command packets
-- MsgRead / MsgWrite --> to read / write message packets
-- GenRead / GenWrite --> to read / write generic packets
+- CmdRead / CmdWrite --> to read / write command packets.
+- MsgRead / MsgWrite --> to read / write message packets.
+- GenRead / GenWrite --> to read / write generic packets.
 
 ### Start Component Simulator
 
@@ -71,8 +72,10 @@ For the use of TCP Python Client to send commands to TCP Server, you can follow 
 
 ### Available Commands
 
-As User you will have the possibility to tell TCP Server which commands are allowed. For this Component Simulator you will have only three available commands.
-If you send any of them, you will get the "Ack" in TCP Client. If you send a different command, you will get the "noAck" in TCP Client.
+As User you will have the possibility to tell TCP Server which commands are allowed.
+For this Component Simulator you will have only three available commands.
+If you send any of them, you will get the "Ack" in TCP Client.
+If you send a different command, you will get the "noAck" in TCP Client.
 
 Available Commands:
 
@@ -123,3 +126,26 @@ Note:
 
 1. You can only stop the Simulator Component if you stop de TCP Server before.
 2. If you want to stop the TCP Client while the TCP Server is running, the Server will wait for a new Client connection.
+
+### Utility
+
+Convert to Key Value Pair functions:
+
+We will provide to the user a group of functions to transform the controls to string for the event/telemetry publish.
+We provide the polymorphic vi to simplify the use by the LabVIEW component.
+Data types provided are:
+
+- Numeric Double.
+- Numeric Integer.
+- String.
+- Boolean.
+- Numeric 1D-Array.
+- Numeric 2D-Array.
+
+Please use the `convertToKeyValuePair.vi` to call all functions.
+If you want to know how to use this function, please go to `tests/Utility/keyValuePair/testConvertToKeyValuePairWithJSON.vi`.
+
+Note:
+
+1. The polymorphic `convertToKeyValuePair.vi` does not support `Inf` value.
+Please try to avoid use this value.
