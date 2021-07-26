@@ -8,6 +8,7 @@ class TopicType(IntEnum):
     CMD = 1
     EVT = auto()
     TEL = auto()
+    CUSTOM = auto()
 
 
 class TcpClient(object):
@@ -88,23 +89,48 @@ class TcpClient(object):
         ----------
         topic : str
             Topic name.
-        topic_details : dict
+        topic_details : dict or None
             Topic details.
         topic_type : TopicType
             Topic type.
         custom_id : int or None, optional
             Customed Id of command if not None. This is for the test purpose
             only. (the default is None)
+
+        Raises
+        ------
+        ValueError
+            If 'id' is in the topic details already.
+        ValueError
+            The topic_details can not be None in custom message.
+        ValueError
+            When the topic type is not supported.
         """
 
-        topic_details_with_header = copy.copy(topic_details)
+        if topic_details is None:
+            topic_details_with_header = dict()
+        else:
+            topic_details_with_header = copy.copy(topic_details)
+
+        if "id" in topic_details_with_header.keys():
+            raise ValueError("The 'id' is in the topic details already.")
+
         if topic_type == TopicType.CMD:
-            self._check_cmd_expect(topic_details)
-            self._add_cmd_header(topic, topic_details_with_header, custom_id=custom_id)
+            self._check_cmd_expect(topic_details_with_header)
+            topic_details_with_header = self._add_cmd_header(
+                topic, topic_details_with_header, custom_id=custom_id
+            )
         elif topic_type == TopicType.EVT:
-            self._add_evt_header(topic, topic_details_with_header)
+            topic_details_with_header = self._add_evt_header(
+                topic, topic_details_with_header
+            )
         elif topic_type == TopicType.TEL:
-            self._add_tel_header(topic, topic_details_with_header)
+            topic_details_with_header = self._add_tel_header(
+                topic, topic_details_with_header
+            )
+        elif topic_type == TopicType.CUSTOM:
+            if topic_details is None:
+                raise ValueError("The topic_details can not be None in custom message.")
         else:
             raise ValueError(f"The topic type: {topic_type} is not supported.")
 
@@ -127,76 +153,78 @@ class TcpClient(object):
             if cmd_details["cmdExpect"] not in ("success", "fail"):
                 raise ValueError("The 'cmdExpect' can only be 'success' or 'fail'.")
 
-    def _add_cmd_header(self, topic, topic_details, custom_id=None):
+    def _add_cmd_header(self, msg_name, msg_details, custom_id=None):
         """Add the command header.
+
+        Note: This method will modify the input: msg_details.
 
         Parameters
         ----------
-        topic : str
-            Topic name.
-        topic_details : dict
-            Topic details.
+        msg_name : str
+            Message name.
+        msg_details : dict
+            Message details.
         custom_id : int or None, optional
             Customed Id of command if not None. This is for the test purpose
             only. (the default is None)
 
-        Raises
-        ------
-        ValueError
-            The 'cmdName' is in the topic details already.
+        Returns
+        -------
+        msg_details : dict
+            Message details with the header.
         """
 
-        if "cmdName" in topic_details.keys():
-            raise ValueError("The 'cmdName' is in the topic details already.")
-
-        topic_details["cmdName"] = topic
+        msg_details["id"] = "cmd_" + msg_name
 
         if custom_id is not None:
-            topic_details["cmdId"] = int(custom_id)
+            msg_details["sequence_id"] = int(custom_id)
         else:
-            topic_details["cmdId"] = self.get_uniq_id()
+            msg_details["sequence_id"] = self.get_uniq_id()
+        return msg_details
 
-    def _add_evt_header(self, topic, topic_details):
+    def _add_evt_header(self, msg_name, msg_details):
         """Add the event header.
 
+        Note: This method will modify the input: msg_details.
+
         Parameters
         ----------
-        topic : str
-            Topic name.
-        topic_details : dict
-            Topic details.
+        msg_name : str
+            Message name.
+        msg_details : dict
+            Message details.
 
-        Raises
-        ------
-        ValueError
-            The 'evtName' is in the topic details already.
+        Returns
+        -------
+        msg_details : dict
+            Message details with the header.
         """
 
-        if "evtName" in topic_details.keys():
-            raise ValueError("The 'evtName' is in the topic details already.")
+        msg_details["id"] = "evt_" + msg_name
 
-        topic_details["evtName"] = topic
+        return msg_details
 
-    def _add_tel_header(self, topic, topic_details):
+    def _add_tel_header(self, msg_name, msg_details):
         """Add the telemetry header.
 
+        Note: This method will modify the input: msg_details.
+
         Parameters
         ----------
-        topic : str
-            Topic name.
-        topic_details : dict
-            Topic details.
+        msg_name : str
+            Message name.
+        msg_details : dict
+            Message details.
 
-        Raises
-        ------
-        ValueError
-            The 'telName' is in the topic details already.
+        Returns
+        -------
+        msg_details : dict
+            Message details with the header.
         """
 
-        if "telName" in topic_details.keys():
-            raise ValueError("The 'telName' is in the topic details already.")
+        msg_details["id"] = "tel_" + msg_name
 
-        topic_details["telName"] = topic
+        return msg_details
 
     async def _write_msg_to_socket(self, input_msg):
         """Write the message to socket.
@@ -209,7 +237,7 @@ class TcpClient(object):
 
         # Transfer to json string and do the encode
         # Add the "\r\n" in end for LabVIEW server to use
-        msg = (json.dumps(input_msg, indent=4) + "\r\n").encode()
+        msg = json.dumps(input_msg, indent=4).encode() + b"\r\n"
 
         self.writer.write(msg)
         await self.writer.drain()
@@ -274,7 +302,9 @@ class TcpClient(object):
         """
 
         try:
-            data = await asyncio.wait_for(self.reader.read(n=1000), timeout)
+            data = await asyncio.wait_for(
+                self.reader.readuntil(separator=b"\r\n"), timeout
+            )
 
             if data is not None:
                 dataDecode = data.decode()

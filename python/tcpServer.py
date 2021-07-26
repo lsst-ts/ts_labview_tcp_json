@@ -90,10 +90,12 @@ class TcpServer(object):
             True if is connected. Else, False.
         """
 
-        if self.writer is None or self.reader is None:
-            return False
-        else:
-            return True
+        return not (
+            self.reader is None
+            or self.writer is None
+            or self.reader.at_eof()
+            or self.writer.is_closing()
+        )
 
     async def monitor_msg(self, msg_type):
         """Monitor the message.
@@ -112,11 +114,13 @@ class TcpServer(object):
         # Client address
         addr = self.writer.get_extra_info("peername")
 
-        while True:
+        while self.is_connected():
 
             try:
 
-                data_encode = await asyncio.wait_for(self.reader.read(n=1000), 1)
+                data_encode = await asyncio.wait_for(
+                    self.reader.readuntil(separator=b"\r\n"), 1
+                )
 
                 if self.reader.at_eof():
                     if msg_type == MsgType.CMDEVL:
@@ -138,13 +142,18 @@ class TcpServer(object):
                     print(f"Received {message} from {addr}.")
 
                     # Deal with the message
-                    await self._deal_msg(message, msg_type)
+                    if "id" in message.keys():
+                        await self._deal_msg(message, msg_type)
 
             except asyncio.TimeoutError:
                 await asyncio.sleep(0.1)
 
             except json.JSONDecodeError:
                 print(f"Can not decode the message: {data}.")
+
+            except asyncio.IncompleteReadError:
+                print("EOF is reached.")
+                break
 
         self.done_task.set_result("Monitor is done.")
 
@@ -164,13 +173,70 @@ class TcpServer(object):
             This message type is not supported.
         """
 
+        msg_name = msg["id"]
+
         if msg_type == MsgType.CMDEVL:
-            await self._deal_cmd(msg)
-            self._deal_evt(msg)
+
+            if self._is_cmd(msg_name):
+                await self._deal_cmd(msg)
+
+            if self._is_evt(msg_name):
+                self._deal_evt(msg)
+
         elif msg_type == MsgType.TEL:
-            self._deal_tel(msg)
+            if self._is_tel(msg_name):
+                self._deal_tel(msg)
+
         else:
             raise ValueError(f"This message type: {msg_type} is not supported.")
+
+    def _is_cmd(self, msg_name):
+        """Is the command or not.
+
+        Parameters
+        ----------
+        msg_name : str
+            Message name in the header.
+
+        Returns
+        -------
+        bool
+            True if this is a command.
+        """
+
+        return msg_name.startswith("cmd_")
+
+    def _is_evt(self, msg_name):
+        """Is the event or not.
+
+        Parameters
+        ----------
+        msg_name : str
+            Message name in the header.
+
+        Returns
+        -------
+        bool
+            True if this is a event.
+        """
+
+        return msg_name.startswith("evt_")
+
+    def _is_tel(self, msg_name):
+        """Is the telemetry or not.
+
+        Parameters
+        ----------
+        msg_name : str
+            Message name in the header.
+
+        Returns
+        -------
+        bool
+            True if this is a telemetry.
+        """
+
+        return msg_name.startswith("tel_")
 
     async def _deal_cmd(self, msg):
         """Deal with the command.
@@ -181,17 +247,14 @@ class TcpServer(object):
             Message received.
         """
 
-        if "cmdName" in msg.keys():
-            # Acknowledge the command
-            await self._ack_cmd(msg)
-            await asyncio.sleep(0.01)
+        # Acknowledge the command
+        await self._ack_cmd(msg)
 
-            # Acknowledge the command with noAck
-            await self._noack_cmd_id(msg)
+        # Acknowledge the command with noAck
+        await self._noack_cmd_id(msg)
 
-            # Reply the message
-            await self._reply_cmd(msg)
-            await asyncio.sleep(0.01)
+        # Reply the message
+        await self._reply_cmd(msg)
 
     async def _ack_cmd(self, msg):
         """Acknowledgement the command.
@@ -203,9 +266,8 @@ class TcpServer(object):
         """
 
         ack_msg = dict()
-        ack_msg["cmdName"] = msg["cmdName"]
-        ack_msg["cmdId"] = msg["cmdId"]
-        ack_msg["cmdStatus"] = "ack"
+        ack_msg["id"] = "ack"
+        ack_msg["sequence_id"] = msg["sequence_id"]
 
         await self._write_msg_to_socket(ack_msg)
 
@@ -219,7 +281,7 @@ class TcpServer(object):
         """
 
         # Transfer to json string and do the encode
-        msg = json.dumps(input_msg, indent=4).encode()
+        msg = json.dumps(input_msg, indent=4).encode() + b"\r\n"
 
         self.writer.write(msg)
         await self.writer.drain()
@@ -233,17 +295,16 @@ class TcpServer(object):
             Message received.
         """
 
-        diff = msg["cmdId"] - self.last_cmd_id
+        diff = msg["sequence_id"] - self.last_cmd_id
         if diff > 1:
             noack_msg = dict()
-            noack_msg["cmdStatus"] = "noAck"
-            for noack_id in range(self.last_cmd_id + 1, msg["cmdId"]):
-                noack_msg["cmdId"] = noack_id
+            noack_msg["id"] = "noack"
+            for noack_id in range(self.last_cmd_id + 1, msg["sequence_id"]):
+                noack_msg["sequence_id"] = noack_id
 
                 await self._write_msg_to_socket(noack_msg)
-                await asyncio.sleep(0.01)
 
-        self.last_cmd_id = msg["cmdId"]
+        self.last_cmd_id = msg["sequence_id"]
 
     async def _reply_cmd(self, msg):
         """Reply the command.
@@ -256,11 +317,10 @@ class TcpServer(object):
 
         if "cmdExpect" in msg.keys():
             reply_msg = dict()
-            reply_msg["cmdName"] = msg["cmdName"]
-            reply_msg["cmdId"] = msg["cmdId"]
-            reply_msg["cmdStatus"] = msg["cmdExpect"]
+            reply_msg["sequence_id"] = msg["sequence_id"]
+            reply_msg["id"] = msg["cmdExpect"]
 
-            msg_encode = json.dumps(reply_msg, indent=4).encode()
+            msg_encode = json.dumps(reply_msg, indent=4).encode() + b"\r\n"
 
             self.writer.write(msg_encode)
             await self.writer.drain()
@@ -274,12 +334,11 @@ class TcpServer(object):
             Message received.
         """
 
-        if "evtName" in msg.keys():
-            if "compName" in msg.keys():
-                comp_name = msg["compName"]
-                print(f"Received the event from the {comp_name}")
-            else:
-                print("The message should contain the 'compName'.")
+        if "compName" in msg.keys():
+            comp_name = msg["compName"]
+            print(f"Received the event from the {comp_name}")
+        else:
+            print("The message should contain the 'compName'.")
 
     def _deal_tel(self, msg):
         """Deal with the telemetry.
@@ -290,12 +349,11 @@ class TcpServer(object):
             Message received.
         """
 
-        if "telName" in msg.keys():
-            if "compName" in msg.keys():
-                comp_name = msg["compName"]
-                print(f"Received the telemetry from the {comp_name}")
-            else:
-                print("The message should contain the 'compName'.")
+        if "compName" in msg.keys():
+            comp_name = msg["compName"]
+            print(f"Received the telemetry from the {comp_name}")
+        else:
+            print("The message should contain the 'compName'.")
 
     async def main(self, ip_addr, port, msg_type):
         """Main function.
