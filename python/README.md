@@ -53,28 +53,35 @@ To write a command message, do:
 
 ```python
 cmd_details = {"state": 1, "move": [1, 2, 3]}
-await tcp_client_cmd.write("cmd_name", cmd_details, TopicType.CMD)
+await tcp_client_cmd.write("name", cmd_details, TopicType.CMD)
 ```
 
 For the event, do:
 
 ```python
 evt_details = {"state": 2, "compName": "comp1"}
-await tcp_client_cmd.write("evt_name", evt_details, TopicType.EVT)
+await tcp_client_cmd.write("name", evt_details, TopicType.EVT)
 ```
 
 For the telemetry, do:
 
 ```python
 tel_details = {"state": 2, "compName": "comp2"}
-await tcp_client_tel.write("tel_name", tel_details, TopicType.TEL)
+await tcp_client_tel.write("name", tel_details, TopicType.TEL)
+```
+
+For the custom message, do:
+
+```python
+custom_details = {"state": 2}
+await tcp_client_cmd.write("", custom_details, TopicType.CUSTOM)
 ```
 
 If you want to issue a command and check the results from server, do:
 
 ```python
 cmd_details = {"state": 1, "move": [1, 2, 3], "cmdExpect": "success"}
-await tcp_client_cmd.write_cmd_and_wait_result("cmd_name", cmd_details)
+await tcp_client_cmd.write_cmd_and_wait_result("name", cmd_details)
 ```
 
 The result will be stored in `tcp_client_cmd.queue`.
@@ -92,14 +99,14 @@ For example, assume your command ID is 2 now, do:
 
 ```python
 custom_id = 5
-await tcp_client_cmd.write_cmd_and_wait_result("cmd_name", cmd_details, custom_id=custom_id)
+await tcp_client_cmd.write_cmd_and_wait_result("name", cmd_details, custom_id=custom_id)
 ```
 
 To publish multiple telemetry continuously, do the register first followed by publishment:
 
 ```python
-tcp_client_tel.register_tel("tel_name_1", tel_details)
-tcp_client_tel.register_tel("tel_name_2", tel_details)
+tcp_client_tel.register_tel("name_1", tel_details)
+tcp_client_tel.register_tel("name_2", tel_details)
 
 frequency = 10
 duration = 2
@@ -135,7 +142,7 @@ async def cmd_at_specific_time(cmd_time_in_sec, client, cmd_topic, cmd_details):
 frequency = 2
 duration = 10
 await asyncio.gather(
-    cmd_at_specific_time(3, tcp_client_cmd, "cmd_name", cmd_details),
+    cmd_at_specific_time(3, tcp_client_cmd, "name", cmd_details),
     tcp_client_tel.pub_tel_continuous(frequency, duration),
 )
 ```

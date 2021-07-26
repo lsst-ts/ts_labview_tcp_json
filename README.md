@@ -29,26 +29,26 @@ To make this work, some header information is required.
 
 When the Python client sends the command, the JSON string should have the following keys:
 
-1. **cmdName**: Specify the name of command.
-2. **cmdId**: A unique ID that the value increases from 0 to N among different commands.
+1. **id**: Specify the name of command that begins with `cmd_`.
+2. **sequence_id**: A unique ID that the value increases from 0 to N among different commands.
 This item is unrelated to the command name or details.
 It is used to track the internet traffic.
 
 Once the TCP/IP server recieved the command or the LabVIEW component finished the command, the related information will be sent to the Python client.
 To support this, the following header information is needed:
 
-1. **cmdStatus**: Specify the command status.
-The value should be in `ack`, `noAck`, `success`, or `fail`.
-The `ack` or `noAck` is by the TCP/IP module directly.
+1. **id**: Specify the command status.
+The value should be in `ack`, `noack`, `success`, or `fail`.
+The `ack` or `noack` is by the TCP/IP module directly.
 The `success` or `fail` will wait for the response of the LabVIEW component.
 
-When the TCP/IP server responds to the Python client, the following information is required: **cmdName**, **cmdId**, and **cmdStatus**.
+When the TCP/IP server responds to the Python client, the following information is required: **id** and **sequence_id**.
 
 ### Event
 
 The JSON string should have the following keys:
 
-1. **evtName**: Specify the name of event.
+1. **id**: Specify the name of event that begins with `evt_`.
 2. **compName**: Specify which component's event is being subscribed (optional).
 The LabVIEW component needs this to identify the subscribed event from other components (by SAL).
 But when the LabVIEW component publishes the event, this key is not required.
@@ -57,7 +57,7 @@ But when the LabVIEW component publishes the event, this key is not required.
 
 The JSON string should have the following keys:
 
-1. **telName**: Specify the name of telemetry.
+1. **id**: Specify the name of telemetry that begins with `tel_`.
 2. **compName**: Specify which component's telemetry is being subscribed (optional).
 The LabVIEW component needs this to identify the subscribed telemetry from other components (by SAL).
 But when the LabVIEW component publishes the telemetry, this key is not required.
@@ -67,16 +67,16 @@ But when the LabVIEW component publishes the telemetry, this key is not required
 The TCP/IP server should acknowledge the Python client actively for the command status with `ack` if:
 
 1. The command is in the list of registered commands by LabVIEW component.
-2. The **cmdId** is bigger than the previous by one if it is not the first command.
-Let the Python client decides the first value of **cmdId**.
+2. The **sequence_id** is bigger than the previous by one if it is not the first command.
+Let the Python client decides the first value of **sequence_id**.
 
-Otherwise, the `noAck` should be used.
-In the condition 2 above, if the TCP/IP server received a command with **cmdId: 1** followed by **cmdId: 3**, it should do the `noAck` as the following and vice versa:
+Otherwise, the `noack` should be used.
+In the condition 2 above, if the TCP/IP server received a command with **sequence_id: 1** followed by **sequence_id: 3**, it should do the `noack` as the following and vice versa:
 
 ```json
 {
-    "cmdId": 2,
-    "cmdStatus": "noAck"
+    "id": "noack",
+    "sequence_id": 2
 }
 ```
 
@@ -87,8 +87,8 @@ For example, the Python client might issue a `move` command with `x`, `y`, and `
 
 ```json
 {
-    "cmdName": "move",
-    "cmdId": 1,
+    "id": "cmd_move",
+    "sequence_id": 1,
     "x": 0.1,
     "y": 0.2,
     "z": 0.3
@@ -103,9 +103,8 @@ Take the above command as an example, the acknowledgement from TCP/IP server at 
 
 ```json
 {
-    "cmdName": "move",
-    "cmdId": 1,
-    "cmdStatus": "ack"
+    "id": "ack",
+    "sequence_id": 1
 }
 ```
 
@@ -113,9 +112,8 @@ If this command succeeds after the execution by LabVIEW component, the following
 
 ```json
 {
-    "cmdName": "move",
-    "cmdId": 1,
-    "cmdStatus": "success"
+    "id": "success",
+    "sequence_id": 1
 }
 ```
 
@@ -124,7 +122,7 @@ For example, the LabVIEW component might publish a `inPosition` event:
 
 ```json
 {
-    "evtName": "inPosition"
+    "id": "evt_inPosition"
 }
 ```
 
@@ -132,7 +130,7 @@ The LabVIEW component might subscribe the `inPosition` event from `MTMount` comp
 
 ```json
 {
-    "evtName": "inPosition",
+    "id": "evt_inPosition",
     "compName": "MTMount",
     "tolerance": 0.001
 }
@@ -160,8 +158,7 @@ Note: The TCP/IP server should just pass the command, event, and telemetry to th
 
 ## Note
 
-1. For the **cmdId**, there is the discussion in T&S team to unify the name to be **sequence**, **seq**, **seqId**, or **private_seqNum**.
-2. Suggestion from Russell: Command ack should include an estimate of duration (this can be 0 if the command is quick).
+1. Suggestion from Russell: Command ack should include an estimate of duration (this can be 0 if the command is quick).
 (I do not know how to support this in M2.)
 
 ## Reference of JSON String Format
