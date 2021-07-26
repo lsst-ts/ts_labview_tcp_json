@@ -1,5 +1,11 @@
 # Version History
 
+0.1.6
+
+- Create a new class hierarchy with tcpServerBase as the parent class, while tcpServerCmd and tcpServerTel are children of tcpServerBase.
+- tcpServerCmd will handle commands and events.
+- tcpServerTel will handle telemetry.
+
 0.1.5
 
 - Provide a group of functions to transform the controls to string for the event/telemetry publish, in Polymorphic VIs.
