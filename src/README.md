@@ -33,6 +33,12 @@ The output log is in the build/buildComponentSimulator.txt.
 labview64 src/buildApp.vi
 ```
 
+### Class Hierarchy
+
+There is a class called `TcpServerBase` that is the parent.
+This class has two children: a class called `TcpServerCmd`, to handle commands and events, and a class called `TcpServerTel`, to handle telemetry messages.
+Both children are part of the `TcpServer` class.
+
 ### TCP Server Conventions
 
 1. TCP Server will receive events and telemetry as TCP Packet, but to be more generic, we will define them as a "message" (msg) which can be an event or a telemetry.

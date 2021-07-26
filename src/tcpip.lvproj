@@ -14,21 +14,38 @@
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="tests" Type="Folder">
+			<Item Name="TcpServerBase" Type="Folder">
+				<Item Name="testCase" Type="Folder">
+					<Item Name="testCreateQueues.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCreateQueues.vi"/>
+					<Item Name="testCheckListOfRegMsg.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCheckListOfRegMsg.vi"/>
+					<Item Name="testMsgDetailsToJSON.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testMsgDetailsToJSON.vi"/>
+					<Item Name="testRegTcpServerUserEvent.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testRegTcpServerUserEvent.vi"/>
+				</Item>
+				<Item Name="testTcpServerBase.vi" Type="VI" URL="../../tests/TcpServerBase/testTcpServerBase.vi"/>
+			</Item>
+			<Item Name="TcpServerCmd" Type="Folder">
+				<Item Name="testCase" Type="Folder">
+					<Item Name="testProcessCmd.vi" Type="VI" URL="../../tests/TcpServerCmd/testCase/testProcessCmd.vi"/>
+					<Item Name="testProcessEvent.vi" Type="VI" URL="../../tests/TcpServerCmd/testCase/testProcessEvent.vi"/>
+					<Item Name="testRegUserEvent.vi" Type="VI" URL="../../tests/TcpServerCmd/testCase/testRegUserEvent.vi"/>
+					<Item Name="testSendCmdStatus.vi" Type="VI" URL="../../tests/TcpServerCmd/testCase/testSendCmdStatus.vi"/>
+				</Item>
+				<Item Name="testTcpServerCmd.vi" Type="VI" URL="../../tests/TcpServerCmd/testTcpServerCmd.vi"/>
+			</Item>
+			<Item Name="TcpServerTel" Type="Folder">
+				<Item Name="testCase" Type="Folder"/>
+				<Item Name="testTcpServerTel.vi" Type="VI" URL="../../tests/TcpServerTel/testTcpServerTel.vi"/>
+			</Item>
 			<Item Name="TcpServer" Type="Folder">
 				<Item Name="testCase" Type="Folder">
 					<Item Name="testConfigServer.vi" Type="VI" URL="../../tests/TcpServer/testCase/testConfigServer.vi"/>
-					<Item Name="testMsgDetailsToJSON.vi" Type="VI" URL="../../tests/TcpServer/testCase/testMsgDetailsToJSON.vi"/>
 					<Item Name="testGetInstanceCmd.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetInstanceCmd.vi"/>
 					<Item Name="testGetInstanceGen.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetInstanceGen.vi"/>
 					<Item Name="testGetInstanceMsg.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetInstanceMsg.vi"/>
 					<Item Name="testGetInstanceTcpServer.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetInstanceTcpServer.vi"/>
-					<Item Name="testProcessEvent.vi" Type="VI" URL="../../tests/TcpServer/testCase/testProcessEvent.vi"/>
-					<Item Name="testProcessCmd.vi" Type="VI" URL="../../tests/TcpServer/testCase/testProcessCmd.vi"/>
 					<Item Name="testRegisterCommand.vi" Type="VI" URL="../../tests/TcpServer/testCase/testRegisterCommand.vi"/>
 					<Item Name="testRegisterEvent.vi" Type="VI" URL="../../tests/TcpServer/testCase/testRegisterEvent.vi"/>
-					<Item Name="testSendCmdStatus.vi" Type="VI" URL="../../tests/TcpServer/testCase/testSendCmdStatus.vi"/>
 				</Item>
-				<Item Name="setDefaultServer.vi" Type="VI" URL="../../tests/TcpServer/setDefaultServer.vi"/>
 				<Item Name="testTcpServer.vi" Type="VI" URL="../../tests/TcpServer/testTcpServer.vi"/>
 			</Item>
 			<Item Name="Utility" Type="Folder">
@@ -43,9 +60,19 @@
 			</Item>
 			<Item Name="testAll.vi" Type="VI" URL="../../tests/testAll.vi"/>
 			<Item Name="testAllWithXmlReport.vi" Type="VI" URL="../../tests/testAllWithXmlReport.vi"/>
+			<Item Name="setDefaultServer.vi" Type="VI" URL="../../tests/setDefaultServer.vi"/>
 		</Item>
 		<Item Name="simulator" Type="Folder">
 			<Item Name="ComponentSimulator.vi" Type="VI" URL="../../simulator/ComponentSimulator.vi"/>
+		</Item>
+		<Item Name="TcpServerBase" Type="Folder">
+			<Item Name="TcpServerBase.lvclass" Type="LVClass" URL="../TcpServerBase/TcpServerBase.lvclass"/>
+		</Item>
+		<Item Name="TcpServerCmd" Type="Folder">
+			<Item Name="TcpServerCmd.lvclass" Type="LVClass" URL="../TcpServerCmd/TcpServerCmd.lvclass"/>
+		</Item>
+		<Item Name="TcpServerTel" Type="Folder">
+			<Item Name="TcpServerTel.lvclass" Type="LVClass" URL="../TcpServerTel/TcpServerTel.lvclass"/>
 		</Item>
 		<Item Name="TcpServer" Type="Folder">
 			<Item Name="TcpServer.lvclass" Type="LVClass" URL="../TcpServer/TcpServer.lvclass"/>
@@ -488,7 +515,7 @@
 				<Property Name="Bld_previewCacheID" Type="Str">{5F67191D-C3BD-11EB-91FF-02428DC4B39C}</Property>
 				<Property Name="Bld_userLogFile" Type="Path">../build/buildComponentSimulator.txt</Property>
 				<Property Name="Bld_userLogFile.pathType" Type="Str">relativeToCommon</Property>
-				<Property Name="Bld_version.build" Type="Int">24</Property>
+				<Property Name="Bld_version.build" Type="Int">25</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
 				<Property Name="Destination[0].destName" Type="Str">ComponentSimulator</Property>
