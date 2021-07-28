@@ -35,9 +35,12 @@ labview64 src/buildApp.vi
 
 ### Class Hierarchy
 
-There is a class called `TcpServerBase` that is the parent.
-This class has two children: a class called `TcpServerCmd`, to handle commands and events, and a class called `TcpServerTel`, to handle telemetry messages.
-Both children are part of the `TcpServer` class.
+There is a class called **TcpServerBase** that is the parent.
+This class has two children: a class called **TcpServerCmd**, to handle commands and events, and a class called **TcpServerTel**, to handle telemetry messages.
+Both children are part of the **TcpServer** class.
+
+The class diagram is in `doc/uml` directory.
+You can follow [here](../doc/uml/TcpServerClass.uml) for detailes.
 
 ### TCP Server Conventions
 
@@ -46,7 +49,7 @@ Both children are part of the `TcpServer` class.
 3. When TCP Server receives a Packet, we will need to "read" it and when TCP Server sends a Packet to TCP Client, we will need to "write" it, so we will define different words:
 
 - CmdRead / CmdWrite --> to read / write command packets.
-- MsgRead / MsgWrite --> to read / write message packets.
+- EvtRead / EvtWrite --> to read / write event packets.
 - GenRead / GenWrite --> to read / write generic packets.
 
 ### Start Component Simulator

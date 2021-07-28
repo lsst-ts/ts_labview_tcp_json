@@ -1,0 +1,6 @@
+@startuml
+TcpServerBase <|-- TcpServerCmd
+TcpServerBase <|-- TcpServerTel
+TcpServer *-- TcpServerCmd
+TcpServer *-- TcpServerTel
+@enduml

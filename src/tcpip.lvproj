@@ -26,9 +26,8 @@
 			<Item Name="TcpServerCmd" Type="Folder">
 				<Item Name="testCase" Type="Folder">
 					<Item Name="testProcessCmd.vi" Type="VI" URL="../../tests/TcpServerCmd/testCase/testProcessCmd.vi"/>
-					<Item Name="testProcessEvent.vi" Type="VI" URL="../../tests/TcpServerCmd/testCase/testProcessEvent.vi"/>
+					<Item Name="testProcessEvt.vi" Type="VI" URL="../../tests/TcpServerCmd/testCase/testProcessEvt.vi"/>
 					<Item Name="testRegUserEvent.vi" Type="VI" URL="../../tests/TcpServerCmd/testCase/testRegUserEvent.vi"/>
-					<Item Name="testSendCmdStatus.vi" Type="VI" URL="../../tests/TcpServerCmd/testCase/testSendCmdStatus.vi"/>
 				</Item>
 				<Item Name="testTcpServerCmd.vi" Type="VI" URL="../../tests/TcpServerCmd/testTcpServerCmd.vi"/>
 			</Item>
@@ -41,10 +40,11 @@
 					<Item Name="testConfigServer.vi" Type="VI" URL="../../tests/TcpServer/testCase/testConfigServer.vi"/>
 					<Item Name="testGetInstanceCmd.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetInstanceCmd.vi"/>
 					<Item Name="testGetInstanceGen.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetInstanceGen.vi"/>
-					<Item Name="testGetInstanceMsg.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetInstanceMsg.vi"/>
-					<Item Name="testGetInstanceTcpServer.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetInstanceTcpServer.vi"/>
-					<Item Name="testRegisterCommand.vi" Type="VI" URL="../../tests/TcpServer/testCase/testRegisterCommand.vi"/>
-					<Item Name="testRegisterEvent.vi" Type="VI" URL="../../tests/TcpServer/testCase/testRegisterEvent.vi"/>
+					<Item Name="testGetInstanceEvt.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetInstanceEvt.vi"/>
+					<Item Name="testRegCmd.vi" Type="VI" URL="../../tests/TcpServer/testCase/testRegCmd.vi"/>
+					<Item Name="testRegEvt.vi" Type="VI" URL="../../tests/TcpServer/testCase/testRegEvt.vi"/>
+					<Item Name="testSendCmdStatus.vi" Type="VI" URL="../../tests/TcpServer/testCase/testSendCmdStatus.vi"/>
+					<Item Name="testStopServer.vi" Type="VI" URL="../../tests/TcpServer/testCase/testStopServer.vi"/>
 				</Item>
 				<Item Name="testTcpServer.vi" Type="VI" URL="../../tests/TcpServer/testTcpServer.vi"/>
 			</Item>
