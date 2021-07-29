@@ -1,5 +1,11 @@
 # Version History
 
+0.1.7
+
+- Update the JSON packet interface.
+- Support the custom message.
+- Remove the restriction that the sending message from server needs to have a short sleep time by using the `readuntil()` in **asyncio.StreamReader**.
+
 0.1.6
 
 - Create a new class hierarchy with **TcpServerBase** as the parent class, while **TcpServerCmd** and **TcpServerTel** are children of **TcpServerBase**.
