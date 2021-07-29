@@ -1,29 +1,35 @@
 # Version History
 
+0.1.6
+
+- Create a new class hierarchy with **TcpServerBase** as the parent class, while **TcpServerCmd** and **TcpServerTel** are children of **TcpServerBase**.
+- **TcpServerCmd** will handle commands and events.
+- **TcpServerTel** will handle telemetry.
+
 0.1.5
 
 - Provide a group of functions to transform the controls to string for the event/telemetry publish, in Polymorphic VIs.
 
 0.1.4
 
-- LabVIEW Component can register events using registerEvent.vi.
+- LabVIEW Component can register events using `registerEvent.vi`.
 - TCP Server can filter incoming events checking if are registered or not.
 - Replace event names for Msg (message) to have more generic functions and use them in Events and Telemetry.
 - Modify Cmd and Event user event instances for CmdRead, CmdWrite, MsgRead and MsgWrite.
 - Add the new user event instance GenRead and GenWrite to handle generic packets in TCP Server.
-- Two string indicators to receive Commands and Events independiently.
+- Two string indicators to receive Commands and Events independently in Component Simulator.
 
 0.1.3
 
-- Add evtDetailsToJSON.vi to format event name and event details into JSON string.
+- Add `evtDetailsToJSON.vi` to format event name and event details into JSON string.
 - Add error constant -375003 when User puts an empty string in evtName.
-- Add test case for evtDetailsToJSON.vi.
+- Add test case for `evtDetailsToJSON.vi`.
 - Remove tcpConnectionId references and replace them by Notifier with tcpConnectionId in all dependecies.
 
 0.1.2
 
 - TCP Server sends noAck to TCP Client if command received is not registered.
-- TCP Server replies noAck to TCP Client when cmdId and lastCmdId are different by more than 1 unit. 
+- TCP Server replies noAck to TCP Client when cmdId and lastCmdId are different by more than 1 unit.
 - TCP Server sends ack to TCP Client for every command is received and if this command is registered.
 - TCP Client decides which cmdId is the first if the received command is registered, and TCP Server saves it as lastCmdId.
 
