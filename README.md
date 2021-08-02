@@ -122,7 +122,7 @@ For example, the LabVIEW component might publish a `inPosition` event:
 
 ```json
 {
-    "id": "evt_inPosition"
+    "id": "inPosition"
 }
 ```
 
@@ -130,7 +130,7 @@ The LabVIEW component might subscribe the `inPosition` event from `MTMount` comp
 
 ```json
 {
-    "id": "evt_inPosition",
+    "id": "inPosition",
     "compName": "MTMount",
     "tolerance": 0.001
 }
