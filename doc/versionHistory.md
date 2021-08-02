@@ -1,8 +1,16 @@
 # Version History
 
+0.1.8
+
+- Update the JSON packet interface in LabVIEW TCP Server.
+- Change cmdName, evtNane and telName by **id**.
+- Change cmdId by **sequence_id**.
+- Support the custom message in LabVIEW TCP Server.
+- Add a new string indicator in Component Simulator to get the custom message.
+
 0.1.7
 
-- Update the JSON packet interface.
+- Update the JSON packet interface in Python TCP Client.
 - Support the custom message.
 - Remove the restriction that the sending message from server needs to have a short sleep time by using the `readuntil()` in **asyncio.StreamReader**.
 
