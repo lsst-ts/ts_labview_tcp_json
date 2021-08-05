@@ -3,8 +3,8 @@
 0.1.8
 
 - Update the JSON packet interface in LabVIEW TCP Server.
-- Change cmdName, evtNane and telName by **id**.
-- Change cmdId by **sequence_id**.
+- Change **cmdName**, **evtNane** and **telName** by **id**.
+- Change **cmdId** by **sequence_id**.
 - Support the custom message in LabVIEW TCP Server.
 - Add a new string indicator in Component Simulator to get the custom message.
 
