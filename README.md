@@ -122,11 +122,11 @@ For example, the LabVIEW component might publish a `inPosition` event:
 
 ```json
 {
-    "id": "evt_inPosition"
+    "id": "inPosition"
 }
 ```
 
-The LabVIEW component might subscribe the `inPosition` event from `MTMount` component with the parameter of `tolerance`:
+The LabVIEW component might subscribe the `inPosition` event from `MTMount` component with the parameter of `tolerance` (this is the TCP Client sending a message to LabVIEW Component):
 
 ```json
 {

@@ -70,8 +70,10 @@ Execute Component Simulator:
 
 Check:
 
-- IP = 127.0.0.1
-- Port = 8888
+- cmdServerPort = 8888
+- telServerPort = 8889
+- serverTimeout (ms) = 100
+- serverBytesToRead = 32768
 
 Note: this configuration cannot be modified in runtime.
 
@@ -83,8 +85,8 @@ For the use of TCP Python Client to send commands to TCP Server, you can follow 
 
 As User you will have the possibility to tell TCP Server which commands are allowed.
 For this Component Simulator you will have only three available commands.
-If you send any of them, you will get the "Ack" in TCP Client.
-If you send a different command, you will get the "noAck" in TCP Client.
+If you send any of them, you will get the `ack` in TCP Client.
+If you send a different command, you will get the `noack` in TCP Client.
 
 Available Commands:
 
@@ -104,14 +106,14 @@ If you want to send the Command Status to the TCP Client, do:
 If you want to send an Event to TCP Client, do:
 
 - Go to tab "Send Event".
-- Write a name in Event Name control.
+- Write a name in Event Id control.
 - Write details in Event Details control.
 - Click "Send Event" to send the event.
 - Read the event in TCP Client.
 
 Availables Events:
 
-| compName |   evtName  |
+| compName |     id     |
 |:--------:|:----------:|
 |  MTMount | InPosition |
 |   M1M3   | InPosition |
@@ -121,11 +123,11 @@ Availables Events:
 Note:
 
 1. If you want to send a boolean as an event from Component Simulator, please use non capital letters, for instance `true` or `inposition`.
-2. We will use the configuration file in a latter time in DM-30844 to define which event will be registered in TCP Server.
+2. We will use the configuration file in a later time in DM-30844 to define which event will be registered in TCP Server.
 
 ### Stop TCP Server
 
-To stop the TCP Server click to "Stop Server" button in Component Simulator.
+To stop the TCP Server click to "Stop Server" button in Component Simulator. This will close all server running.
 
 ### Stop Component Simulator
 
