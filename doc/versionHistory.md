@@ -1,5 +1,10 @@
 # Version History
 
+0.1.9
+
+- Remove **firstConnection** and **firstPacket** booleans from **tcpPacketTypeDef.ctl**.
+- Remove **tcpPacketTypeDef.ctl** from project.
+
 0.1.8
 
 - Update the JSON packet interface in LabVIEW TCP Server.
