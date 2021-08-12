@@ -14,10 +14,15 @@ The Python client might have the service abstraction layer (SAL) support.
 The python scripts are in `python/` directory.
 You can follow [here](python/README.md) for the details.
 
+## LabVIEW TCP Server
+
+The LabVIEW TCP Server code is in `src/` directory.
+You can follow [here](src/README.md) for details.
+
 ## LabVIEW Componente Simulator
 
-The LabVIEW Component Simulator code is in `scr/` directory.
-You can follow [here](src/README.md) for detailes.
+The LabVIEW Component Simulator code is in `simulator/` directory.
+You can follow [here](simulator/README.md) for details.
 
 ## Header of JSON String
 
