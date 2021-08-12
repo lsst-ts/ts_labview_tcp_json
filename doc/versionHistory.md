@@ -1,5 +1,12 @@
 # Version History
 
+0.2.0
+
+- Create the **default.ini** file to store commands, events and telemetry that will be registerd by TCP Server.
+- Provide a group of functions to read this **default.ini** file.
+- Create `simulator/README.md` file.
+- Modify `{root}/README.md` and `src/README.md` to point the `simulator/README.md` file out.
+
 0.1.9
 
 - Remove **firstConnection** and **firstPacket** booleans from **tcpPacketTypeDef.ctl**.
