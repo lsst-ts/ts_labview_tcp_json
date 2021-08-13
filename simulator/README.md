@@ -93,5 +93,5 @@ To stop the Component Simulator click to "Stop Simulator" button.
 
 Note:
 
-1. You can only stop the Simulator Component if you stop de TCP Server before.
+1. You can only stop the Simulator Component if you stop the TCP Server before.
 2. If you want to stop the TCP Client while the TCP Server is running, the Server will wait for a new TCP Client connection.

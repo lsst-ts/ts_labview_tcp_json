@@ -73,14 +73,10 @@
 		</Item>
 		<Item Name="simulator" Type="Folder">
 			<Item Name="configFile" Type="Folder">
-				<Item Name="closeConfigFile.vi" Type="VI" URL="../../simulator/configFile/closeConfigFile.vi"/>
 				<Item Name="createConfigFilePath.vi" Type="VI" URL="../../simulator/configFile/createConfigFilePath.vi"/>
-				<Item Name="openConfigFile.vi" Type="VI" URL="../../simulator/configFile/openConfigFile.vi"/>
-				<Item Name="readConfigCmd.vi" Type="VI" URL="../../simulator/configFile/readConfigCmd.vi"/>
-				<Item Name="readConfigEvt.vi" Type="VI" URL="../../simulator/configFile/readConfigEvt.vi"/>
 				<Item Name="readConfigFileDefault.vi" Type="VI" URL="../../simulator/configFile/readConfigFileDefault.vi"/>
-				<Item Name="readConfigTel.vi" Type="VI" URL="../../simulator/configFile/readConfigTel.vi"/>
 				<Item Name="readKeysFromConfigFile.vi" Type="VI" URL="../../simulator/configFile/readKeysFromConfigFile.vi"/>
+				<Item Name="readConfigEvtTel.vi" Type="VI" URL="../../simulator/configFile/readConfigEvtTel.vi"/>
 			</Item>
 			<Item Name="ComponentSimulator.vi" Type="VI" URL="../../simulator/ComponentSimulator.vi"/>
 		</Item>

@@ -19,7 +19,7 @@ You can follow [here](python/README.md) for the details.
 The LabVIEW TCP Server code is in `src/` directory.
 You can follow [here](src/README.md) for details.
 
-## LabVIEW Componente Simulator
+## LabVIEW Component Simulator
 
 The LabVIEW Component Simulator code is in `simulator/` directory.
 You can follow [here](simulator/README.md) for details.

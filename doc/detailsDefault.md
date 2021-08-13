@@ -4,23 +4,23 @@ This file stores the **id** of commands, **id** and **compName** of events, and 
 LabVIEW Component will read this file to register commands, events and telemetry in TCP Server.
 
 The **default.ini** file is in `config/` directory.
-You can follow [here](../config/default.ini) for details.
+Click [here](../config/default.ini) to go to `default.ini` file.
 
 ## Explanation of Items
 
 ### commands
 
-1. **id** : Specify the name of command that begins with `cmd_`.
+1. **id** : Specify the name of command.
 
 ### events
 
 1. **compName** : Specify which component's event is being subscribed.
-2. **id** : Specify the name of event that begins with `evt_`.
+2. **id** : Specify the name of event.
 
 ### telemetry
 
 1. **compName** : Specify which component's telemetry is being subscribed.
-2. **id**: Specify the name of telemetry that begins with `tel_`.
+2. **id**: Specify the name of telemetry.
 
 ## How to use this file
 
@@ -36,12 +36,12 @@ id=move,stop
 | compName |          id         |
 |:--------:|:-------------------:|
 |  MTMount | elevationInPosition |
-|   M1M3   |  azimuthInPosition  |
+|  MTMount |  azimuthInPosition  |
 
 Then, write them in this way:
 
 ```text
 [events]
-compName=MTMount,M1M3
+compName=MTMount,MTMount
 id=elevationInPosition,azimuthInPosition
 ```
