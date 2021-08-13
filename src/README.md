@@ -1,7 +1,4 @@
-# Use of LabVIEW Component Simulator
-
-The Component Simulator allows you to call a LabVIEW TCP Server to test the TCP communication between the TCP Server and the TCP Client.
-The LabVIEW TCP Server receives json commands from a Python TCP Client, and send Ack and Events back to the Client, using TCP packets.
+# LabVIEW TCP Server
 
 ## Needed Package
 
@@ -52,91 +49,17 @@ You can follow [here](../doc/uml/TcpServerClass.uml) for detailes.
 - EvtRead / EvtWrite --> to read / write event packets.
 - GenRead / GenWrite --> to read / write generic packets.
 
-### Start Component Simulator
+### Start TCP Server
 
-From terminal:
-
-Go to the `build/` directory:
-
-```sh
-cd  ts_labview_tcp_json/build
-```
-
-Execute Component Simulator:
-
-```sh
-./ComponentSimulator
-```
-
-Check:
-
-- cmdServerPort = 8888
-- telServerPort = 8889
-- serverTimeout (ms) = 100
-- serverBytesToRead = 32768
-
-Note: this configuration cannot be modified in runtime.
+For the use of TCP Server to send commands to TCP Client, you need to start Component Simulator. Please follow [here](../simulator/README.md) for details.
 
 ### Start TCP Client
 
 For the use of TCP Python Client to send commands to TCP Server, you can follow [here](../python/README.md).
 
-### Available Commands
-
-As User you will have the possibility to tell TCP Server which commands are allowed.
-For this Component Simulator you will have only three available commands.
-If you send any of them, you will get the `ack` in TCP Client.
-If you send a different command, you will get the `noack` in TCP Client.
-
-Available Commands:
-
-- move
-- jump
-- go
-
-### Send Command Status to TCP Client
-
-If you want to send the Command Status to the TCP Client, do:
-
-- Go to tab "Set Ack Cmd Status".
-- Click "Success" to inform the TCP Client the command was executed successfully.
-- Click "Fail" to inform the TCP Client the command was executed with fails.
-- Read the Command Status in TCP Client.
-
-If you want to send an Event to TCP Client, do:
-
-- Go to tab "Send Event".
-- Write a name in Event Id control.
-- Write details in Event Details control.
-- Click "Send Event" to send the event.
-- Read the event in TCP Client.
-
-Availables Events:
-
-| compName |     id     |
-|:--------:|:----------:|
-|  MTMount | InPosition |
-|   M1M3   | InPosition |
-|   Dome   |    move    |
-|   Dome   |    stop    |
-
-Note:
-
-1. If you want to send a boolean as an event from Component Simulator, please use non capital letters, for instance `true` or `inposition`.
-2. We will use the configuration file in a later time in DM-30844 to define which event will be registered in TCP Server.
-
 ### Stop TCP Server
 
 To stop the TCP Server click to "Stop Server" button in Component Simulator. This will close all server running.
-
-### Stop Component Simulator
-
-To stop the Component Simulator click to "Stop Simulator" button.
-
-Note:
-
-1. You can only stop the Simulator Component if you stop de TCP Server before.
-2. If you want to stop the TCP Client while the TCP Server is running, the Server will wait for a new Client connection.
 
 ### Utility
 

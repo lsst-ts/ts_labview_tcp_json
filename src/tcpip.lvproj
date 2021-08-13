@@ -58,11 +58,26 @@
 				</Item>
 				<Item Name="testUtility.vi" Type="VI" URL="../../tests/Utility/testUtility.vi"/>
 			</Item>
+			<Item Name="simulator" Type="Folder">
+				<Item Name="configFile" Type="Folder">
+					<Item Name="testCase" Type="Folder">
+						<Item Name="testCreateConfigFilePath.vi" Type="VI" URL="../../tests/simulator/configFile/testCase/testCreateConfigFilePath.vi"/>
+						<Item Name="testReadKeysFromConfigFile.vi" Type="VI" URL="../../tests/simulator/configFile/testCase/testReadKeysFromConfigFile.vi"/>
+					</Item>
+				</Item>
+				<Item Name="testSimulator.vi" Type="VI" URL="../../tests/simulator/testSimulator.vi"/>
+			</Item>
 			<Item Name="testAll.vi" Type="VI" URL="../../tests/testAll.vi"/>
 			<Item Name="testAllWithXmlReport.vi" Type="VI" URL="../../tests/testAllWithXmlReport.vi"/>
 			<Item Name="setDefaultServer.vi" Type="VI" URL="../../tests/setDefaultServer.vi"/>
 		</Item>
 		<Item Name="simulator" Type="Folder">
+			<Item Name="configFile" Type="Folder">
+				<Item Name="createConfigFilePath.vi" Type="VI" URL="../../simulator/configFile/createConfigFilePath.vi"/>
+				<Item Name="readConfigFileDefault.vi" Type="VI" URL="../../simulator/configFile/readConfigFileDefault.vi"/>
+				<Item Name="readKeysFromConfigFile.vi" Type="VI" URL="../../simulator/configFile/readKeysFromConfigFile.vi"/>
+				<Item Name="readConfigEvtTel.vi" Type="VI" URL="../../simulator/configFile/readConfigEvtTel.vi"/>
+			</Item>
 			<Item Name="ComponentSimulator.vi" Type="VI" URL="../../simulator/ComponentSimulator.vi"/>
 		</Item>
 		<Item Name="TcpServerBase" Type="Folder">
@@ -92,6 +107,9 @@
 				<Item Name="arrayToStringWithBrackets.vi" Type="VI" URL="../Utility/keyValuePair/arrayToStringWithBrackets.vi"/>
 			</Item>
 			<Item Name="buildPathFromStrArr.vi" Type="VI" URL="../Utility/buildPathFromStrArr.vi"/>
+		</Item>
+		<Item Name="config" Type="Folder">
+			<Item Name="default.ini" Type="Document" URL="../../config/default.ini"/>
 		</Item>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
@@ -515,7 +533,7 @@
 				<Property Name="Bld_previewCacheID" Type="Str">{5F67191D-C3BD-11EB-91FF-02428DC4B39C}</Property>
 				<Property Name="Bld_userLogFile" Type="Path">../build/buildComponentSimulator.txt</Property>
 				<Property Name="Bld_userLogFile.pathType" Type="Str">relativeToCommon</Property>
-				<Property Name="Bld_version.build" Type="Int">27</Property>
+				<Property Name="Bld_version.build" Type="Int">28</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
 				<Property Name="Destination[0].destName" Type="Str">ComponentSimulator</Property>
