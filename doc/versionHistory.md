@@ -2,8 +2,8 @@
 
 0.2.1
 
-- Create sendEvt.vi to write the event to TCP Client.
-- Modify sendCmdStatus.vi to hide user event instance to the user.
+- Create `sendEvt.vi` to write the event to TCP Client.
+- Modify `sendCmdStatus.vi` to hide user event instance to the user.
 
 0.2.0
 
