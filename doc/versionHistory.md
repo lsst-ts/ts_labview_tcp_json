@@ -1,5 +1,10 @@
 # Version History
 
+0.2.1
+
+- Create `sendEvt.vi` to write the event to TCP Client.
+- Modify `sendCmdStatus.vi` to hide user event instance to the user.
+
 0.2.0
 
 - Create the **default.ini** file to store commands, events and telemetry that will be registerd by TCP Server.
