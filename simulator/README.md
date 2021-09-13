@@ -31,12 +31,16 @@ From LabVIEW project:
 
 Go to the `simulator/` directory, find `ComponentSimulator.vi`, press right click on it and select **Run**.
 
-Check:
+Please check:
 
 - cmdServerPort = 8888
 - telServerPort = 8889
 - serverTimeout (ms) = 100
 - serverBytesToRead = 32768
+- maxSizeQueueTel = 1000
+- EnqueueOptions = lossy enqueue
+- timeoutQueueTel = 50
+- tcpClientQueueMaxSize = 100
 
 Note: this configuration cannot be modified in runtime.
 
@@ -83,9 +87,43 @@ Note:
 
 1. If you want to send a boolean in Event Details, please use non capital letters, for instance `true` or `false`.
 
+### Send Telemetry to TCP Client
+
+If you want to send telemetry to TCP Client, do:
+
+- Go to tab "Send Telemetry".
+- Write a name in Telemetry Id control.
+- Write details in Telemetry Details control.
+- Click "Send one instance Telemetry" to send the only one instance.
+- Read the telemetry in TCP Client.
+
+The structure of this telemetry is, for instance:
+
+| Telemetry Id |   Telemetry Details    |
+|:------------:|:----------------------:|
+|   elevation  | "compName" : "MTMount" |
+|              |                        |
+
+You can send another Telemetry Id with other Telemetry Details.
+
+- Click "Publish Telemetry" for telemetry published with a Frecuency (Hz) and a Duration (sec).
+
+Note:
+
+1. Before publish this telemetry you have to subscribe to this telemetry in TCP Client.
+2. It is recommended add more time in Duration option when subscribe to this telemetry in TCP Client.
+
 ### Receive Events from TCP Client
 
 TCP Server will receive Events that LabVIEW component subscribed through the [default.ini](../config/default.ini) file.
+
+### Receive Telemetry from TCP Client
+
+- Press the "Get Queue Size" button to know how many elements are in the queue.
+- Press the "Flush Telemetry" button to remove all elements in the queue.
+They will be shown in "Telemetry Flushed" indicator.
+- Press the "Get one instance Telemetry" button to read telemetry in the queue one by one.
+You can see the elements in queue in "Remaining Elements" indicator.
 
 ### Stop Component Simulator
 
