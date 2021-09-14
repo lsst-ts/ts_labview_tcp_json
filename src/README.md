@@ -85,7 +85,7 @@ Note:
 1. The polymorphic `convertToKeyValuePair.vi` does not support `Inf` value.
 Please try to avoid use this value.
 
-### TcpServer design details
+### TcpServer Design Details
 
 - `tcpServerSenderLoop.vi` is set as preallocated clone reentrant execution, in **tcpServerBase**, **tcpServerCmd** and **tcpServerTel** classes.
 - `runServer.vi` works as Dynamic Dispatch in **tcpServerBase**, **tcpServerCmd** and **tcpServerTel** classes.

@@ -39,7 +39,7 @@ Please check:
 - serverBytesToRead = 32768
 - maxSizeQueueTel = 1000
 - EnqueueOptions = lossy enqueue
-- timeoutQueueTel = 50
+- timeoutQueueTel (ms) = 50
 - tcpClientQueueMaxSize = 100
 
 Note: this configuration cannot be modified in runtime.
@@ -101,7 +101,7 @@ The structure of this telemetry is, for instance:
 
 | Telemetry Id |   Telemetry Details    |
 |:------------:|:----------------------:|
-|   elevation  | "compName" : "MTMount" |
+|   elevation  |  "measuredInDeg" : 30  |
 |              |                        |
 
 You can send another Telemetry Id with other Telemetry Details.
@@ -111,7 +111,7 @@ You can send another Telemetry Id with other Telemetry Details.
 Note:
 
 1. Before publish this telemetry you have to subscribe to this telemetry in TCP Client.
-2. It is recommended add more time in Duration option when subscribe to this telemetry in TCP Client.
+2. It is recommended to add more time in Duration option when subscribe to this telemetry in TCP Client.
 
 ### Receive Events from TCP Client
 

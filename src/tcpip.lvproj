@@ -36,6 +36,7 @@
 					<Item Name="testCheckQueueFull.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testCheckQueueFull.vi"/>
 					<Item Name="testCreateQueueTel.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testCreateQueueTel.vi"/>
 					<Item Name="testFlushTel.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testFlushTel.vi"/>
+					<Item Name="testGetTel.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testGetTel.vi"/>
 					<Item Name="testTelToClient.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testTelToClient.vi"/>
 				</Item>
 				<Item Name="testTcpServerTel.vi" Type="VI" URL="../../tests/TcpServerTel/testTcpServerTel.vi"/>
