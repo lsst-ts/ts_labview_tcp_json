@@ -1,5 +1,11 @@
 # Version History
 
+0.2.2
+
+- TCP Server can receive telemetry from TCP Client.
+- TCP Server can send telemetry to TCP Client.
+- Move the attributes of `firstPacket`, `firstConnection` and `lastSequenceId` from **tcpServerBase** to **tcpServerCmd**.
+
 0.2.1
 
 - Create `sendEvt.vi` to write the event to TCP Client.

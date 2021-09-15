@@ -32,20 +32,35 @@
 				<Item Name="testTcpServerCmd.vi" Type="VI" URL="../../tests/TcpServerCmd/testTcpServerCmd.vi"/>
 			</Item>
 			<Item Name="TcpServerTel" Type="Folder">
-				<Item Name="testCase" Type="Folder"/>
+				<Item Name="testCase" Type="Folder">
+					<Item Name="testCheckQueueFromDdsFull.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testCheckQueueFromDdsFull.vi"/>
+					<Item Name="testCheckQueueToDdsFull.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testCheckQueueToDdsFull.vi"/>
+					<Item Name="testCreateQueueTel.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testCreateQueueTel.vi"/>
+					<Item Name="testFlushTelFromDds.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testFlushTelFromDds.vi"/>
+					<Item Name="testFlushTelToDds.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testFlushTelToDds.vi"/>
+					<Item Name="testGetTel.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testGetTel.vi"/>
+					<Item Name="testTelToClient.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testTelToClient.vi"/>
+				</Item>
 				<Item Name="testTcpServerTel.vi" Type="VI" URL="../../tests/TcpServerTel/testTcpServerTel.vi"/>
 			</Item>
 			<Item Name="TcpServer" Type="Folder">
 				<Item Name="testCase" Type="Folder">
 					<Item Name="testConfigServer.vi" Type="VI" URL="../../tests/TcpServer/testCase/testConfigServer.vi"/>
+					<Item Name="testFlushTelQueueFromDds.vi" Type="VI" URL="../../tests/TcpServer/testCase/testFlushTelQueueFromDds.vi"/>
+					<Item Name="testFlushTelQueueToDds.vi" Type="VI" URL="../../tests/TcpServer/testCase/testFlushTelQueueToDds.vi"/>
 					<Item Name="testGetInstanceCmd.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetInstanceCmd.vi"/>
-					<Item Name="testGetInstanceGen.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetInstanceGen.vi"/>
 					<Item Name="testGetInstanceEvt.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetInstanceEvt.vi"/>
+					<Item Name="testGetInstanceGen.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetInstanceGen.vi"/>
+					<Item Name="testGetTelElement.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetTelElement.vi"/>
+					<Item Name="testIsTelQueueToDdsFull.vi" Type="VI" URL="../../tests/TcpServer/testCase/testIsTelQueueToDdsFull.vi"/>
+					<Item Name="testIsTelQueueFromDdsFull.vi" Type="VI" URL="../../tests/TcpServer/testCase/testIsTelQueueFromDdsFull.vi"/>
 					<Item Name="testRegCmd.vi" Type="VI" URL="../../tests/TcpServer/testCase/testRegCmd.vi"/>
 					<Item Name="testRegEvt.vi" Type="VI" URL="../../tests/TcpServer/testCase/testRegEvt.vi"/>
-					<Item Name="testStopServer.vi" Type="VI" URL="../../tests/TcpServer/testCase/testStopServer.vi"/>
-					<Item Name="testSendEvt.vi" Type="VI" URL="../../tests/TcpServer/testCase/testSendEvt.vi"/>
+					<Item Name="testRegTel.vi" Type="VI" URL="../../tests/TcpServer/testCase/testRegTel.vi"/>
 					<Item Name="testSendCmdStatus.vi" Type="VI" URL="../../tests/TcpServer/testCase/testSendCmdStatus.vi"/>
+					<Item Name="testSendEvt.vi" Type="VI" URL="../../tests/TcpServer/testCase/testSendEvt.vi"/>
+					<Item Name="testSendTel.vi" Type="VI" URL="../../tests/TcpServer/testCase/testSendTel.vi"/>
+					<Item Name="testStopServer.vi" Type="VI" URL="../../tests/TcpServer/testCase/testStopServer.vi"/>
 				</Item>
 				<Item Name="testTcpServer.vi" Type="VI" URL="../../tests/TcpServer/testTcpServer.vi"/>
 			</Item>
@@ -534,7 +549,7 @@
 				<Property Name="Bld_previewCacheID" Type="Str">{5F67191D-C3BD-11EB-91FF-02428DC4B39C}</Property>
 				<Property Name="Bld_userLogFile" Type="Path">../build/buildComponentSimulator.txt</Property>
 				<Property Name="Bld_userLogFile.pathType" Type="Str">relativeToCommon</Property>
-				<Property Name="Bld_version.build" Type="Int">28</Property>
+				<Property Name="Bld_version.build" Type="Int">31</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
 				<Property Name="Destination[0].destName" Type="Str">ComponentSimulator</Property>

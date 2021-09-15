@@ -51,7 +51,8 @@ You can follow [here](../doc/uml/TcpServerClass.uml) for detailes.
 
 ### Start TCP Server
 
-For the use of TCP Server to send commands to TCP Client, you need to start Component Simulator. Please follow [here](../simulator/README.md) for details.
+For the use of TCP Server to send commands to TCP Client, you need to start Component Simulator.
+Please follow [here](../simulator/README.md) for details.
 
 ### Start TCP Client
 
@@ -83,3 +84,16 @@ Note:
 
 1. The polymorphic `convertToKeyValuePair.vi` does not support `Inf` value.
 Please try to avoid use this value.
+
+### TcpServer Design Details
+
+- `tcpServerSenderLoop.vi` is set as preallocated clone reentrant execution, in **tcpServerBase**, **tcpServerCmd** and **tcpServerTel** classes.
+- `runServer.vi` works as Dynamic Dispatch in **tcpServerBase**, **tcpServerCmd** and **tcpServerTel** classes.
+- `tcpServerStateMachine.vi` works as Dynamic Dispatch in **tcpServerBase**, **tcpServerCmd** and **tcpServerTel** classes.
+- User can configure TCP Server to work with a circular buffer when sends telemetry to TCP Client and receives telemetry from TCP Client, through `configServer.vi` when server starts.
+In **queueOptions** control select **lossy enqueue** to use circular buffer, and **normal enqueue** to use standard FIFO technique.
+- User can enable/disable circular buffer through `sendTel.vi` in runtime, only to send telemetry to TCP Client.
+- User can configure TCP Server as **block call** code when sends telemetry to TCP Client through `sendTel.vi` with Timeout = -1 and queueOption = normal enqueue.
+To set this as **un-block call** use Timeout greater than 0 and queueOptions = lossy enqueue.
+- User can configure TCP Server as **block call** code when receives telemetry from TCP Client through `configServer.vi` with telQueueServerTimeout = -1 and EnqueueOptions = normal enqueue.
+To set this as **un-block call** use telQueueServerTimeout greater than 0 and EnqueueOptions = lossy enqueue.
