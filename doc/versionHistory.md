@@ -1,5 +1,9 @@
 # Version History
 
+0.2.4
+
+- Replace `Line Feed` constant by `End of Line` constant in **handleMsgDetails.vi**.
+
 0.2.3
 
 - **TcpServerCmd.tcpServerStateMachine.vi** and **TcpServerTel.tcpServerStateMachine.vi** share the `connectionID` using a notifier when TCP Client just connects.
