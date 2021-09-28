@@ -1,5 +1,10 @@
 # Version History
 
+0.2.5
+
+- Solve bug detected in [ticket DM-31916](https://jira.lsstcorp.org/browse/DM-31916).
+- TCP Server now sends same TCP packet that comes from TCP Client, after processing it.
+
 0.2.4
 
 - Replace `Line Feed` constant by `End of Line` constant in **handleMsgDetails.vi**.
