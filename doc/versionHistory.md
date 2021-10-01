@@ -1,5 +1,10 @@
 # Version History
 
+0.2.5
+
+- TCP Server provides the TCP/IP connection status to LabVIEW Component.
+- Create the `TcpServer.getClientStatus.vi` to send an user event to LabVIEW Component.
+
 0.2.4
 
 - Replace `Line Feed` constant by `End of Line` constant in **handleMsgDetails.vi**.
