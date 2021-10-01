@@ -17,9 +17,11 @@
 			<Item Name="TcpServerBase" Type="Folder">
 				<Item Name="testCase" Type="Folder">
 					<Item Name="testCreateQueues.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCreateQueues.vi"/>
+					<Item Name="testCreateNotifier.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCreateNotifier.vi"/>
 					<Item Name="testCheckListOfRegMsg.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCheckListOfRegMsg.vi"/>
 					<Item Name="testMsgDetailsToJSON.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testMsgDetailsToJSON.vi"/>
 					<Item Name="testRegTcpServerUserEvent.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testRegTcpServerUserEvent.vi"/>
+					<Item Name="testSendServerNotification.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testSendServerNotification.vi"/>
 				</Item>
 				<Item Name="testTcpServerBase.vi" Type="VI" URL="../../tests/TcpServerBase/testTcpServerBase.vi"/>
 			</Item>
