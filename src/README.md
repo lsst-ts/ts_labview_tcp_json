@@ -97,3 +97,6 @@ In **queueOptions** control select **lossy enqueue** to use circular buffer, and
 To set this as **un-block call** use Timeout greater than 0 and queueOptions = lossy enqueue.
 - User can configure TCP Server as **block call** code when receives telemetry from TCP Client through `configServer.vi` with telQueueServerTimeout = -1 and EnqueueOptions = normal enqueue.
 To set this as **un-block call** use telQueueServerTimeout greater than 0 and EnqueueOptions = lossy enqueue.
+- Every time Python TCP Client (cmd and tel) and TCP Server connection's is "alive" TCP Server will send an user event to the LabVIEW Component.
+If either command or telemetry instance of Python TCP Client disconnects from TCP Server, and user event is sent.
+If all Python TCP Client instances are connected again, an user event is sent.
