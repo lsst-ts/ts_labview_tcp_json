@@ -22,6 +22,7 @@
 					<Item Name="testMsgDetailsToJSON.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testMsgDetailsToJSON.vi"/>
 					<Item Name="testRegTcpServerUserEvent.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testRegTcpServerUserEvent.vi"/>
 					<Item Name="testSendServerNotification.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testSendServerNotification.vi"/>
+					<Item Name="testGetServerNotifier(base).vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testGetServerNotifier(base).vi"/>
 				</Item>
 				<Item Name="testTcpServerBase.vi" Type="VI" URL="../../tests/TcpServerBase/testTcpServerBase.vi"/>
 			</Item>
