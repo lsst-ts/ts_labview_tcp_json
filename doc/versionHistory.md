@@ -1,5 +1,11 @@
 # Version History
 
+0.2.6
+
+- TCP Server provides the TCP/IP connection status to LabVIEW Component.
+- Create the `TcpServer.getClientStatus.vi` to send an user event to LabVIEW Component.
+This vi is stopped with an occurrence sent by `TcpServer.stopGetClientStatus.vi`.
+
 0.2.5
 
 - Solve bug detected in [ticket DM-31916](https://jira.lsstcorp.org/browse/DM-31916).
