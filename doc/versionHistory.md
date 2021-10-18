@@ -1,10 +1,14 @@
 # Version History
 
+0.2.7
+
+- Modify **sendCmdStatus.vi** to receive the `sequence_id` as an input instead of the JSON packet.
+
 0.2.6
 
 - TCP Server provides the TCP/IP connection status to LabVIEW Component.
-- Create the `TcpServer.getClientStatus.vi` to send an user event to LabVIEW Component.
-This vi is stopped with an occurrence sent by `TcpServer.stopGetClientStatus.vi`.
+- Create the **TcpServer.getClientStatus.vi** to send an user event to LabVIEW Component.
+This vi is stopped with an occurrence sent by **TcpServer.stopGetClientStatus.vi**.
 
 0.2.5
 
@@ -27,8 +31,8 @@ This vi is stopped with an occurrence sent by `TcpServer.stopGetClientStatus.vi`
 
 0.2.1
 
-- Create `sendEvt.vi` to write the event to TCP Client.
-- Modify `sendCmdStatus.vi` to hide user event instance to the user.
+- Create **sendEvt.vi** to write the event to TCP Client.
+- Modify **sendCmdStatus.vi** to hide user event instance to the user.
 
 0.2.0
 
