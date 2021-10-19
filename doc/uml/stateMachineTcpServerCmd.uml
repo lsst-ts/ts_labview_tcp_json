@@ -1,0 +1,15 @@
+@startuml
+hide empty description
+[*] --> create_listener
+create_listener --> wait_on_listener : listenerIsCreated
+wait_on_listener --> read_tcp_packet : getConnectionId
+wait_on_listener --> wait_on_listener : timeout [errorCode == 56]
+read_tcp_packet --> read_tcp_packet : getPacket || \n timeout [errorCode == 56]
+read_tcp_packet --> close_connection : error || \n lostConnection [errorCode == 66]
+close_connection --> wait_on_listener : connectionIsClosed
+create_listener --> stop_server : stop_server
+wait_on_listener --> stop_server : stop_server
+read_tcp_packet --> stop_server : stop_server
+close_connection --> stop_server : stop_server
+stop_server --> [*]
+@enduml
