@@ -49,6 +49,13 @@ You can follow [here](../doc/uml/TcpServerClass.uml) for detailes.
 - EvtRead / EvtWrite --> to read / write event packets.
 - GenRead / GenWrite --> to read / write generic packets.
 
+### Tcp Server State Machine
+
+There is a state machine that handles the TCP connection, receives the TCP packets and stops the TCP server.
+This is located in **TcpServerCmd.runServer.vi** and its UML diagram is documented in `doc/uml` directory.
+You can follow [here](../doc/uml/stateMachineTcpServerCmd.uml) for detailes.
+You can use this UML diagram to understand the behavior of **TcpServerTel** as well.
+
 ### Start TCP Server
 
 For the use of TCP Server to send commands to TCP Client, you need to start Component Simulator.
