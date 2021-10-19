@@ -1,5 +1,9 @@
 # Version History
 
+0.2.8
+
+- Add the `stateMachineTcpServerCmd.uml` in `doc/uml` directory.
+
 0.2.7
 
 - Modify **sendCmdStatus.vi** to receive the `sequence_id` as an input instead of the JSON packet.
