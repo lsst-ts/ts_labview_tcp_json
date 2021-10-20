@@ -52,9 +52,9 @@ You can follow [here](../doc/uml/TcpServerClass.uml) for detailes.
 ### Tcp Server State Machine
 
 There is a state machine that handles the TCP connection, receives the TCP packets and stops the TCP server.
-This is located in **TcpServerCmd.runServer.vi** and its UML diagram is documented in `doc/uml` directory.
-You can follow [here](../doc/uml/stateMachineTcpServerCmd.uml) for detailes.
-You can use this UML diagram to understand the behavior of **TcpServerTel** as well.
+This is located in **TcpServerCmd.runServer.vi**.
+Please follow [here](../doc/stateMachine.md) for detailes.
+You can use this document to understand the behavior of **TcpServerTel** as well.
 
 ### Start TCP Server
 
