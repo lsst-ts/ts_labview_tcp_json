@@ -1,5 +1,10 @@
 # Version History
 
+0.3.0
+
+- Add the `TcpServerCommDiagramTopLevel.uml` and `TcpServerCommDiagramLowLevel.uml` in `doc/uml` directory.
+- Add `communicationDiagram.md` to explain both uml files.
+
 0.2.9
 
 - Replace the use of user events by occurrence to stop the servers.
