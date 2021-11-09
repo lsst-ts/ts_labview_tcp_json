@@ -16,11 +16,11 @@
 		<Item Name="tests" Type="Folder">
 			<Item Name="TcpServerBase" Type="Folder">
 				<Item Name="testCase" Type="Folder">
-					<Item Name="testCreateQueues.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCreateQueues.vi"/>
 					<Item Name="testCreateNotifier.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCreateNotifier.vi"/>
+					<Item Name="testCreateQueues.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCreateQueues.vi"/>
 					<Item Name="testCheckListOfRegMsg.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCheckListOfRegMsg.vi"/>
 					<Item Name="testMsgDetailsToJSON.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testMsgDetailsToJSON.vi"/>
-					<Item Name="testRegTcpServerUserEvent.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testRegTcpServerUserEvent.vi"/>
+					<Item Name="testRegStopServerOcc.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testRegStopServerOcc.vi"/>
 					<Item Name="testSendServerNotification.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testSendServerNotification.vi"/>
 					<Item Name="testGetServerNotifier(base).vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testGetServerNotifier(base).vi"/>
 				</Item>
@@ -43,8 +43,8 @@
 					<Item Name="testFlushTelFromDds.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testFlushTelFromDds.vi"/>
 					<Item Name="testFlushTelToDds.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testFlushTelToDds.vi"/>
 					<Item Name="testGetTel.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testGetTel.vi"/>
-					<Item Name="testTelToClient.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testTelToClient.vi"/>
 					<Item Name="testGetServerNotifier(tel).vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testGetServerNotifier(tel).vi"/>
+					<Item Name="testTelToClient.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testTelToClient.vi"/>
 				</Item>
 				<Item Name="testTcpServerTel.vi" Type="VI" URL="../../tests/TcpServerTel/testTcpServerTel.vi"/>
 			</Item>
@@ -62,12 +62,12 @@
 					<Item Name="testRegCmd.vi" Type="VI" URL="../../tests/TcpServer/testCase/testRegCmd.vi"/>
 					<Item Name="testRegEvt.vi" Type="VI" URL="../../tests/TcpServer/testCase/testRegEvt.vi"/>
 					<Item Name="testRegTel.vi" Type="VI" URL="../../tests/TcpServer/testCase/testRegTel.vi"/>
+					<Item Name="testReadStatusNotifier_cmd.vi" Type="VI" URL="../../tests/TcpServer/testCase/testReadStatusNotifier_cmd.vi"/>
+					<Item Name="testReadStatusNotifier_tel.vi" Type="VI" URL="../../tests/TcpServer/testCase/testReadStatusNotifier_tel.vi"/>
 					<Item Name="testSendCmdStatus.vi" Type="VI" URL="../../tests/TcpServer/testCase/testSendCmdStatus.vi"/>
 					<Item Name="testSendEvt.vi" Type="VI" URL="../../tests/TcpServer/testCase/testSendEvt.vi"/>
 					<Item Name="testSendTel.vi" Type="VI" URL="../../tests/TcpServer/testCase/testSendTel.vi"/>
 					<Item Name="testStopServer.vi" Type="VI" URL="../../tests/TcpServer/testCase/testStopServer.vi"/>
-					<Item Name="testReadStatusNotifier_tel.vi" Type="VI" URL="../../tests/TcpServer/testCase/testReadStatusNotifier_tel.vi"/>
-					<Item Name="testReadStatusNotifier_cmd.vi" Type="VI" URL="../../tests/TcpServer/testCase/testReadStatusNotifier_cmd.vi"/>
 				</Item>
 				<Item Name="testTcpServer.vi" Type="VI" URL="../../tests/TcpServer/testTcpServer.vi"/>
 			</Item>
@@ -556,7 +556,7 @@
 				<Property Name="Bld_previewCacheID" Type="Str">{5F67191D-C3BD-11EB-91FF-02428DC4B39C}</Property>
 				<Property Name="Bld_userLogFile" Type="Path">../build/buildComponentSimulator.txt</Property>
 				<Property Name="Bld_userLogFile.pathType" Type="Str">relativeToCommon</Property>
-				<Property Name="Bld_version.build" Type="Int">31</Property>
+				<Property Name="Bld_version.build" Type="Int">32</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
 				<Property Name="Destination[0].destName" Type="Str">ComponentSimulator</Property>

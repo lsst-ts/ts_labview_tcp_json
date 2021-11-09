@@ -1,5 +1,10 @@
 # Version History
 
+0.2.9
+
+- Replace the use of user events by occurrence to stop the servers.
+- This will help to stop the servers as soon as possible, requiered in [ticket DM-31770](https://jira.lsstcorp.org/browse/DM-31770).
+
 0.2.8
 
 - Add the `stateMachineTcpServerCmd.uml` in `doc/uml` directory.
