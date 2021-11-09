@@ -1,0 +1,18 @@
+@startuml
+skinparam linestyle ortho
+rectangle "getClientStatus:\nTcpServer" as GCS
+rectangle "ComponentSimulator" as CS
+rectangle "processCmd:\nTcpServerCmd" as PCM
+rectangle "processEvt:\nTcpServerCmd" as PEVT
+rectangle "processPacket:\nTcpServerCmd" as PRPK
+ 
+note left of PCM : 2:CmdRead
+PCM -right-> CS: 2:tcpPacket
+ 
+note left of PEVT : 4:EvtRead
+PEVT -down-> CS: 4:event
+ 
+note left of GCS : 6:GenRead
+GCS -up-> CS: 6:connStatusCluster
+PRPK -up-> CS: 6:tcpPacket
+@enduml
