@@ -56,6 +56,12 @@ This is located in **TcpServerCmd.runServer.vi**.
 Please follow [here](../doc/stateMachine.md) for detailes.
 You can use this document to understand the behavior of **TcpServerTel** as well.
 
+### Tcp Server Communication Diagram
+
+The Communication Diagram shows how internal objects interact in **TcpServer** top-level class, along with messages that travel from one to another.
+Messages are user events.
+Please follow [here](../doc/communicationDiagram.md) for detailes.
+
 ### Start TCP Server
 
 For the use of TCP Server to send commands to TCP Client, you need to start Component Simulator.

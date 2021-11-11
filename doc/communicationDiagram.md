@@ -2,76 +2,98 @@
 
 ## Overview
 
-The Communication Diagram shows how objects interact in TcpServer, along with messages that travel from one to another.
+The Communication Diagram shows how internal objects interact in **TcpServer** top-level class, along with messages that travel from one to another.
 
 ## Diagram Conventions
 
-We will use PlantUML to draw the Communication Diagram, but it does not support this type of diagram, so we will adapt it to get what we need.
-We will consider objects as the VIs in yellow boxes, with a label `[object:class]`; the messages as user events with red arrows, labeled 1:message1, 2:message2, 3:message3, etc., where the numerical prefix to the message name indicates its user event reference id in the sequence; and a yellow label at the left of the boxes with the id and name of user events.
+The [PlantUML](https://plantuml.com) is used to draw the Communication Diagram.
+Although it does not support this diagram natively, it is still possible to emulate the expected behavior.
+The objects with functions related to communication are in rectangle boxes.
+The arrow between objects gives the direction of communication and the related LabVIEW user event name.
 
-## User Events
+## List of User Events
 
-This is a list of user events in TcpServer, with a numeric id to indetify them in the Communication Diagram.
-
-| id | User Event |
-|:--:|:----------:|
-| 1 | CmdWrite |
-| 2 | CmdRead  |
-| 3 | EvtWrite |
-| 4 | EvtRead  |
-| 5 | GenWrite |
-| 6 | GenRead  |
-
-The following table shows the user events with their publisher and subscriber.
-
-| User Event | id | Publisher | Subscriber |
-|:--------:|:----:|----------:|-----------:|
-| CmdRead  | 2 | TcpServerCmd:processCmd.vi  | ComponentSimulator.vi     |
-| CmdWrite | 1 | TcpServer:sendCmdStatus.vi  | TcpServerCmd.runServer.vi |
-| EvtRead  | 4 | TcpServerCmd:processEvt.vi  | ComponentSimulator.vi     |
-| EvtWrite | 3 | TcpServer.sendEvt.vi         | TcpServerCmd.runServer.vi |
-| GenRead  | 6 | TcpServer:getClientStatus.vi | ComponentSimulator.vi     |
-| GenWrite | 5 |                              | TcpServerCmd:runServer.vi |
-|          |   | TcpServerCmd.runServer.vi    |                           |
-
-## Top Level User Events
-
-We will define a group of user events closest to the User and we will name them `Top Level User Events`.
-These user events are what the User needs to know and use.
-They are defined in the following table.
+The following is the list of user events in **TcpServer**:
 
 | id | User Event |
 |:--:|:----------:|
-| 2 | CmdRead  |
-| 4 | EvtRead  |
-| 6 | GenRead  |
+| 1  | CmdRead    |
+| 2  | EvtRead    |
+| 3  | GenRead    |
+| 4  | CmdWrite   |
+| 5  | EvtWrite   |
+| 6  | GenWrite   |
 
-The Communication Diagram for the Top Level User Events is in `doc/uml` directory.
-You can follow [here](../doc/uml/TcpServerCommDiagramTopLevel.uml) for detailes.
+- `CmdRead` is used to send the `tcpPacket` to the Component if the incoming command is legal.
+- `EvtRead` is used to send the `tcpPacket` to the Component if the incoming event is legal.
+- `GenRead` is used to send the `tcpPacket` to the Component if the incoming message is unknown.
+- `CmdWrite` is used to send the ACK to the TCP client with the command result (success or fail).
+- `EvtWrite` is used to send an event to the TCP client from the Component.
+- `GenWrite`  not used. Ticket [DM-32272](https://jira.lsstcorp.org/browse/DM-32272) was created to evaluate this user event is needed or not.
 
-TCP server receives a JSON packet from the TCP client, and then the **processCmd.vi** checks the command `id` and sends the `tcpPacket` as a message to the Component if the command is in the registered commands list.
-This uses the `CmdRead` user event reference. If the incoming JSON packet is not a command nor an event, the "unknown" `tcpPacket` will be sent to the Component using the `GenRead` user event reference, from **processPacket.vi**.
+The following table shows the user events with their publishers and subscribers:
 
-The **processEvt.vi** checks the `compname` (component name) and event `id`, and if the event is in the registered event list, this `event` is sent to the Component using the `EvtRead` user event reference.
+| User Event | Publisher | Subscriber |
+|:--------:|:----------:|:-----------:|
+| CmdRead  | TcpServerCmd.processCmd.vi   | ComponentSimulator.vi     |
+| EvtRead  | TcpServerCmd.processEvt.vi   | ComponentSimulator.vi     |
+| GenRead  | TcpServer.getClientStatus.vi | ComponentSimulator.vi     |
+| GenRead  | TcpServerCmd.runServer.vi    | ComponentSimulator.vi     |
+| CmdWrite | TcpServer.sendCmdStatus.vi   | TcpServerCmd.runServer.vi |
+| EvtWrite | TcpServer.sendEvt.vi         | TcpServerCmd.runServer.vi |
+| GenWrite |              N/A             | TcpServerCmd.runServer.vi |
 
-The Component receives the connection status of TCP clients, from **getClientStatus.vi**. This uses the `connStatusCluster` typedef with a boolean and a string inside and sends them using the `GenRead` user event reference.
+This table shows the vi that publishes an user event and which vi subscribes to that user event.
 
-## Low Level User Events
+**TcpServerCmd** is the class that handles commands and events, and **TcpServerTel** is the class that handles telemetry messages.
+Both are part of the **TcpServer** class.
+Go [here](../doc/uml/TcpServerClass.uml) to know more details about the class diagram.
 
-We will define a group of user events not close to the User and we will name them `Low Level User Events`.
-These user events are used by other processes that the User does not necessarily know.
-They are defined in the following table.
+The **ComponentSimulator.vi** is used to test the API and allows the user know how to use the API.
+You can see that **ComponentSimulator.vi** will subscribe to the first three user events.
+They are defined in the following section.
+
+## Top-Level User Events
+
+The top-level user events are closest to the user.
+The following is the list:
 
 | id | User Event |
 |:--:|:----------:|
-| 1 | CmdWrite  |
-| 3 | EvtWrite  |
-| 5 | GenWrite  |
+| 1 | CmdRead  |
+| 2 | EvtRead  |
+| 3 | GenRead  |
 
-The Communication Diagram for the Low Level User Events is in `doc/uml` directory.
-You can follow [here](../doc/uml/TcpServerCommDiagramLowLevel.uml) for detailes.
+The Communication Diagram for the top-level user events is in [here](../doc/uml/TcpServerCommDiagramTopLevel.uml).
 
-After the TCP server receives the command from the TCP client, it is processed and sent to the Component, and then it is necessary to send the ACK to the client.
-This is done by the **sendCmdStatus.vi**, sending the `ack` to the **runServer.vi**, using the `CmdWrite` user event reference.
+The TCP server will inspect if the received JSON packet from the TCP client is valid or not.
+In the **TcpServerCmd.processCmd.vi**, it will check if the received command is registered or not.
+The sequence ID will be compared with the previous messages to see it is in the order or not.
+If this is a legal command, the server will send the `tcpPacket` to the Component by the `CmdRead` user event.
 
-If there is an `event` that is required to be sent to the TCP client, the **sendEvt.vi** is used to send it as a user event with the `EvtWrite` reference to the **runServer.vi**.
+If the incoming message is not a command nor an event, the "unknown" `tcpPacket` will be sent to the Component using the `GenRead` user event from **TcpServerCmd.processPacket.vi**.
+
+The **TcpServerCmd.processEvt.vi** checks the `compname` (component name) and `id`.
+If the event is registered, it will be sent to the Component by the `EvtRead` user event.
+
+For any change of TCP/IP connection status, the Component receives a `GenRead` user event from **TcpServer.getClientStatus.vi**.
+It uses the `connStatusCluster` typedef with a boolean and a string.
+The former gives the connection status and the latter gives the detailed information.
+
+## Down-Level User Events
+
+The down-level user events are not closest to the user.
+The following is the list:
+
+| id | User Event |
+|:--:|:----------:|
+| 4 | CmdWrite  |
+| 5 | EvtWrite  |
+| 6 | GenWrite  |
+
+The Communication Diagram for the down-level user events is in [here](../doc/uml/TcpServerCommDiagramDownLevel.uml).
+
+After the TCP server inspects if the received JSON packet from the TCP client is valid or not, the **TcpServer.sendCmdStatus.vi** sends the ACK to the **TcpServerCmd.runServer.vi** by the `CmdWrite` user event.
+It uses the `ackTypeDef` with the `sequence_id` and the `cmdStatus`.
+
+If an `event` is sent to the TCP client, the Component uses the **TcpServerCmd.sendEvt.vi** with the `event id` and the `event details`. It uses the `EvtWrite` user event.
