@@ -60,7 +60,7 @@ You can use this document to understand the behavior of **TcpServerTel** as well
 
 The Communication Diagram shows how internal objects interact in **TcpServer** top-level class, along with messages that travel from one to another.
 Messages are user events.
-Please follow [here](../doc/communicationDiagram.md) for detailes.
+Please follow [here](../doc/communicationDiagram.md) for details.
 
 ### Start TCP Server
 

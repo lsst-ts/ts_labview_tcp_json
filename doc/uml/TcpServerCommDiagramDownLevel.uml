@@ -1,14 +1,8 @@
 @startuml
 skinparam linestyle ortho
-rectangle "sendEvt:\nTcpServer" as SEVT
-rectangle "sendCmdStatus:\nTcpServer" as SCS
-rectangle "runServer:\nTcpServerCmd" as RSCM
+rectangle "TcpServer" as TS
+rectangle "TcpServerCmd" as TSC
  
-note left of SCS : 4:CmdWrite
-SCS --> RSCM: 4:ack
- 
-note left of SEVT : 5:EvtWrite
-SEVT --> RSCM: 5:event
- 
-note left of RSCM : 6:GenWrite
+TS --> TSC: sendEvt():\nEvtWrite
+TS --> TSC: sendCmdStatus():\nCmdWrite
 @enduml

@@ -24,6 +24,9 @@ The following is the list of user events in **TcpServer**:
 | 5  | EvtWrite   |
 | 6  | GenWrite   |
 
+In the following user events description, `tcpPacket` is the message sent by the TCP client to the TCP server as a JSON string.
+The `Component` is the piece of software that uses this library.
+
 - `CmdRead` is used to send the `tcpPacket` to the Component if the incoming command is legal.
 - `EvtRead` is used to send the `tcpPacket` to the Component if the incoming event is legal.
 - `GenRead` is used to send the `tcpPacket` to the Component if the incoming message is unknown.
@@ -45,7 +48,8 @@ The following table shows the user events with their publishers and subscribers:
 
 This table shows the vi that publishes an user event and which vi subscribes to that user event.
 
-**TcpServerCmd** is the class that handles commands and events, and **TcpServerTel** is the class that handles telemetry messages.
+**TcpServerCmd** is the class that handles commands and events.
+**TcpServerTel** is the class that handles telemetry messages.
 Both are part of the **TcpServer** class.
 Go [here](../doc/uml/TcpServerClass.uml) to know more details about the class diagram.
 
