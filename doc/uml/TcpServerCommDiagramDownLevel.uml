@@ -1,0 +1,8 @@
+@startuml
+skinparam linestyle ortho
+rectangle "TcpServer" as TS
+rectangle "TcpServerCmd" as TSC
+ 
+TS --> TSC: sendEvt():\nEvtWrite
+TS --> TSC: sendCmdStatus():\nCmdWrite
+@enduml
