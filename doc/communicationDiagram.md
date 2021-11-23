@@ -22,7 +22,6 @@ The following is the list of user events in **TcpServer**:
 | 3  | GenRead    |
 | 4  | CmdWrite   |
 | 5  | EvtWrite   |
-| 6  | GenWrite   |
 
 In the following user events description, `tcpPacket` is the message sent by the TCP client to the TCP server as a JSON string.
 The `Component` is the piece of software that uses this library.
@@ -32,7 +31,6 @@ The `Component` is the piece of software that uses this library.
 - `GenRead` is used to send the `tcpPacket` to the Component if the incoming message is unknown.
 - `CmdWrite` is used to send the ACK to the TCP client with the command result (success or fail).
 - `EvtWrite` is used to send an event to the TCP client from the Component.
-- `GenWrite`  not used. Ticket [DM-32272](https://jira.lsstcorp.org/browse/DM-32272) was created to evaluate this user event is needed or not.
 
 The following table shows the user events with their publishers and subscribers:
 
@@ -44,7 +42,6 @@ The following table shows the user events with their publishers and subscribers:
 | GenRead  | TcpServerCmd.runServer.vi    | ComponentSimulator.vi     |
 | CmdWrite | TcpServer.sendCmdStatus.vi   | TcpServerCmd.runServer.vi |
 | EvtWrite | TcpServer.sendEvt.vi         | TcpServerCmd.runServer.vi |
-| GenWrite |              N/A             | TcpServerCmd.runServer.vi |
 
 This table shows the vi that publishes an user event and which vi subscribes to that user event.
 
@@ -93,7 +90,6 @@ The following is the list:
 |:--:|:----------:|
 | 4 | CmdWrite  |
 | 5 | EvtWrite  |
-| 6 | GenWrite  |
 
 The Communication Diagram for the down-level user events is in [here](../doc/uml/TcpServerCommDiagramDownLevel.uml).
 
