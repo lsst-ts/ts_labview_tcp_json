@@ -1,5 +1,11 @@
 # Version History
 
+0.3.1
+
+- Remove the `GenWrite` user event from the project.
+- Update the `testRegUserEvent.vi`.
+- Update the `communicationDiagram.md` file.
+
 0.3.0
 
 - Add the `TcpServerCommDiagramTopLevel.uml` and `TcpServerCommDiagramLowLevel.uml` in `doc/uml` directory.
