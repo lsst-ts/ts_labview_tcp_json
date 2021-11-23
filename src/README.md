@@ -47,7 +47,7 @@ You can follow [here](../doc/uml/TcpServerClass.uml) for detailes.
 
 - CmdRead / CmdWrite --> to read / write command packets.
 - EvtRead / EvtWrite --> to read / write event packets.
-- GenRead / GenWrite --> to read / write generic packets.
+- GenRead --> to read generic packets.
 
 ### Tcp Server State Machine
 
