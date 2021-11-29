@@ -113,3 +113,5 @@ To set this as **un-block call** use telQueueServerTimeout greater than 0 and En
 - Every time Python TCP Client (cmd and tel) and TCP Server connections are "alive" TCP Server will send an user event to the LabVIEW Component.
 If either command or telemetry instance of Python TCP Client disconnects from TCP Server, a generic user event is sent.
 If all Python TCP Client instances are connected again, a generic user event is sent.
+- The `TcpServerBase.sendErrorExplanation.vi` is used to send an specific and important error to the ComponentSimulator.
+This uses the `GenRead` user event.

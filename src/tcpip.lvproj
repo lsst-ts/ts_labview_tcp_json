@@ -19,10 +19,11 @@
 					<Item Name="testCreateNotifier.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCreateNotifier.vi"/>
 					<Item Name="testCreateQueues.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCreateQueues.vi"/>
 					<Item Name="testCheckListOfRegMsg.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCheckListOfRegMsg.vi"/>
+					<Item Name="testGetServerNotifier(base).vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testGetServerNotifier(base).vi"/>
 					<Item Name="testMsgDetailsToJSON.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testMsgDetailsToJSON.vi"/>
 					<Item Name="testRegStopServerOcc.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testRegStopServerOcc.vi"/>
 					<Item Name="testSendServerNotification.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testSendServerNotification.vi"/>
-					<Item Name="testGetServerNotifier(base).vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testGetServerNotifier(base).vi"/>
+					<Item Name="testSendErrorExplanation.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testSendErrorExplanation.vi"/>
 				</Item>
 				<Item Name="testTcpServerBase.vi" Type="VI" URL="../../tests/TcpServerBase/testTcpServerBase.vi"/>
 			</Item>
@@ -536,6 +537,7 @@
 				<Item Name="Parse String with TDs__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Parse String with TDs__ogtk.vi"/>
 			</Item>
 			<Item Name="provcom_StringGlobals.vi" Type="VI" URL="/&lt;resource&gt;/Framework/Providers/Common/provcom_StringGlobals.vi"/>
+			<Item Name="connStatusCluster.ctl" Type="VI" URL="../TcpServerCmd/typedef/connStatusCluster.ctl"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="ComponentSimulator" Type="EXE">
