@@ -2,7 +2,7 @@
 
 0.3.2
 
-- Create **TcpServerBase.sendErrorExplanation.vi** to inform the Component about errors in TCP server.
+- Create **TcpServerBase.clearErrorAndSendExplanation.vi** to inform the errors in TCP server.
 - Move `GenRead` user event from `TcpServerCmd` to `TcpServerBase`.
 - Create **TcpServerBase.regGenReadUserEvent.vi** and **TcpServerBase.unregGenReadUserEvent.vi**.
 
