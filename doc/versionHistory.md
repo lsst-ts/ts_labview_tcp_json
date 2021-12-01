@@ -1,9 +1,15 @@
 # Version History
 
+0.3.2
+
+- Create **TcpServerBase.clearErrorAndSendExplanation.vi** to inform the errors in TCP server.
+- Move `GenRead` user event from `TcpServerCmd` to `TcpServerBase`.
+- Create **TcpServerBase.regGenReadUserEvent.vi** and **TcpServerBase.unregGenReadUserEvent.vi**.
+
 0.3.1
 
 - Remove the `GenWrite` user event from the project.
-- Update the `testRegUserEvent.vi`.
+- Update the **testRegUserEvent.vi**`.
 - Update the `communicationDiagram.md` file.
 
 0.3.0
