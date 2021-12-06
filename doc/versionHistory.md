@@ -1,5 +1,9 @@
 # Version History
 
+0.3.3
+
+- Modify **TcpServerCmd.processCmd.vi** to save the last `sequence_id`, even thought the received command is not registered.
+
 0.3.2
 
 - Create **TcpServerBase.clearErrorAndSendExplanation.vi** to inform the errors in TCP server.
