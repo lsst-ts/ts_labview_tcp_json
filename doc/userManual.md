@@ -2,99 +2,182 @@
 
 ## Overview
 
-The `TcpServer` is a module to exchange commands, events and telemetry with a TCP client, using a TCP/IP conexion.
+The `TcpServer` is a module to exchange commands, events, and telemetry with a TCP client, using a TCP/IP connection.
 You can use this module as an interface between a TCP client and a LabVIEW component.
-
-## Download
-
-You can download the module from the [GitHub repository](https://github.com/lsst-ts/ts_labview_tcp_json).
 
 ## Design
 
-This `TcpServer` is developed with the Object Oriented Design (OOD).
-There is a base class called **TcpServerBase** with two child: **TcpSeverCmd** and **TcpServerTel**; the former is to handle commands and events, and the latter is to handle telemetry.
-**TcpServer** class has the **TcpServerCmd** and the **TcpServerTel**.
+The `TcpServer` is developed with the Object-Oriented Design (OOD).
+The class diagram is in `doc/uml` directory.
+You can follow [here](../doc/uml/TcpServerClass.uml) for details.
 
-## TcpServer Functions
+## TcpServer Library
 
 The `TcpServer` module provides a library of VIs for TCP/IP communication.
+It consists of VIs to configure, run and stop the TCP server, and handle the commands, events, and telemetry.
 All of these VIs are public functions of the **TcpServer** class.
-In the following table you can find all of these functions with their descriptions:
 
-| Function Name   | Description         |
-|:---------------:|:-------------------:|
-|  configServer   | Configure the TCP Server Command and TCP Server Telemetry. |
-|  flushTelQueue  |  Flush the queue with telemetry. Use the queueName enum control to select either queueFromDds or queueToDds. This function will not handle any error internally, so the user must handle the errors when call it.  |
-| getClientStatus | Get the notification from TCP Server that TCP Client connects or disconnects and then send an user event to the Component. |
-| getInstanceCmd  | Get the CmdRead user event instance, to read commands from TCP Client. |
-| getInstanceEvt  | Get the EvtRead user event instance, to receive an event from TCP Client. |
-| getInstanceGen  | Get the GenRead user event instance to receive either a generic packet from TCP Client or internal messages, such as errors. |
-| getTelElement   | Get telemetry elements one by one from queue. Timeout is set in **configServer&#46;vi** but you can modify this timeout through this telQueueServerTimeout control. This function will not handle any error internally, so the user must handle the errors when call it. |
-| isTcpClientQueueFull | Check if queue is full to send or receive telemetry. This returns TRUE if queue is full and FALSE if  not. Use the queueName enum control to select queueFromDds or queueToDds options. This function will not handle any error internally, so the user must handle the errors when call it. |
-| readNotifierStatus | Read the notifier sent from **tcpServerStateMachine&#46;vi**. Put this VI in Prealocated reentrant clone execution. This vi is public for test purspose only. Please don´t use this vi. |
-| regCmd | Inform the TCP Server which commands are registered and allowed to be used by LabVIEW Component. |
-| regEvt | Inform the TCP Server which events are registered and allowed to be processed. |
-| regTel | Inform the TCP Server which telemetry is registered and allowed to be used by LabVIEW Component. |
-| runServer | Run the TCP Server. |
-| sendCmdStatus | Send cmdStatus to the TCP Server to inform the TCP Client about the command result. This function will not handle any error internally, so the user must handle the errors when call it.|
-| sendEvt | Send an event to the TCP Server to be read by the TCP Client. This function will not handle any error internally, so the user must handle the errors when call it. |
-| sendTel | Send telemetry to TCP Client. Use the queueOptions control to select lossy enqueue or normal enqueue, and timeout in ms. This function will not handle any error internally, so the user must handle the errors when call it. |
-| stopServer | Set an occurrence to stop all servers.  This function will not handle any error internally, so the user must handle the errors when call it. |
+The following is a brief description of the main VIs.
 
-## Usage
+## configServer&#46;vi
 
-1.- TCP Server Configuration
+The configServer VI is used to configure the TCP server, with the port, the number of bytes to read, and other parameters, using the `ServerConfiguration` cluster.
+Clic [here](#server-configuration-cluster) to more details about this cluster.
 
-You have to configure the TCP/IP communication with the **configServer&#46;vi** function.
-In the following table you can find the parameters and their description:
+![configServer](./images/configServer.png)
+
+## runServer&#46;vi
+
+The runServer VI is used to run the TCP server.
+
+![runServer](./images/runServer.png)
+
+## stopServer&#46;vi
+
+The stopServer VI is used to stop all servers.
+
+![stopServer](./images/stopServer.png)
+
+Note:
+
+- Every time you need to stop the TCP server please check if the TCP client is already stopped.
+
+## Using the TcpServer to receive commands
+
+The following is a brief description of the main VIs you have to use to work with **commands** in the TCP server, and an example how to implement the server.
+
+## getInstanceCmd&#46;vi
+
+The getInstanceCmd VI is used to get the `CmdRead` user event instance, to read commands from TCP client.
+
+![getInstanceCmd](./images/getInstanceCmd.png)
+
+## regCmd&#46;vi
+
+The regCmd VI is used to inform the TCP server which commands are registered and allowed to be used by the LabVIEW component.
+Please define all of the registered commands in the `cmdReg` 1-D array of strings.
+
+![regCmd](./images/regCmd.png)
+
+## sendCmdStatus&#46;vi
+
+The sendCmdStatus VI is used to send a `cmdStatus` message to the TCP server to inform the TCP client about the command result.
+You need to add the `sequence_id` of the command received as an input of this function.
+
+![sendCmdStatus](./images/sendCmdStatus.png)
+
+The following image shows an example of a TCP server using the library to receive commands from a TCP client.
+
+Notice that this program configures the TCP server, registers the allowed commands (`move` and `start` in this example), gets the user event reference to receive the commands, runs, and stops the TCP server.
+
+This example registers the `CmdRead` user event and waits for it.
+When the command is received it is showed in the `Command Received` indicator.
+
+![exampleCommand](./images/exampleCommand.png)
+
+After receiving the commands you can send the result of the execution, using the **sendCmdStatus.vi** with the `sequence_id` of the received command.
+
+## Using the TcpServer to receive and send events
+
+The following is a brief description of the main VIs you have to use to work with **events** in the TCP server, and an example how to implement the server.
+
+## regEvt&#46;vi
+
+The regEvt VI is used to inform the TCP server which events are registered and allowed to be processed.
+Please define all of the registered events in the `evtReg` 2-D array of strings, using the following structure:
+
+| Component Name | Event Name  |
+|:--------------:|:-----------:|
+|  component 1   |   event 1   |
+|  component 2   |   event 2   |
+
+![regEvt](./images/regEvt.png)
+
+## getInstanceEvt&#46;vi
+
+The getInstanceEvt VI is used to get the `EvtRead` user event instance, to receive an event from the TCP client.
+
+![getInstanceEvt](./images/getInstanceEvt.png)
+
+The following image shows an example of a TCP server using the library to receive events.
+
+Notice that this program configures the TCP server, registers the allowed events, gets the user event reference to receive the events, and runs the TCP server.
+
+This example registers the `EvtRead` user event and waits for it.
+When the event is received it is showed in the `Event Received` indicator.
+
+![exampleEvent](./images/exampleEvent.png)
+
+If you need to send an event to the TCP client use the **sendEvt.vi** function as the following images shows.
+
+![sendEvent](./images/sendEvent.png)
+
+## Using the TcpServer to receive and send telemetry
+
+The following is a brief description of the main VIs you have to use to work with **telemetry** in the TCP server, and an example how to implement the server:
+
+## regTel&#46;vi
+
+The regTel VI is used to inform the TCP server which telemetry is registered and allowed to be used by LabVIEW component.
+Please define all of the registered telemetry in the `telReg` 2-D array of strings,
+using the following structure:
+
+| Component Name |  Telemetry Name  |
+|:--------------:|:----------------:|
+|  component 1   |   telemetry 1    |
+|  component 2   |   telemetry 2    |
+
+![regTel](./images/regTel.png)
+
+## sendTel&#46;vi
+
+The sendTel VI is used to send the telemetry to the TCP client.
+Use the `queueOptions` cluster control to select `lossy enqueue` or `normal enqueue` options, and define the `timeout in ms`.
+
+![sendTel](./images/sendTel.png)
+
+## getTelElement&#46;vi
+
+The getTelElement VI is used to get telemetry elements one by one from the telemetry queue.
+The timeout is set in **configServer&#46;vi** but you can modify this using the `telQueueServerTimeout` cluster control.
+
+![getTelElement](./images/getTelElement.png)
+
+The following image shows an example of a TCP server using the library to receive telemetry, getting only one instance of the telemetry.
+This uses the **getTelElement&#46;vi**.
+
+Notice that this program configures the TCP server, registers the allowed telemetry, and runs the TCP server.
+The telemetry does not use user events, as you can see in the image.
+
+![exampleGetOneInstanceTelemetry](./images/exampleGetOneInstanceTelemetry.png)
+
+The following image shows an example of a TCP server using the library to send one instance of telemetry.
+This uses the **sendTel&#46;vi**.
+
+Please define the telemetry with the `Telemetry Id` and `telDetails` strings, and the `queueOptions` cluster, as the image shows.
+
+![exampleSendTelemetry](./images/exampleSendTelemetry.png)
+
+The following image shows an example of a TCP server using the library to publish telemetry.
+
+Notice that this program uses a for loop to add telemetry elements with the `Frecuency` and `Duration` numerics.
+
+Please define the telemetry with the `Telemetry Id` and `telDetails` strings, and the `queueOptions` cluster.
+
+![examplePublishTelemetry](./images/examplePublishTelemetry.png)
+
+## Server Configuration Cluster
+
+In the following table you can find the parameters of the `ServerConfiguration` cluster:
 
 | Parameter   | Description         |
 |:---------------:|:-------------------:|
 | cmdServerPort | TCP port used by native LabVIEW TCP functions in TcpServer Command |
 | telServerPort | TCP port used by native LabVIEW TCP functions in TcpServer Telemetry|
 | serverTimeout (ms) | Time in ms that the `TCP Wait on Listener` function waits for a TCP connection |
-| serverBytesToRead | Bytes to be read by the `TCP Read` function |
-| maxSizeQueueTel | Max size of the queue called `queueTel` in TcpServer Telemetry |
-| EnqueueOptions | Select how to add new elements into the telemetry queue, using whether `Enqueue Elements` function or `Lossy Enqueue Element` functon |
-| timeoutQueueTel (ms) | Timeout in ms used in `Dequeue Element` function in LabVIEW Component to get telemetry from TCP Client. |
-| tcpClientQueueMaxSize | Set the max size of queue called `tcpClientQueue` |
-| timeoutInMs | Timeout in ms used by the Occurrence functions |
-
-2.- Register Commands, Events, and Telemetry
-
-Inform the TCP Server which commands, events, and telemetry will be accepted.
-Use functions **regCmd&#46;vi**, **regEvt&#46;vi**, and **regTel&#46;vi**.
-Use the `default.ini` file to register them.
-For details the [Configuration File](#configuration-file) seccion.
-
-3.- Register User Events
-
-User events are used to exchange information between TcpServer and LabVIEW Component.
-The TcpServer Module creates the user events in the **configServer&#46;vi** function.
-User needs to register those user events with the `Register for Events` native LabVIEW function.
-
-## Configuration File
-
-The `default.ini` define commands, events and telemetry the TCP server will register and accept.
-This file stores the `id` of commands, `id` and `compName` of events, and `id` and `compName` of telemetry.
-LabVIEW Component will read this file to register commands, events and telemetry in TCP Server.
-
-The configuration file is in the `config/` directory.
-Clic [here](../doc/detailsDefault.md) for details.
-
-User can customize these `id` and `compName` in every field, e.g.:
-
-```sh
-[commands]
-id = move,stop,applyForces,positionMirror
-
-[events]
-compName = MTMount,MTMount
-id = elevationInPosition,azimuthInPosition
-
-[telemetry]
-compName = MTMount,MTMount
-id = elevation,azimuth
-```
-
-This configuration file will be read by the utility called **readConfigFileDefault&#46;vi**.
+| serverBytesToRead | Bytes to be read by the `TCP Read` LabVIEW function |
+| maxSizeQueueTel | Max size of the `queueTel` queue in TcpServer Telemetry |
+| EnqueueOptions | Select how to add new elements into the telemetry queue, using whether `Enqueue Elements` function or `Lossy Enqueue Element` function |
+| timeoutQueueTel (ms) | Timeout in ms used in `Dequeue Element` function in LabVIEW Component to get the telemetry from TCP Client. |
+| tcpClientQueueMaxSize | Set the max size of the `tcpClientQueue` queue |
+| timeoutInMs | Timeout in ms used by the LabVIEW Occurrence functions |
