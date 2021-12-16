@@ -45,7 +45,7 @@ The following is a brief description of the main VIs you have to use to work wit
 
 ## getInstanceCmd&#46;vi
 
-The getInstanceCmd VI is used to get the `CmdRead` user event instance, to read commands from TCP client.
+The getInstanceCmd VI is used to get the `CmdRead` user event instance, to read commands from the TCP client.
 
 ![getInstanceCmd](./images/getInstanceCmd.png)
 
