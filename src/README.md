@@ -6,6 +6,10 @@
 
 ## Use of TCP Server
 
+### User Manual
+
+You can follow [here](../doc/userManual.md) to read the TCP Server User Manual.
+
 ### Do the Unit Test
 
 1. You can run the testAll.vi under the `tests/` directory in tcpip.lvproj to do the unit tests by using the Caraya unit test framework.

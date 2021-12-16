@@ -1,5 +1,9 @@
 # Version History
 
+0.3.4
+
+- Create the `userManual.md` in the `doc/` directory.
+
 0.3.3
 
 - Modify **TcpServerCmd.processCmd.vi** to save the last `sequence_id`, even though the received command is not registered.
