@@ -1,5 +1,10 @@
 # Version History
 
+0.3.5
+
+- Add `server timeout` value to avoid the blocking code in **TCP Read&#46;vi**.
+This is done in **TcpServerCmd&#46;tcpServerStateMachine&#46;vi** and in **TcpServerTel&#46;tcpServerStateMachine&#46;vi**.
+
 0.3.4
 
 - Create the `userManual.md` in the `doc/` directory.
