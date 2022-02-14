@@ -40,7 +40,7 @@
 				<Item Name="testCase" Type="Folder">
 					<Item Name="testCheckQueueFromDdsFull.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testCheckQueueFromDdsFull.vi"/>
 					<Item Name="testCheckQueueToDdsFull.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testCheckQueueToDdsFull.vi"/>
-					<Item Name="testCreateQueueTel.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testCreateQueueTel.vi"/>
+					<Item Name="testCreateQueueTcpClientFromDds.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testCreateQueueTcpClientFromDds.vi"/>
 					<Item Name="testFlushTelFromDds.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testFlushTelFromDds.vi"/>
 					<Item Name="testFlushTelToDds.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testFlushTelToDds.vi"/>
 					<Item Name="testGetTel.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testGetTel.vi"/>
@@ -59,7 +59,7 @@
 					<Item Name="testGetInstanceGen.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetInstanceGen.vi"/>
 					<Item Name="testGetTelElement.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetTelElement.vi"/>
 					<Item Name="testIsTelQueueToDdsFull.vi" Type="VI" URL="../../tests/TcpServer/testCase/testIsTelQueueToDdsFull.vi"/>
-					<Item Name="testIsTelQueueFromDdsFull.vi" Type="VI" URL="../../tests/TcpServer/testCase/testIsTelQueueFromDdsFull.vi"/>
+					<Item Name="testIsQueueTcpClientFromDdsFull.vi" Type="VI" URL="../../tests/TcpServer/testCase/testIsQueueTcpClientFromDdsFull.vi"/>
 					<Item Name="testRegCmd.vi" Type="VI" URL="../../tests/TcpServer/testCase/testRegCmd.vi"/>
 					<Item Name="testRegEvt.vi" Type="VI" URL="../../tests/TcpServer/testCase/testRegEvt.vi"/>
 					<Item Name="testRegTel.vi" Type="VI" URL="../../tests/TcpServer/testCase/testRegTel.vi"/>
