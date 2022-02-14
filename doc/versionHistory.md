@@ -1,5 +1,12 @@
 # Version History
 
+0.3.6
+
+- Rename **tcpServerQueue** by **queueTcpServer** and update its dependences.
+- Rename **tcpclientQueue** by **queueTcpClient** and update its dependences.
+- Rename **tcpClientQueueFromDds** by **queueTcpClientFromDds** and update its dependences.
+- Rename **isTcpClientQueueFull.vi** by **isQueueTcpClientFull.vi** in `TcpServer` class so the user will need to update this VI in its callers.
+
 0.3.5
 
 - Add `server timeout` value to avoid the blocking code in **TCP Read&#46;vi**.
