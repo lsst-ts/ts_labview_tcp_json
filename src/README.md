@@ -112,8 +112,8 @@ In **queueOptions** control select **lossy enqueue** to use circular buffer, and
 - User can enable/disable circular buffer through `sendTel.vi` in runtime, only to send telemetry to TCP Client.
 - User can configure TCP Server as **block call** code when sends telemetry to TCP Client through `sendTel.vi` with Timeout = -1 and queueOption = normal enqueue.
 To set this as **un-block call** use Timeout greater than 0 and queueOptions = lossy enqueue.
-- User can configure TCP Server as **block call** code when receives telemetry from TCP Client through `configServer.vi` with telQueueServerTimeout = -1 and EnqueueOptions = normal enqueue.
-To set this as **un-block call** use telQueueServerTimeout greater than 0 and EnqueueOptions = lossy enqueue.
+- User can configure TCP Server as **block call** code when receives telemetry from TCP Client through `configServer.vi` with queueTcpClientFromDdsTimeout = -1 and EnqueueOptions = normal enqueue.
+To set this as **un-block call** use queueTcpClientFromDdsTimeout greater than 0 and EnqueueOptions = lossy enqueue.
 - Every time Python TCP Client (cmd and tel) and TCP Server connections are "alive" TCP Server will send an user event to the LabVIEW Component.
 If either command or telemetry instance of Python TCP Client disconnects from TCP Server, a generic user event is sent.
 If all Python TCP Client instances are connected again, a generic user event is sent.
