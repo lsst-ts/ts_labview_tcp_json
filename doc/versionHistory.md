@@ -1,5 +1,13 @@
 # Version History
 
+0.3.7
+
+- Rename **tcpClientQueueMaxSize** by **queueTcpClientMaxSize** and its dependences.
+- Rename **maxSizeQueueTel** by **queueTcpClientFromDdsMaxSize** and its dependences.
+- Rename **telQueueServerTimeout** and **timeoutQueueTel**  by **queueTcpClientFromDdsTimeout** and its dependences.
+- Modify **isQueueTcpClientFull.vi**, **getTelElement.vi** and **flushTelQueue.vi** in `TcpServer` class, so the user needs to update this vis in their callers."
+- Update `userManual.md` in the `doc/` directory.
+
 0.3.6
 
 - Rename **tcpServerQueue** by **queueTcpServer** and update its dependences.
