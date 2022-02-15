@@ -201,10 +201,10 @@ In the following table you can find the parameters of the `ServerConfiguration` 
 |:---------------:|:-------------------:|
 | cmdServerPort | TCP port used by native LabVIEW TCP functions in TcpServer Command |
 | telServerPort | TCP port used by native LabVIEW TCP functions in TcpServer Telemetry|
-| serverTimeout (ms) | Time in ms that the `TCP Wait on Listener` function waits for a TCP connection |
+| serverTimeout (ms) | Time in ms that the `TCP Wait on Listener` function waits for a TCP connection. This will be used in stopServer occurrence timeout and in the runServer Event Structure timeout, too. |
 | serverBytesToRead | Bytes to be read by the `TCP Read` LabVIEW function |
-| maxSizeQueueTel | Max size of the `queueTel` queue in TcpServer Telemetry |
+| queueTcpClientFromDdsMaxSize | Max size of the `queueTcpClientFromDds` queue in TcpServer Telemetry |
 | EnqueueOptions | Select how to add new elements into the telemetry queue, using whether `Enqueue Elements` function or `Lossy Enqueue Element` function |
-| timeoutQueueTel (ms) | Timeout in ms used in `Dequeue Element` function in LabVIEW Component to get the telemetry from TCP Client. |
-| tcpClientQueueMaxSize | Set the max size of the `tcpClientQueue` queue |
+| queueTcpClientFromDdsTimeout (ms) | Timeout in ms used in `Dequeue Element` function in LabVIEW Component to get the telemetry from TCP Client. |
+| queueTcpClientMaxSize | Set the max size of the `queueTcpClient` queue |
 | timeoutInMs | Timeout in ms used by the LabVIEW Occurrence functions |
