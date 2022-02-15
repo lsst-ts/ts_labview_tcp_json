@@ -7,6 +7,8 @@
 - Rename **telQueueServerTimeout** and **timeoutQueueTel**  by **queueTcpClientFromDdsTimeout** and its dependences.
 - Modify **isQueueTcpClientFull.vi**, **getTelElement.vi** and **flushTelQueue.vi** in `TcpServer` class, so the user needs to update this vis in their callers."
 - Update `userManual.md` in the `doc/` directory.
+- Update `README.md` in the `simulator/` directory.
+- Update `README.md` in the `src/` directory.
 
 0.3.6
 
