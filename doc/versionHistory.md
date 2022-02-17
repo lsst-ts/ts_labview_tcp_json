@@ -2,10 +2,13 @@
 
 0.3.7
 
-- Rename **tcpClientQueueMaxSize** by **queueTcpClientMaxSize** and its dependences.
+- Create the **configServerTypeDef&#46;ctl** to configure the server.
+This is used by the **configServer&#46;vi.**.
+User needs to update this change in its callers.
+- Rename **tcpClientQueueMaxSize** by **maxSizeQueueTcpClient** and its dependences.
 - Rename **maxSizeQueueTel** by **queueTcpClientFromDdsMaxSize** and its dependences.
 - Rename **telQueueServerTimeout** and **timeoutQueueTel**  by **queueTcpClientFromDdsTimeout** and its dependences.
-- Modify **isQueueTcpClientFull.vi**, **getTelElement.vi** and **flushTelQueue.vi** in `TcpServer` class, so the user needs to update this vis in their callers."
+- Modify **isQueueTcpClientFull&#46;vi**, **getTelElement&#46;vi** and **flushTelQueue&#46;vi** in `TcpServer` class, so the user needs to update this vis in their callers."
 - Update `userManual.md` in the `doc/` directory.
 - Update `README.md` in the `simulator/` directory.
 - Update `README.md` in the `src/` directory.

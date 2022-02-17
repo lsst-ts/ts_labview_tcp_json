@@ -22,7 +22,7 @@ The following is a brief description of the main VIs.
 
 ## configServer&#46;vi
 
-The configServer VI is used to configure the TCP server, with the port, the number of bytes to read, and other parameters, using the `ServerConfiguration` cluster.
+The configServer VI is used to configure the TCP server, with the port, the number of bytes to read, and other parameters, using the `serverConfigTypeDef` cluster.
 Click [here](#server-configuration-cluster) to more details about this cluster.
 
 ![configServer](./images/configServer.png)
@@ -195,7 +195,8 @@ The error explanation comes from the error LabVIEW internal database.
 
 ## Server Configuration Cluster
 
-In the following table you can find the parameters of the `ServerConfiguration` cluster:
+This cluster is a `typedef` named **configServerTypeDef&#46;ctl** and is called by the **configServer&#46;vi**.
+In the following table you can find the parameters to configure the server:
 
 | Parameter   | Description         |
 |:---------------:|:-------------------:|
@@ -206,5 +207,5 @@ In the following table you can find the parameters of the `ServerConfiguration` 
 | queueTcpClientFromDdsMaxSize | Max size of the `queueTcpClientFromDds` queue in TcpServer Telemetry |
 | EnqueueOptions | Select how to add new elements into the telemetry queue, using whether `Enqueue Elements` function or `Lossy Enqueue Element` function |
 | queueTcpClientFromDdsTimeout (ms) | Timeout in ms used in `Dequeue Element` function in LabVIEW Component to get the telemetry from TCP Client. |
-| queueTcpClientMaxSize | Set the max size of the `queueTcpClient` queue |
+| maxSizeQueueTcpClient | Set the max size of the `queueTcpClient` queue |
 | timeoutInMs | Timeout in ms used by the LabVIEW Occurrence functions |

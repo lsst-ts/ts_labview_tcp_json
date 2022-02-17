@@ -40,7 +40,7 @@ Please check:
 - queueTcpClientFromDdsMaxSize = 1000
 - EnqueueOptions = lossy enqueue
 - queueTcpClientFromDdsTimeout (ms) = 50
-- queueTcpClientMaxSize = 100
+- maxSizeQueueTcpClient = 100
 
 Note: this configuration cannot be modified in runtime.
 
