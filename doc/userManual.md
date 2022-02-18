@@ -206,6 +206,6 @@ In the following table you can find the parameters to configure the server:
 | serverBytesToRead | Bytes to be read by the `TCP Read` LabVIEW function |
 | maxSizeQueueTcpClientFromDds | Max size of the `queueTcpClientFromDds` queue in TcpServer Telemetry |
 | EnqueueOptions | Select how to add new elements into the telemetry queue, using whether `Enqueue Elements` function or `Lossy Enqueue Element` function |
-| queueTcpClientFromDdsTimeout (ms) | Timeout in ms used in `Dequeue Element` function in LabVIEW Component to get the telemetry from TCP Client. |
+| timeoutQueueTcpClientFromDds (ms) | Timeout in ms used in `Dequeue Element` function in LabVIEW Component to get the telemetry from TCP Client. |
 | maxSizeQueueTcpClient | Set the max size of the `queueTcpClient` queue |
 | timeoutInMs | Timeout in ms used by the LabVIEW Occurrence functions |

@@ -39,7 +39,7 @@ Please check:
 - serverBytesToRead = 32768
 - maxSizeQueueTcpClientFromDds = 1000
 - EnqueueOptions = lossy enqueue
-- queueTcpClientFromDdsTimeout (ms) = 50
+- timeoutQueueTcpClientFromDds (ms) = 50
 - maxSizeQueueTcpClient = 100
 
 Note: this configuration cannot be modified in runtime.
