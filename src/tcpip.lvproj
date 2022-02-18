@@ -38,7 +38,7 @@
 			</Item>
 			<Item Name="TcpServerTel" Type="Folder">
 				<Item Name="testCase" Type="Folder">
-					<Item Name="testCheckQueueFromDdsFull.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testCheckQueueFromDdsFull.vi"/>
+					<Item Name="testCheckQueueFull_TcpClientFromDds.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testCheckQueueFull_TcpClientFromDds.vi"/>
 					<Item Name="testCheckQueueToDdsFull.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testCheckQueueToDdsFull.vi"/>
 					<Item Name="testCreateQueueTcpClientFromDds.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testCreateQueueTcpClientFromDds.vi"/>
 					<Item Name="testFlushTelFromDds.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testFlushTelFromDds.vi"/>
