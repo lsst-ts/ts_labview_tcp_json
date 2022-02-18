@@ -37,7 +37,7 @@ Please check:
 - telServerPort = 8889
 - serverTimeout (ms) = 100
 - serverBytesToRead = 32768
-- queueTcpClientFromDdsMaxSize = 1000
+- maxSizeQueueTcpClientFromDds = 1000
 - EnqueueOptions = lossy enqueue
 - queueTcpClientFromDdsTimeout (ms) = 50
 - maxSizeQueueTcpClient = 100
