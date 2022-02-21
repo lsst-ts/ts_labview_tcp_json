@@ -35,12 +35,12 @@ Please check:
 
 - cmdServerPort = 8888
 - telServerPort = 8889
-- serverTimeout (ms) = 100
+- timeoutServerInMs = 100
 - serverBytesToRead = 32768
-- maxSizeQueueTel = 1000
+- maxSizeQueueTcpClientFromDds = 1000
 - EnqueueOptions = lossy enqueue
-- timeoutQueueTel (ms) = 50
-- tcpClientQueueMaxSize = 100
+- timeoutQueueTcpClientFromDds (ms) = 50
+- maxSizeQueueTcpClient = 100
 
 Note: this configuration cannot be modified in runtime.
 

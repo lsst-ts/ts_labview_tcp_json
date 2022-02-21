@@ -1,5 +1,20 @@
 # Version History
 
+0.3.7
+
+- Create the **configServerTypeDef&#46;ctl** to help to configure the server.
+This is used by the **TcpServer.configServer&#46;vi**.
+User needs to update this change in its callers.
+- Rename **serverTimeout (ms)** by **timeoutServerInMs** and its dependencies.
+- Rename **tcpClientQueueMaxSize** by **maxSizeQueueTcpClient** and its dependencies.
+- Rename **maxSizeQueueTel** by **maxSizeQueueTcpClientFromDds** and its dependencies.
+- Rename **telQueueServerTimeout** and **timeoutQueueTel**  by **timeoutQueueTcpClientFromDds** and its dependencies.
+- Modify **isQueueTcpClientFull&#46;vi**, **getTelElement&#46;vi** and **flushTelQueue&#46;vi** in `TcpServer` class.
+User needs to update these vis in their callers."
+- Update `userManual.md` in the `doc/` directory.
+- Update `README.md` in the `simulator/` directory.
+- Update `README.md` in the `src/` directory.
+
 0.3.6
 
 - Rename **tcpServerQueue** by **queueTcpServer** and update its dependences.
