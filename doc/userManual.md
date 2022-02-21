@@ -202,7 +202,7 @@ In the following table you can find the parameters to configure the server:
 |:---------------:|:-------------------:|
 | cmdServerPort | TCP port used by native LabVIEW TCP functions in TcpServer Command |
 | telServerPort | TCP port used by native LabVIEW TCP functions in TcpServer Telemetry|
-| serverTimeout (ms) | Time in ms that the `TCP Wait on Listener` function waits for a TCP connection. This will be used in stopServer occurrence timeout and in the runServer Event Structure timeout, too. |
+| timeoutServerInMs | Time in ms that the `TCP Wait on Listener` function waits for a TCP connection. This will be used in stopServer occurrence timeout and in the runServer Event Structure timeout, too. |
 | serverBytesToRead | Bytes to be read by the `TCP Read` LabVIEW function |
 | maxSizeQueueTcpClientFromDds | Max size of the `queueTcpClientFromDds` queue in TcpServer Telemetry |
 | EnqueueOptions | Select how to add new elements into the telemetry queue, using whether `Enqueue Elements` function or `Lossy Enqueue Element` function |

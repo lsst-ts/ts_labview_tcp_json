@@ -35,7 +35,7 @@ Please check:
 
 - cmdServerPort = 8888
 - telServerPort = 8889
-- serverTimeout (ms) = 100
+- timeoutServerInMs = 100
 - serverBytesToRead = 32768
 - maxSizeQueueTcpClientFromDds = 1000
 - EnqueueOptions = lossy enqueue

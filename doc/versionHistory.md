@@ -5,6 +5,7 @@
 - Create the **configServerTypeDef&#46;ctl** to help to configure the server.
 This is used by the **TcpServer.configServer&#46;vi**.
 User needs to update this change in its callers.
+- Rename **serverTimeout (ms)** by **timeoutServerInMs** and its dependencies.
 - Rename **tcpClientQueueMaxSize** by **maxSizeQueueTcpClient** and its dependencies.
 - Rename **maxSizeQueueTel** by **maxSizeQueueTcpClientFromDds** and its dependencies.
 - Rename **telQueueServerTimeout** and **timeoutQueueTel**  by **timeoutQueueTcpClientFromDds** and its dependencies.
