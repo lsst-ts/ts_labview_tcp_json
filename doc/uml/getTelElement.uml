@@ -1,0 +1,14 @@
+@startuml
+skinparam linestyle ortho
+
+rectangle Component #66ff33
+rectangle TcpServer as TS
+rectangle TcpServerTel as TST
+
+rectangle queueTcpClientFromDds as QTCFD #b0e0e6
+
+QTCFD --> TST : f1. DequeueElement()\nqueueTcpClientFromDds
+TST --> TS : f2. getTel()\nqueueClientFromDds
+TS --> Component : f3. getTelElement()\nqueueTcpClientFromDds
+
+@enduml

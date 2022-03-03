@@ -1,0 +1,17 @@
+@startuml
+skinparam linestyle ortho
+
+rectangle Component #66ff33
+rectangle TcpServer as TS
+rectangle TcpClient as TC
+rectangle TcpServerTel as TST
+rectangle TcpServerBase as TSB
+
+rectangle queueTcpClient as QTC #ffba71
+
+Component --> TS : a1. sendTel()\ntelTypeDef
+TS --> TST : a2. telToClient()\nJSON string
+TST --> QTC : a3. EnqueueElement()\nqueueTcpClient
+QTC --> TSB : a4. DequeueElement()\nqueueTcpClient
+TSB --> TC : a5. Write TCP()\nJSON string
+@enduml
