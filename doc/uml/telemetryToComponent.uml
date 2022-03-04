@@ -1,0 +1,19 @@
+@startuml
+skinparam linestyle ortho
+
+rectangle TcpClient as TC
+rectangle TcpServerTel as TST
+rectangle TcpServer as TS
+rectangle Component #66ff33
+
+rectangle queueTcpServer as QTS #F694CE
+rectangle queueTcpClientFromDds as QTCFD #b0e0e6
+
+TC --> TST : h1. tcp_client_tel.write()\nTCP Packet
+TST --> QTS : h2. tcpServerStateMachine()\nqueueTcpServer
+QTS --> TST : h3. processTel()\nTCP Packet
+TST --> QTCFD : h4. enqueueTelToComponent()\nqueueTcpClientFromDds
+QTCFD --> TS : h5. getTel()\nTCP Packet
+TS --> Component : h6. getTelElement()\nTCP Packet
+
+@enduml

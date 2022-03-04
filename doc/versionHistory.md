@@ -1,5 +1,11 @@
 # Version History
 
+0.3.8
+
+- Add the `communicationDiagramQueues.md` in the `doc/` directory.
+- Add the `commandToComponent.uml`, `flushTelQueue.uml`, `getQueueStatus.uml`, `getTelElement.uml`, `telemetryToClient.uml`, and `telemetryToComponent.uml` in the `doc/uml` directory.
+- Update `README.md` in the `src/` directory.
+
 0.3.7
 
 - Create the **configServerTypeDef&#46;ctl** to help to configure the server.

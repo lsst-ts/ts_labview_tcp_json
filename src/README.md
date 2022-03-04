@@ -66,6 +66,11 @@ The Communication Diagram shows how internal objects interact in **TcpServer** t
 Messages are user events.
 Please follow [here](../doc/communicationDiagram.md) for details.
 
+### Queues Communication Diagram
+
+The Communication Diagram shows how the **TcpServer** uses queues internally to share data among classes.
+Please follow [here](../doc/communicationDiagramQueues.md) for details.
+
 ### Start TCP Server
 
 For the use of TCP Server to send commands to TCP Client, you need to start Component Simulator.

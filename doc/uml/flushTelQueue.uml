@@ -1,0 +1,18 @@
+@startuml
+skinparam linestyle ortho
+
+rectangle Component #66ff33
+rectangle TcpServer as TS
+rectangle TcpServerTel as TST
+
+rectangle queueTcpClient as QTC #ffba71
+rectangle queueTcpClientFromDds as QTCFD #b0e0e6
+
+Component --> TS : b1. flushTelQueue()\nqueueTcpClient
+Component --> TS : c1. flushTelQueue()\nqueueTcpClientFromDds
+TS --> TST : b2. flushTel()\nqueueTcpClient
+TS --> TST : c2. flushTel()\nqueueTcpClientFromDds
+TST --> QTC : b3. FlushQueue()\nqueueTcpClient
+TST --> QTCFD : c3. FlushQueue()\nqueueTcpClientFromDds
+
+@enduml

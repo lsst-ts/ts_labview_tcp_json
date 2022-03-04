@@ -1,0 +1,19 @@
+@startuml
+skinparam linestyle ortho
+
+rectangle Component #66ff33
+rectangle TcpServer as TS
+rectangle TcpServerTel as TST
+
+rectangle queueTcpClient as QTC #ffba71
+rectangle queueTcpClientFromDds as QTCFD #b0e0e6
+
+QTC --> TST : d1. GetQueueStatus()\nqueueTcpClient
+QTCFD --> TST : e1. GetQueueStatus()\nqueueTcpClientFromDds
+TST --> TS : d2. checkQueueFull()\nqueueTcpClient
+TST --> TS : e2. checkQueueFull()\nqueueTcpClientFromDds
+
+TS --> Component : d3. isQueueTcpClientFull()\nqueueFull
+TS --> Component : e3. isQueueTcpClientFull()\nqueueFull
+
+@enduml
