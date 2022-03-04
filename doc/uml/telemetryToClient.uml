@@ -11,7 +11,7 @@ rectangle queueTcpClient as QTC #ffba71
 
 Component --> TS : a1. sendTel()\ntelTypeDef
 TS --> TST : a2. telToClient()\nJSON string
-TST --> QTC : a3. EnqueueElement()\nqueueTcpClient
-QTC --> TSB : a4. DequeueElement()\nqueueTcpClient
+TST --> QTC : a3. enqueueTelToClient()\nqueueTcpClient
+QTC --> TSB : a4. tcpServerSenderLoop()\nqueueTcpClient
 TSB --> TC : a5. Write TCP()\nJSON string
 @enduml

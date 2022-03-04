@@ -21,16 +21,14 @@ The following is the list of queues in **TcpServer**:
 
 ## Queues Description
 
-The following section will describe the queues:
+The descriptions of queues are in the following:
 
-- The `queueTcpServer` is a **TcpServerBase** attribute. It stores commands, events and telemetry comming from the TCP Client as TCP Packets.
-- The `queueTcpClient` is a **TcpServerBase** attribute.
-It stores telemetry that is sent from the Component to the TCP Client.
+- **TcpServerBase.queueTcpServer** stores commands, events and telemetry coming from the TCP Client as TCP Packets.
+- **TcpServerBase.queueTcpClient** stores telemetry from Component to TCP Client.
 This queue has a max queue size set by the **TcpServer.configServer&#46;vi** with the `maxSizeQueueTcpClient` control.
 User can use the **queueOptionsTypeDef&#46;ctl** to set the Timeout (ms), and how to add new elements into this queue.
-- The `queueTcpClientFromDds` is a **TcpServerTel** attribute.
-It is used to receive the processed telemetry ready to be sent to the Component.
-The **TcpServer.configServer&#46;vi** sets the max queue size with the `maxSizeQueueTcpClientFromDds` control, the timeout (ms) with the `timeoutQueueTcpClientFromDds` control, and how to add new elements into this queue, with the `EnqueueOptions` control.
+- **TcpServerTel.queueTcpClientFromDds** receives the processed telemetry ready to be sent to Component.
+**TcpServer.configServer&#46;vi** sets: (1) max queue size with the `maxSizeQueueTcpClientFromDds` control, (2) timeout (ms) with the `timeoutQueueTcpClientFromDds` control, and (3) enqueue method with the `EnqueueOptions` control.
 
 The following table shows the queues with their enqueue and dequeue functions:
 
@@ -43,13 +41,15 @@ The following table shows the queues with their enqueue and dequeue functions:
 
 ## Communication Diagrams
 
-The following sections will present differents routs where queues interacts with classes.
+The relationship (or route) among the queues and classes is in the following sections.
 
 ### Send Telemetry from Component to TCP Client
 
-User sends the telemetry to the TCP Client with the **sendTel()&#46;vi** (a1) using the **telTypeDef&#46;ctl**.
-The **telToClient&#46;vi** (a2) converts the telemetry into a JSON string, and then the **enqueueTelToClient&#46;vi** (a3) put the telemetry into the `queueTcpClient` queue.
-In (a4) the **TcpServerBase.tcpServerSenderLoop&#46;vi** instance dequeues the telemetry as a JSON string and is ready to be sent to the TCP Client with the **Write TCP** LabVIEW function (a5).
+- a1. The user sends the telemetry to the TCP Client with **sendTel&#46;vi** using **telTypeDef&#46;ctl**.
+- a2. The **telToClient&#46;vi** converts the telemetry into a JSON string.
+- a3. The **enqueueTelToClient&#46;vi** puts the telemetry into `queueTcpClient` queue.
+- a4. The **TcpServerBase.tcpServerSenderLoop&#46;vi** dequeues the telemetry as a JSON string.
+- a5. The **TcpServerBase** sends the message to TCP Client with **Write TCP**.vi function.
 
 ![sendTel](./images/telemetryToClient.png)
 
@@ -57,8 +57,13 @@ The Communication Diagram for this is in [here](../doc/uml/telemetryToClient.uml
 
 ### Flush the Queue
 
-User can flush the `queueTcpClient` (b1) and the `queueTcpClientFromDds` (c1) using the **flushTelQueue&#46;vi**.
-In (b2) and (c2) the **flushTel&#46;vi** will get the queue reference, and then (b3) and (c3) will flush the queues using the **Flush Queue&#46;vi** LabVIEW function.
+- b1. The user flushes `queueTcpClient` using **flushTelQueue&#46;vi**.
+- b2. The **flushTel&#46;vi** gets `queueTcpClient` reference.
+- b3. The **Flush Queue&#46;vi** LabVIEW function flushes the queue.
+
+- c1. The user flushes `queueTcpClientFromDds` using **flushTelQueue&#46;vi**.
+- c2. The **flushTel&#46;vi** gets `queueTcpClientFromDds` reference.
+- c3. The **Flush Queue&#46;vi** LabVIEW function flushes the queue.
 
 ![sendTel](./images/flushTelQueue.png)
 
@@ -66,7 +71,15 @@ The Communication Diagram for this is in [here](../doc/uml/telemetryToClient.uml
 
 ### Get Queue Status
 
-When User needs to know if the `queueTcpClient` (d1) and the `queueTcpClientFromDds` (e1) is full or not, the **Get Queue Status** LabVIEW functon is called by the **checkQueueFull&#46;vi** (d2) and (e2), and then the **isQueueTcpClientFull&#46;vi** informs the User the status of the queues with the `queueFull` boolean, in (d3) and (e3).
+- d1. The **Get Queue Status** LabVIEW function returns information about the number of elements currently in `queueTcpClient`.
+- d2. The **checkQueueFull&#46;vi** compares the currently number of elements in the queue with the **TcpServerBase.maxSizeQueueTcpClient** to know if queue is full or not.
+The result of this comparison is in the `queueFull` boolean.
+- d3. The **TcpServer** informs the status of queue with **isQueueTcpClientFull&#46;vi** and `queueFull` boolean.
+
+- e1. The **Get Queue Status** LabVIEW function returns information about the number of elements currently in `queueTcpClientFromDds`.
+- e2. The **checkQueueFull&#46;vi** compares the currently number of elements in the queue with the **TcpServerBase.maxSizeQueueTcpClientFromDds** to know if queue is full or not.
+The result of this comparison is in the `queueFull` boolean.
+- e3. The **TcpServer** informs the status of queue with **isQueueTcpClientFull&#46;vi** and `queueFull` boolean.
 
 ![sendTel](./images/getQueueStatus.png)
 
@@ -74,7 +87,9 @@ The Communication Diagram for this is in [here](../doc/uml/getQueueStatus.uml).
 
 ### Get One Instance of Telemetry
 
-When the User needs one instance of telemetry, the **Dequeue Element** LabVIEW function (f1) is called by the **getTel&#46;vi** (f2), and then the User can receive the TCP packet with the **getTelElement&#46;vi** (f3).
+- f1. The **Dequeue Element** LabVIEW function removes an element from the front of the `queueTcpClientFromDds` and returns the element.
+- f2. The **getTel&#46;vi** gets queue reference and calls the previous function.
+- f3. The **TcpServer** sends one instance of telemetry as TCP packet with the **getTelElement&#46;vi**.
 
 ![sendTel](./images/getTelElementFromQueue.png)
 
@@ -82,10 +97,12 @@ The Communication Diagram for this is in [here](../doc/uml/getTelElement.uml).
 
 ### Send Telemetry from TCP Client to Component
 
-TCP Client sends telemetry with the **tcp_client_tel.write** function (h1) and is received by the **tcpServerStateMachine&#46;vi** (h2) with the **TCP Read** LabVIEW function.
-The TCP Packet received is enqueued into the `queueTcpServer` queue.
-The telemetry is processed by the **processTel&#46;vi** (h3) and enqueued into the `queueTcpClientFromDds` by the **enqueueTelToComponent&#46;vi** (h4).
-Telemetry is dequeued by the **getTel&#46;vi** (h5) and then the User can read it using the **getTelElement&#46;vi** (h6).
+- h1. The TCP Client sends telemetry with the **tcp_client_tel.write** function.
+- h2. The telemetry is received by **tcpServerStateMachine&#46;vi** with **TCP Read** LabVIEW function, and is enqueued into `queueTcpServer` queue.
+- h3. The **processTel&#46;vi** processes the TCP Packet.
+- h4. The **enqueueTelToComponent&#46;vi** enqueues the processed TCP Packet into `queueTcpClientFromDds`.
+- h5. The **getTel&#46;vi** dequeues telemetry from `queueTcpClientFromDds`.
+- h6. The **TcpServer** sends telemetry as TCP Packet with the **getTelElement&#46;vi**.
 
 ![sendTel](./images/telemetryToComponent.png)
 
@@ -93,10 +110,11 @@ The Communication Diagram for this is in [here](../doc/uml/telemetryToComponent.
 
 ### Send Command from TC Client to Component
 
-TCP Client sends a command with the **write_cmd_and_wait_result** function (g1).
-This command is received as a TCP Packet by the **tcpServerStateMachine&#46;vi** (g2) and enqueued into the `queueTcpServer` queue.
-The TCP Packet is dequeued (g3) by the **tcpServerCallBack&#46;vi** and checked if is a command or an event by the **processPacket.vi** (g4).
-If the TCP Packet is a command it will be processed by the **processCmd&#46;vi** (g5) to check if is registered or not, and then is sent as an `user event` with the `CmdRead` reference.
+- g1. TCP Client sends a command with the **write_cmd_and_wait_result** function.
+- g2. This command is received as a TCP Packet by the **tcpServerStateMachine&#46;vi**, and is enqueued into `queueTcpServer` queue.
+- g3. The **tcpServerCallBack&#46;vi** dequeues element received.
+- g4. The **processPacket&#46;vi** checks if is a command or an event.
+- g5. The **processCmd&#46;vi** checks if the command is registered or not, and sends it as an `user event` with the `CmdRead` reference.
 
 ![sendTel](./images/commandToComponent.png)
 
