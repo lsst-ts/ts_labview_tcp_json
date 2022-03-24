@@ -1,5 +1,11 @@
 # Version History
 
+0.3.9
+
+- Replace `areClientsConnected` boolean by `areClientsConnected` enum in **TcpServerBase.connStatusCluster.ctl**. 
+- Update `README.md` in the `src/` directory.
+- Update `userManual.md` in the `doc/` directory.
+
 0.3.8
 
 - Add the `communicationDiagramQueues.md` in the `doc/` directory.
