@@ -5,6 +5,7 @@
 - Replace `areClientsConnected` boolean by `areClientsConnected` enum in **TcpServerBase.connStatusCluster.ctl**. 
 - Update `README.md` in the `src/` directory.
 - Update `userManual.md` in the `doc/` directory.
+- The user needs to update the use of **GenRead** user event to judge the connection is on or off with the `areClientsConnected` enum.
 
 0.3.8
 
