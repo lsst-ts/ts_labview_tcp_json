@@ -124,6 +124,8 @@ If either command or telemetry instance of Python TCP Client disconnects from TC
 If all Python TCP Client instances are connected again, a generic user event is sent.
 - The `TcpServerBase.sendErrorExplanation.vi` is used to send a specific and important error to the ComponentSimulator.
 This uses the `GenRead` user event.
+- The `TcpServer.getClientStatus.vi` gets the notification from TCP Server that TCP Client connects or disconnects and then sends an user event to the Component.
+This uses the `GenRead` user event with the enum of `areClientsConnected`.
 - There is a function called `clearErrorAndSendExplanation.vi` that clears the incoming error and sends it to the Component by the **GenRead** user event.
 This function is located in every process that needs to send the errors.
 The user must manage them.

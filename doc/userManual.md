@@ -184,8 +184,12 @@ Please define the telemetry with the `Telemetry Id` and `telDetails` strings, an
 ## Connection Status
 
 There is a VI called **getClientStatus&#46;vi** that allows you to know whether the connections between the TCP clients and TCP server are alive or not.
-If all the TCP clients connect to the TCP servers, a `GenRead` user event is triggered with the string message `Clients are on`.
-If one of the TCP clients disconnects, a `GenRead` user event is triggered with the string message `Clients are off`.
+It uses the **TcpServerBase.connStatusCluster.ctl** with the `areClientsConnected` enum, and the `connStatusMsg` string. 
+The enum has three options: (1) unchanged, (2) connected, and (3) unconnected. 
+If all the TCP clients connect to the TCP servers, a `GenRead` user event is triggered with the string message `Clients are on` and the `connected` value in the enum.
+If one of the TCP clients disconnects, a `GenRead` user event is triggered with the string message `Clients are off` and the `unconnected` value in the enum.
+The **TcpServer** will report the internal error or message by `connStatusMsg` string, and the enum of `areClientsConnected` will be "unchanged" at that time.
+If not, there should be something wrong in the **TcpServer**.
 
 ## TCP Server Internal Error Detection
 
