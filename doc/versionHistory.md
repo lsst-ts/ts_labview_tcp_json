@@ -2,8 +2,9 @@
 
 0.4.0
 
-- Modify **TcpServerBase.tcpServerSenderLoop.vi** to detect when Python TCP client is unconnected. User needs to handle error 1 or error 66 when this happens.
-- Add **TcpServerBase.flushQueueTcpClient.vi** to flush `queueTcpClient` when Python TCP client is unconnected and there are still elements in the queue.
+- Modify **TcpServerBase.tcpServerSenderLoop.vi** to detect when Python TCP client is disconnected.
+User will receive error 1 or 66 when this happens, only one time.
+- Add **TcpServerBase.flushQueueTcpClient.vi** to flush `queueTcpClient` when Python TCP client is disconnected and there are still elements in the queue.
 - Modify **TcpServerCmd.tcpServerStateMachine.vi** to flush `TcpServerCmd.queueTcpClient`.
 - Modify **TcpServerTel.tcpServerStateMachine.vi** to flush `TcpServerTel.queueTcpClient`.
 
