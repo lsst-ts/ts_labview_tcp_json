@@ -92,6 +92,11 @@
 				</Item>
 				<Item Name="testSimulator.vi" Type="VI" URL="../../tests/simulator/testSimulator.vi"/>
 			</Item>
+			<Item Name="IntegrationTest" Type="Folder">
+				<Item Name="testSendCmd.vi" Type="VI" URL="../../tests/IntegrationTest/testSendCmd.vi"/>
+				<Item Name="testConnectTcpClient.vi" Type="VI" URL="../../tests/IntegrationTest/testConnectTcpClient.vi"/>
+				<Item Name="test1.vi" Type="VI" URL="../../tests/IntegrationTest/test1.vi"/>
+			</Item>
 			<Item Name="testAll.vi" Type="VI" URL="../../tests/testAll.vi"/>
 			<Item Name="testAllWithXmlReport.vi" Type="VI" URL="../../tests/testAllWithXmlReport.vi"/>
 			<Item Name="setDefaultServer.vi" Type="VI" URL="../../tests/setDefaultServer.vi"/>
