@@ -93,9 +93,23 @@
 				<Item Name="testSimulator.vi" Type="VI" URL="../../tests/simulator/testSimulator.vi"/>
 			</Item>
 			<Item Name="IntegrationTest" Type="Folder">
-				<Item Name="testSendCmd.vi" Type="VI" URL="../../tests/IntegrationTest/testSendCmd.vi"/>
-				<Item Name="testConnectTcpClient.vi" Type="VI" URL="../../tests/IntegrationTest/testConnectTcpClient.vi"/>
-				<Item Name="test1.vi" Type="VI" URL="../../tests/IntegrationTest/test1.vi"/>
+				<Item Name="testCase" Type="Folder">
+					<Item Name="testConnectDisconnect.vi" Type="VI" URL="../../tests/IntegrationTest/testCase/testConnectDisconnect.vi"/>
+					<Item Name="testSendCmdFromClient.vi" Type="VI" URL="../../tests/IntegrationTest/testCase/testSendCmdFromClient.vi"/>
+					<Item Name="testSendEvtFromClient.vi" Type="VI" URL="../../tests/IntegrationTest/testCase/testSendEvtFromClient.vi"/>
+					<Item Name="testSendEvtToClient.vi" Type="VI" URL="../../tests/IntegrationTest/testCase/testSendEvtToClient.vi"/>
+					<Item Name="testSendTelToClient.vi" Type="VI" URL="../../tests/IntegrationTest/testCase/testSendTelToClient.vi"/>
+					<Item Name="testSendTelFromClient.vi" Type="VI" URL="../../tests/IntegrationTest/testCase/testSendTelFromClient.vi"/>
+					<Item Name="testSendTelAndCmdFromClient.vi" Type="VI" URL="../../tests/IntegrationTest/testCase/testSendTelAndCmdFromClient.vi"/>
+					<Item Name="testSendTelToClientAndCmdFromClient.vi" Type="VI" URL="../../tests/IntegrationTest/testCase/testSendTelToClientAndCmdFromClient.vi"/>
+				</Item>
+				<Item Name="connectTcpClients.vi" Type="VI" URL="../../tests/IntegrationTest/connectTcpClients.vi"/>
+				<Item Name="disconnectTcpClients.vi" Type="VI" URL="../../tests/IntegrationTest/disconnectTcpClients.vi"/>
+				<Item Name="integrationTest.vi" Type="VI" URL="../../tests/IntegrationTest/integrationTest.vi"/>
+				<Item Name="receiveTelemetry.vi" Type="VI" URL="../../tests/IntegrationTest/receiveTelemetry.vi"/>
+				<Item Name="sendCmdFromTcpClient.vi" Type="VI" URL="../../tests/IntegrationTest/sendCmdFromTcpClient.vi"/>
+				<Item Name="sendTelFromTcpClient.vi" Type="VI" URL="../../tests/IntegrationTest/sendTelFromTcpClient.vi"/>
+				<Item Name="startTcpServer.vi" Type="VI" URL="../../tests/IntegrationTest/startTcpServer.vi"/>
 			</Item>
 			<Item Name="testAll.vi" Type="VI" URL="../../tests/testAll.vi"/>
 			<Item Name="testAllWithXmlReport.vi" Type="VI" URL="../../tests/testAllWithXmlReport.vi"/>
