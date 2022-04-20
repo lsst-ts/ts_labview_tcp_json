@@ -2,8 +2,9 @@
 
 0.4.1
 
-- Add **integrationTest.vi** in `test/` directory.
+- Add **integrationTest.vi** in `test/` directory and related tests.
 - Modify **testProcessEvt.vi**, **testSendCmdStatus.vi**, and **testSendEvent.vi** to avoid blocking test when an error is in the prevoius VI.
+- Modify timeout on `Jenkinsfile.labview`.
 
 0.4.0
 
