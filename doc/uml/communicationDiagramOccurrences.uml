@@ -1,0 +1,13 @@
+@startuml
+
+skinparam linestyle ortho
+rectangle "TcpServerCmd" as TSC
+rectangle "TcpServerTel" as TST
+rectangle "TcpServerBase" as TSB
+ 
+TSC --> TSC: waitStopServerOcc():\nstopServerOcc
+TST --> TST: waitStopServerOcc():\nstopServerOcc
+TSB --> TSC: setStopServerOcc():\nstopServerOcc
+TSB --> TST: setStopServerOcc():\nstopServerOcc
+
+@enduml

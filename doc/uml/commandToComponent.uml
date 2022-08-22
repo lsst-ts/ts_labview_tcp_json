@@ -3,7 +3,7 @@ skinparam linestyle ortho
 
 rectangle TcpClient as TC
 rectangle TcpServerCmd as TSC
-rectangle Component #66ff33
+rectangle TcpServer as TS
 
 rectangle queueTcpServer as QTS #F694CE
 
@@ -11,6 +11,6 @@ TC --> TSC : g1. write_cmd_and_wait_result()\nTCP Packet
 TSC --> QTS : g2. tcpServerStateMachine()\nqueueTcpServer
 QTS --> TSC : g3. tcpServerCallBack()\nTCP Packet
 TSC --> TSC : g4. processPacket()\nTCP Packet
-TSC --> Component : g5. processCmd()\nCmdRead UserEvent
+TSC --> TS : g5. processCmd()\nCmdToServer UserEvent
 
 @enduml

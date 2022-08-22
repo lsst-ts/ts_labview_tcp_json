@@ -184,16 +184,13 @@ Please define the telemetry with the `Telemetry Id` and `telDetails` strings, an
 ## Connection Status
 
 There is a VI called **getClientStatus&#46;vi** that allows you to know whether the connections between the TCP clients and TCP server are alive or not.
-It uses the **TcpServerBase.connStatusCluster.ctl** with the `areClientsConnected` enum, and the `connStatusMsg` string. 
-The enum has three options: (1) unchanged, (2) connected, and (3) unconnected. 
-If all the TCP clients connect to the TCP servers, a `GenRead` user event is triggered with the string message `Clients are on` and the `connected` value in the enum.
-If one of the TCP clients disconnects, a `GenRead` user event is triggered with the string message `Clients are off` and the `unconnected` value in the enum.
-The **TcpServer** will report the internal error or message by `connStatusMsg` string, and the enum of `areClientsConnected` will be "unchanged" at that time.
-If not, there should be something wrong in the **TcpServer**.
+
+If all TCP clients connect to TCP servers, a `ConnStatus` user event is triggered with the boolean `TRUE`.
+If one of the TCP clients disconnects, a `ConnStatus` user event is triggered with the boolean `FALSE`.
 
 ## TCP Server Internal Error Detection
 
-The `TcpServer` module uses the `GenRead` user event to send the explanation of the errors that occur internally.
+The `TcpServer` module uses the `GenToServer` user event to send the explanation of the errors that occur internally.
 The error is cleared by the module and the user has to manage it.
 The error explanation comes from the error LabVIEW internal database.
 

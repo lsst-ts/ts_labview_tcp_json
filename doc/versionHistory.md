@@ -1,5 +1,17 @@
 # Version History
 
+0.4.2
+
+- Add `ConnStatus` user event and `stopServerProcess` notifier to `TcpServer` attributes.
+- Move `CmdRead`, `EvRead`, and `GenRead` user events from `TcpServerCmd` attributes to `TcpServer` attributes.
+- Add **getInstanceConnStatus.vi**, **createNotifier.vi**, **releaseNotifier.vi**, **sendPacketsToComponent.vi**, **stopServerProcess.vi**, and **waitToStopServerProcess.vi** to `TcpServer` class.
+- Add `CmdToServer` and `EvtToServer` user events to `TcpServerCmd` class.
+- Add `GenToServer` user event to `TcpServerBase` attributes.
+- Add **testGetInstanceConnStatus.vi**.
+- Create `communicationDiagramNotifiers.uml` and `communicationDiagramOccurences.uml` in `doc/uml` directory. 
+- Modify `communicationDiagram.md` with new user events, notifiers, and occurrences in `doc/` directory.
+- Update `userManual.md` with new user events in `doc/` directory.
+
 0.4.1
 
 - Add **integrationTest.vi** in `test/` directory and related tests.

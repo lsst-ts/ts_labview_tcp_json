@@ -108,13 +108,13 @@ The Communication Diagram for this is in [here](../doc/uml/getTelElement.uml).
 
 The Communication Diagram for this is in [here](../doc/uml/telemetryToComponent.uml).
 
-### Send Command from TC Client to Component
+### Send Command from TCP Client to Component
 
 - g1. TCP Client sends a command with the **write_cmd_and_wait_result** function.
 - g2. This command is received as a TCP Packet by the **tcpServerStateMachine&#46;vi**, and is enqueued into `queueTcpServer` queue.
 - g3. The **tcpServerCallBack&#46;vi** dequeues element received.
 - g4. The **processPacket&#46;vi** checks if is a command or an event.
-- g5. The **processCmd&#46;vi** checks if the command is registered or not, and sends it as an `user event` with the `CmdRead` reference.
+- g5. The **processCmd&#46;vi** checks if the command is registered or not, and sends it as an `user event` with the `CmdToServer` reference.
 
 ![sendTel](./images/commandToComponent.png)
 

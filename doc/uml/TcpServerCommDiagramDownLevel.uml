@@ -2,7 +2,12 @@
 skinparam linestyle ortho
 rectangle "TcpServer" as TS
 rectangle "TcpServerCmd" as TSC
+rectangle "TcpServerBase" as TSB
  
-TS --> TSC: sendEvt():\nEvtWrite
+TSB --> TS: clearErrorAndSendExplanation():\nGenToServer
 TS --> TSC: sendCmdStatus():\nCmdWrite
+TS --> TSC: sendEvt():\nEvtWrite
+TSC --> TS: processCmd():\nCmdToServer
+TSC --> TS: processEvt():\nEvtToServer
+
 @enduml

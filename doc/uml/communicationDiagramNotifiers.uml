@@ -1,0 +1,9 @@
+@startuml
+skinparam linestyle ortho
+rectangle "TcpServer" as TS
+rectangle "TcpServerBase" as TSB
+ 
+TSB --> TS: sendServerNotification():\nserverStatusNotifier
+TS --> TS: stopServerProcess():\nstopServerProcess
+
+@enduml

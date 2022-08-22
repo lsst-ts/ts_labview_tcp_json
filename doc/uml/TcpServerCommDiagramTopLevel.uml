@@ -1,10 +1,9 @@
 @startuml
 rectangle "TcpServer" as TS
-rectangle "ComponentSimulator" as CS
-rectangle "TcpServerCmd" as TSC
+rectangle "Component" as COM
 
-TSC --> CS: processCmd():\nCmdRead
-TSC --> CS: processEvt():\nEvtRead
-TS --> CS: getClientStatus():\nGenRead
-TSC --> CS: processPacket():\nGenRead
+TS --> COM: getClientStatus():\nConnStatus
+TS --> COM: sendPacketsToComponent():\nCmdRead
+TS --> COM: sendPacketsToComponent():\nEvtRead
+TS --> COM: sendPacketsToComponent():\nGenRead
 @enduml
