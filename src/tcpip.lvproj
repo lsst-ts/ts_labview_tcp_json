@@ -58,6 +58,7 @@
 					<Item Name="testGetInstanceCmd.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetInstanceCmd.vi"/>
 					<Item Name="testGetInstanceEvt.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetInstanceEvt.vi"/>
 					<Item Name="testGetInstanceGen.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetInstanceGen.vi"/>
+					<Item Name="testGetInstanceConnStatus.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetInstanceConnStatus.vi"/>
 					<Item Name="testGetTelElement.vi" Type="VI" URL="../../tests/TcpServer/testCase/testGetTelElement.vi"/>
 					<Item Name="testIsTelQueueToDdsFull.vi" Type="VI" URL="../../tests/TcpServer/testCase/testIsTelQueueToDdsFull.vi"/>
 					<Item Name="testIsQueueTcpClientFromDdsFull.vi" Type="VI" URL="../../tests/TcpServer/testCase/testIsQueueTcpClientFromDdsFull.vi"/>
