@@ -1,5 +1,12 @@
 # Version History
 
+0.4.2
+
+- Replace **General Error Handler.vi** with **Unbundle By Name** function to create the string with error code and error source in **TcpServerBase.clearErrorAndSendExplanation.vi.**
+- Remove **Quit LabVIEW** function in **ComponentSimulator.vi**.
+- Add Property Nodes with `App.Kind` and `App.Dir` options to get the right path to the `default.ini` file in the build application.
+- Remove **Read_timeoutStatusNotifier.vi**, **Write_timeoutStatusNotifier.vi**, **publishTel.vi**, and **Read_telQueueClient.vi** from project directory, because they are not being used in code.
+
 0.4.1
 
 - Add **integrationTest.vi** in `test/` directory and related tests.
