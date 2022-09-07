@@ -133,3 +133,18 @@ Note:
 
 1. You can only stop the Simulator Component if you stop the TCP Server before.
 2. If you want to stop the TCP Client while the TCP Server is running, the Server will wait for a new TCP Client connection.
+
+## General Comments
+
+- The **ComponentSimulator.vi** uses property nodes to modify control and indicator values, for visual behavior only.
+If you want to use this vi as a top-level vi and want to compile it in a real-time target, avoid using property nodes.
+Since in real-time target there is no front panel, no value will be written to the front panel controls and indicators, and this can cause unexpected vi behavior, as is explained in [this document](https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000000kGsVSAU&l=en-US).
+- If you want to use this simulator in a real-time target, create the build specification, go to the properties, and follow this:
+    - Go to `Source Files` category and add the `default.ini` file in the `Always Included` box.
+    - Go to `Destinations` category and click the blue cross (+) under the `Destination` box to create a new directory.
+    Name it `config` and modify the path in the `Destination path` box as `/home/lvuser/natinst/config`.
+    - Go to `Source File Settings` category, click the `default.ini` file in the `Porject Files` box, and select `config` in the `Destination` combo box.
+    - Go to `Preview` category and click `Generate Preview`.
+    The preview files structure has to be like the following image:
+    
+    ![preview](../doc/images/preview.png)
