@@ -197,11 +197,14 @@ The `TcpServer` module uses the `GenRead` user event to send the explanation of 
 The error is cleared by the module and the user has to manage it.
 
 The **TcpServerBase.clearErrorAndSendExplanation.vi** sends the generic user event string with the error code and the source of the error.
+
 It was not possible to get the `Possible reason(s)` of error, because the vis that get this information are **Simple Error Handler.vi** and **General Error Handler.vi**, but they have internally two vis that are not supported in real-time targets.
 We tried to find a solution on NI forums without success.
 We went deep inside these mentioned LabVIEW functions, and found how LabVIEW searches into an internal error database, using a private function called **Error Code Database.vi** as part of the **error.llb**.
-However, we did not use this vi because is not a public vi and a non-maintainable vi.
+However, we did not use this vi because it is not a public vi and a non-maintainable vi.
 
+Follow the [General LabVIEW Error Codes](https://www.ni.com/docs/en-US/bundle/labview/page/lverror/misc_lv_error_codes.html) NI document to get the error description based on the error code.
+In this [Error List](https://labviewwiki.org/wiki/Error_List) document from the LabVIEW Wiki there are more errors divided into ranges of families primarly based on the source or toolkit.
 
 ## Server Configuration Cluster
 

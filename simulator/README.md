@@ -145,6 +145,6 @@ Since in real-time target there is no front panel, no value will be written to t
     Name it `config` and modify the path in the `Destination path` box as `/home/lvuser/natinst/config`.
     - Go to `Source File Settings` category, click the `default.ini` file in the `Porject Files` box, and select `config` in the `Destination` combo box.
     - Go to `Preview` category and click `Generate Preview`.
-    The preview files structure has to be like the following image:
+   The preview should look like the following:
     
     ![preview](../doc/images/preview.png)
