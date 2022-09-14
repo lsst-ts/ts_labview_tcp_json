@@ -1,5 +1,12 @@
 # Version History
 
+0.4.3
+
+- Modify `GenRead` user event data type replacing the enum with the boolean.
+- Create the **TcpServerBase.checkInputAndBroadcast.vi**.
+- Rename the `connStatusMsg` string by `message` in **TcpServerBase.connStatusCluster.ctl**.
+- Separate compiled code from source file in **TcpServerTel.destroyQueueTcpClientFromDds.vi**, **testTelToClient.vi**, and **testTcpServerTel.vi**. 
+
 0.4.2
 
 - Replace **General Error Handler.vi** with **Unbundle By Name** function to create the string with error code and error source in **TcpServerBase.clearErrorAndSendExplanation.vi.**

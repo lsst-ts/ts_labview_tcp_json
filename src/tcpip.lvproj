@@ -18,6 +18,7 @@
 				<Item Name="testCase" Type="Folder">
 					<Item Name="testCreateNotifier.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCreateNotifier.vi"/>
 					<Item Name="testCreateQueues.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCreateQueues.vi"/>
+					<Item Name="testCheckInputAndBroadcast.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCheckInputAndBroadcast.vi"/>
 					<Item Name="testCheckListOfRegMsg.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCheckListOfRegMsg.vi"/>
 					<Item Name="testFlushQueueTcpClient.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testFlushQueueTcpClient.vi"/>
 					<Item Name="testGetServerNotifier(base).vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testGetServerNotifier(base).vi"/>
