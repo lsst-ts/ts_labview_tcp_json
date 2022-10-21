@@ -1,5 +1,11 @@
 # Version History
 
+0.4.4
+
+- Add **convertToKeyValuePair_unsignedInteger.vi**.
+- Update **testConvertToKeyValuePair.vi**.
+- Update `README.md`.
+
 0.4.3
 
 - Modify `GenRead` user event data type replacing the enum with the boolean.

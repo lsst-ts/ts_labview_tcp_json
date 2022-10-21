@@ -94,6 +94,7 @@ Data types provided are:
 
 - Numeric Double.
 - Numeric Integer.
+- Numeric Unsigned Integer.
 - String.
 - Boolean.
 - Numeric 1D-Array.
