@@ -93,7 +93,8 @@ We provide the polymorphic vi to simplify the use by the LabVIEW component.
 Data types provided are:
 
 - Numeric Double.
-- Numeric Integer.
+- Numeric Integer (I32).
+- Numeric Unsigned Integer (U32).
 - String.
 - Boolean.
 - Numeric 1D-Array.
