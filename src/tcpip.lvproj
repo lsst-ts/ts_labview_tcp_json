@@ -149,9 +149,11 @@
 				<Item Name="convertToKeyValuePair_2DArray.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_2DArray.vi"/>
 				<Item Name="convertToKeyValuePair_boolean.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_boolean.vi"/>
 				<Item Name="convertToKeyValuePair_double.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_double.vi"/>
-				<Item Name="convertToKeyValuePair_integer.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_integer.vi"/>
+				<Item Name="convertToKeyValuePair_integer32bit.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_integer32bit.vi"/>
+				<Item Name="convertToKeyValuePair_integer64bit.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_integer64bit.vi"/>
 				<Item Name="convertToKeyValuePair_string.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_string.vi"/>
-				<Item Name="convertToKeyValuePair_unsignedInteger.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_unsignedInteger.vi"/>
+				<Item Name="convertToKeyValuePair_unsignedInteger32bit.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_unsignedInteger32bit.vi"/>
+				<Item Name="convertToKeyValuePair_unsignedInteger64bit.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_unsignedInteger64bit.vi"/>
 				<Item Name="arrayToStringWithBrackets.vi" Type="VI" URL="../Utility/keyValuePair/arrayToStringWithBrackets.vi"/>
 			</Item>
 			<Item Name="buildPathFromStrArr.vi" Type="VI" URL="../Utility/buildPathFromStrArr.vi"/>

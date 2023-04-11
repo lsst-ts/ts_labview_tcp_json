@@ -1,5 +1,11 @@
 # Version History
 
+0.4.5
+
+- Rename **convertToKeyValuePair_integer.vi** to **convertToKeyValuePair_integer32bit.vi**.
+- Rename **convertToKeyValuePair_unsignedInteger.vi** to **convertToKeyValuePair_unsignedInteger32bit.vi**.
+- Create **convertToKeyValuePair_integer64bit.vi** and **convertToKeyValuePair_unsignedInteger64bit.vi**.
+
 0.4.4
 
 - Add **convertToKeyValuePair_unsignedInteger.vi**.
