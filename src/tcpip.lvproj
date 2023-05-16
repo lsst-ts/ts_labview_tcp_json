@@ -114,6 +114,25 @@
 				<Item Name="sendTelFromTcpClient.vi" Type="VI" URL="../../tests/IntegrationTest/sendTelFromTcpClient.vi"/>
 				<Item Name="startTcpServer.vi" Type="VI" URL="../../tests/IntegrationTest/startTcpServer.vi"/>
 			</Item>
+			<Item Name="ServerInstancesTest" Type="Folder">
+				<Item Name="testCase" Type="Folder">
+					<Item Name="testConfigServersAandB.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testConfigServersAandB.vi"/>
+					<Item Name="testCreateTCPIPConnectionServersAandB.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testCreateTCPIPConnectionServersAandB.vi"/>
+					<Item Name="testGetConnStatusFromServersAandB.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testGetConnStatusFromServersAandB.vi"/>
+					<Item Name="testGetInstanceGenServersAandB.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testGetInstanceGenServersAandB.vi"/>
+					<Item Name="testRegCmdServersAandB.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testRegCmdServersAandB.vi"/>
+					<Item Name="testRegEvtServersAandB.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testRegEvtServersAandB.vi"/>
+					<Item Name="testSendCmdStatusServersAandB.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testSendCmdStatusServersAandB.vi"/>
+					<Item Name="testSendEvtServersAandB.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testSendEvtServersAandB.vi"/>
+					<Item Name="testStopServersAandB.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testStopServersAandB.vi"/>
+					<Item Name="testTriggerGenUserEventServerAandB.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testTriggerGenUserEventServerAandB.vi"/>
+				</Item>
+				<Item Name="serverInstancesTest.vi" Type="VI" URL="../../tests/ServerInstancesTest/serverInstancesTest.vi"/>
+				<Item Name="setDefaultServerA.vi" Type="VI" URL="../../tests/ServerInstancesTest/setDefaultServerA.vi"/>
+				<Item Name="setDefaultServerB.vi" Type="VI" URL="../../tests/ServerInstancesTest/setDefaultServerB.vi"/>
+				<Item Name="startTcpServerA.vi" Type="VI" URL="../../tests/ServerInstancesTest/startTcpServerA.vi"/>
+				<Item Name="startTcpServerB.vi" Type="VI" URL="../../tests/ServerInstancesTest/startTcpServerB.vi"/>
+			</Item>
 			<Item Name="testAll.vi" Type="VI" URL="../../tests/testAll.vi"/>
 			<Item Name="testAllWithXmlReport.vi" Type="VI" URL="../../tests/testAllWithXmlReport.vi"/>
 			<Item Name="setDefaultServer.vi" Type="VI" URL="../../tests/setDefaultServer.vi"/>
