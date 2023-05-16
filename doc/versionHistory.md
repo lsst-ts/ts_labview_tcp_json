@@ -1,5 +1,9 @@
 # Version History
 
+0.4.5
+
+- Add the `ServerInstancesTest` directory with test cases to analyze why TCP/IP module can not run multiple instances.
+
 0.4.4
 
 - Add **convertToKeyValuePair_unsignedInteger.vi**.
