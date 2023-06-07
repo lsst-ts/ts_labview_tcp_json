@@ -1,5 +1,9 @@
 # Version History
 
+0.4.6
+
+- Create `ServerInstancesTest` directory with test cases in order to understand why TCP/IP module can not run multiple instances.
+
 0.4.5
 
 - Rename **convertToKeyValuePair_integer.vi** to **convertToKeyValuePair_integer32bit.vi**.
