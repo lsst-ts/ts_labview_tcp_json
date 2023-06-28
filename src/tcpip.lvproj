@@ -104,13 +104,12 @@
 					<Item Name="testSendTelAndCmdFromClient.vi" Type="VI" URL="../../tests/IntegrationTest/testCase/testSendTelAndCmdFromClient.vi"/>
 					<Item Name="testSendTelToClientAndCmdToServer.vi" Type="VI" URL="../../tests/IntegrationTest/testCase/testSendTelToClientAndCmdToServer.vi"/>
 				</Item>
+				<Item Name="integrationTest.vi" Type="VI" URL="../../tests/IntegrationTest/integrationTest.vi"/>
 				<Item Name="connectTcpClients.vi" Type="VI" URL="../../tests/IntegrationTest/connectTcpClients.vi"/>
 				<Item Name="disconnectTcpClients.vi" Type="VI" URL="../../tests/IntegrationTest/disconnectTcpClients.vi"/>
-				<Item Name="integrationTest.vi" Type="VI" URL="../../tests/IntegrationTest/integrationTest.vi"/>
 				<Item Name="removeEmptyStrings.vi" Type="VI" URL="../../tests/IntegrationTest/removeEmptyStrings.vi"/>
 				<Item Name="readTcpPackets.vi" Type="VI" URL="../../tests/IntegrationTest/readTcpPackets.vi"/>
 				<Item Name="sendAndReadTelemetry.vi" Type="VI" URL="../../tests/IntegrationTest/sendAndReadTelemetry.vi"/>
-				<Item Name="sendCmdFromTcpClient.vi" Type="VI" URL="../../tests/IntegrationTest/sendCmdFromTcpClient.vi"/>
 				<Item Name="sendTelFromTcpClient.vi" Type="VI" URL="../../tests/IntegrationTest/sendTelFromTcpClient.vi"/>
 				<Item Name="startTcpServer.vi" Type="VI" URL="../../tests/IntegrationTest/startTcpServer.vi"/>
 			</Item>
@@ -118,6 +117,7 @@
 				<Item Name="testCase" Type="Folder">
 					<Item Name="testConfigServersAandB.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testConfigServersAandB.vi"/>
 					<Item Name="testCreateTcpIpConnectionServersAandB.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testCreateTcpIpConnectionServersAandB.vi"/>
+					<Item Name="testCreateMultipleTcpIpConnectionsServersAandB.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testCreateMultipleTcpIpConnectionsServersAandB.vi"/>
 					<Item Name="testGetInstanceGenServersAandB.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testGetInstanceGenServersAandB.vi"/>
 					<Item Name="testRegCmdServersAandB.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testRegCmdServersAandB.vi"/>
 					<Item Name="testRegEvtServersAandB.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testRegEvtServersAandB.vi"/>
@@ -126,8 +126,27 @@
 					<Item Name="testSendEvtServersAandB.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testSendEvtServersAandB.vi"/>
 					<Item Name="testSendTelServersAandB.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testSendTelServersAandB.vi"/>
 					<Item Name="testStopServersAandB.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testStopServersAandB.vi"/>
+					<Item Name="testTwoClientsSendCmdAtSameTime.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testTwoClientsSendCmdAtSameTime.vi"/>
+					<Item Name="testTwoClientsSendEventsAtSameTime.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testTwoClientsSendEventsAtSameTime.vi"/>
+					<Item Name="testTwoClientsSendTelemetryAtSameTime.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testTwoClientsSendTelemetryAtSameTime.vi"/>
+					<Item Name="testTwoServersSendCmdStatusToClientsAtSameTime.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testTwoServersSendCmdStatusToClientsAtSameTime.vi"/>
+					<Item Name="testTwoServersSendEventsToClientsAtSameTime.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testTwoServersSendEventsToClientsAtSameTime.vi"/>
+					<Item Name="testTwoServersSendTelemetryAtSameTime.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testTwoServersSendTelemetryAtSameTime.vi"/>
+					<Item Name="testTwoServersReportConnStatus.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testTwoServersReportConnStatus.vi"/>
+					<Item Name="testTwoServersReportInternalError.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testTwoServersReportInternalError.vi"/>
+					<Item Name="testTwoServersReportLogMessages.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testTwoServersReportLogMessages.vi"/>
+					<Item Name="testUserStopsServersAandB.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testUserStopsServersAandB.vi"/>
 				</Item>
 				<Item Name="serverInstancesTest.vi" Type="VI" URL="../../tests/ServerInstancesTest/serverInstancesTest.vi"/>
+				<Item Name="generateInternalError.vi" Type="VI" URL="../../tests/ServerInstancesTest/generateInternalError.vi"/>
+				<Item Name="sendCmdFromTcpClient.vi" Type="VI" URL="../../tests/ServerInstancesTest/sendCmdFromTcpClient.vi"/>
+				<Item Name="sendEventsFromTcpClient.vi" Type="VI" URL="../../tests/ServerInstancesTest/sendEventsFromTcpClient.vi"/>
+				<Item Name="sendEventToClient.vi" Type="VI" URL="../../tests/ServerInstancesTest/sendEventToClient.vi"/>
+				<Item Name="sendLogMessage.vi" Type="VI" URL="../../tests/ServerInstancesTest/sendLogMessage.vi"/>
+				<Item Name="connectTcpClientA.vi" Type="VI" URL="../../tests/ServerInstancesTest/connectTcpClientA.vi"/>
+				<Item Name="connectTcpClientB.vi" Type="VI" URL="../../tests/ServerInstancesTest/connectTcpClientB.vi"/>
+				<Item Name="disconnectTcpClient.vi" Type="VI" URL="../../tests/ServerInstancesTest/disconnectTcpClient.vi"/>
+				<Item Name="readTcpPacketAsString.vi" Type="VI" URL="../../tests/ServerInstancesTest/readTcpPacketAsString.vi"/>
 				<Item Name="setDefaultServerA.vi" Type="VI" URL="../../tests/ServerInstancesTest/setDefaultServerA.vi"/>
 				<Item Name="setDefaultServerB.vi" Type="VI" URL="../../tests/ServerInstancesTest/setDefaultServerB.vi"/>
 				<Item Name="startTcpServerA.vi" Type="VI" URL="../../tests/ServerInstancesTest/startTcpServerA.vi"/>

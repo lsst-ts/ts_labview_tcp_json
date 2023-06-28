@@ -1,5 +1,9 @@
 # Version History
 
+0.4.7
+
+- Create more test cases in the `ServerInstancesTest` directory to test whether or not two TCP servers can send commands, events, and telementry to two TCP clients, and vice versa.
+
 0.4.6
 
 - Create `ServerInstancesTest` directory with test cases in order to understand why TCP/IP module can not run multiple instances.
