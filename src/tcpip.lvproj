@@ -78,7 +78,8 @@
 				<Item Name="keyValuePair" Type="Folder">
 					<Item Name="testCase" Type="Folder">
 						<Item Name="testConvertToKeyValuePair.vi" Type="VI" URL="../../tests/Utility/keyValuePair/testCase/testConvertToKeyValuePair.vi"/>
-						<Item Name="testArrayToStringWithBrackets.vi" Type="VI" URL="../../tests/Utility/keyValuePair/testCase/testArrayToStringWithBrackets.vi"/>
+						<Item Name="testDoubleArrayToStringWithBrackets.vi" Type="VI" URL="../../tests/Utility/keyValuePair/testCase/testDoubleArrayToStringWithBrackets.vi"/>
+						<Item Name="testStringArrayToStringWithBrackets.vi" Type="VI" URL="../../tests/Utility/keyValuePair/testCase/testStringArrayToStringWithBrackets.vi"/>
 						<Item Name="testConvertToKeyValuePairWithJSON.vi" Type="VI" URL="../../tests/Utility/keyValuePair/testCase/testConvertToKeyValuePairWithJSON.vi"/>
 					</Item>
 				</Item>
@@ -183,8 +184,9 @@
 		<Item Name="Utility" Type="Folder">
 			<Item Name="keyValuePair" Type="Folder">
 				<Item Name="convertToKeyValuePair.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair.vi"/>
-				<Item Name="convertToKeyValuePair_1DArray.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_1DArray.vi"/>
-				<Item Name="convertToKeyValuePair_2DArray.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_2DArray.vi"/>
+				<Item Name="convertToKeyValuePair_1Ddouble.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_1Ddouble.vi"/>
+				<Item Name="convertToKeyValuePair_2Ddouble.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_2Ddouble.vi"/>
+				<Item Name="convertToKeyValuePair_1Dstring.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_1Dstring.vi"/>
 				<Item Name="convertToKeyValuePair_boolean.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_boolean.vi"/>
 				<Item Name="convertToKeyValuePair_double.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_double.vi"/>
 				<Item Name="convertToKeyValuePair_integer32bit.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_integer32bit.vi"/>
@@ -192,7 +194,8 @@
 				<Item Name="convertToKeyValuePair_string.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_string.vi"/>
 				<Item Name="convertToKeyValuePair_unsignedInteger32bit.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_unsignedInteger32bit.vi"/>
 				<Item Name="convertToKeyValuePair_unsignedInteger64bit.vi" Type="VI" URL="../Utility/keyValuePair/convertToKeyValuePair_unsignedInteger64bit.vi"/>
-				<Item Name="arrayToStringWithBrackets.vi" Type="VI" URL="../Utility/keyValuePair/arrayToStringWithBrackets.vi"/>
+				<Item Name="doubleArrayToStringWithBrackets.vi" Type="VI" URL="../Utility/keyValuePair/doubleArrayToStringWithBrackets.vi"/>
+				<Item Name="stringArrayToStringWithBrackets.vi" Type="VI" URL="../Utility/keyValuePair/stringArrayToStringWithBrackets.vi"/>
 			</Item>
 			<Item Name="buildPathFromStrArr.vi" Type="VI" URL="../Utility/buildPathFromStrArr.vi"/>
 		</Item>

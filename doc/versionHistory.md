@@ -1,5 +1,14 @@
 # Version History
 
+0.4.8
+
+- Add **convertToKeyValuePair_1Dstring.vi**, **stringArrayToStringWithBrackets.vi**, and **testStringArrayToStringWithBrackets.vi**.
+- Rename **convertToKeyValuePair_1DArray.vi** to **convertToKeyValuePair_1Ddouble.vi**.
+- Rename **convertToKeyValuePair_2DArray.vi** to **convertToKeyValuePair_2Ddouble.vi**.
+- Rename **arrayToStringWithBrackets.vi** to **doubleArrayToStringWithBrackets.vi**.
+- Rename **testArrayToStringWithBrackets.vi** to **testDoubleArrayToStringWithBrackets.vi**.
+- Update **testConvertToKeyValuePair.vi** and **testConvertToKeyValuePairWithJSON.vi**.
+
 0.4.7
 
 - Create more test cases in the `ServerInstancesTest` directory to test whether or not two TCP servers can send commands, events, and telementry to two TCP clients, and vice versa.
