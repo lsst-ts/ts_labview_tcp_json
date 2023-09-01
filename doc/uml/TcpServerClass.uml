@@ -1,6 +1,9 @@
 @startuml
+Interface TcpServer
+FactoryTcpServer ..> TcpServer
+TcpServer ..|> TcpServerA
 TcpServerBase <|-- TcpServerCmd
 TcpServerBase <|-- TcpServerTel
-TcpServer *-- TcpServerCmd
-TcpServer *-- TcpServerTel
+TcpServerA *-- TcpServerCmd
+TcpServerA *-- TcpServerTel
 @enduml
