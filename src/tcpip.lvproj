@@ -14,16 +14,22 @@
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="tests" Type="Folder">
+			<Item Name="FactoryTcpServer" Type="Folder">
+				<Item Name="testCase" Type="Folder">
+					<Item Name="testCreateTcpServer.vi" Type="VI" URL="../../tests/FactoryTcpServer/testCase/testCreateTcpServer.vi"/>
+				</Item>
+				<Item Name="testFactoryTcpServer.vi" Type="VI" URL="../../tests/FactoryTcpServer/testFactoryTcpServer.vi"/>
+			</Item>
 			<Item Name="TcpServerBase" Type="Folder">
 				<Item Name="testCase" Type="Folder">
 					<Item Name="testCreateNotifier.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCreateNotifier.vi"/>
+					<Item Name="testCreateNotifierStopServer.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCreateNotifierStopServer.vi"/>
 					<Item Name="testCreateQueues.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCreateQueues.vi"/>
 					<Item Name="testCheckInputAndBroadcast.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCheckInputAndBroadcast.vi"/>
 					<Item Name="testCheckListOfRegMsg.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCheckListOfRegMsg.vi"/>
 					<Item Name="testFlushQueueTcpClient.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testFlushQueueTcpClient.vi"/>
 					<Item Name="testGetServerNotifier(base).vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testGetServerNotifier(base).vi"/>
 					<Item Name="testMsgDetailsToJSON.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testMsgDetailsToJSON.vi"/>
-					<Item Name="testRegStopServerOcc.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testRegStopServerOcc.vi"/>
 					<Item Name="testSendServerNotification.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testSendServerNotification.vi"/>
 					<Item Name="testClearErrorAndSendExplanation.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testClearErrorAndSendExplanation.vi"/>
 				</Item>
@@ -127,6 +133,7 @@
 					<Item Name="testSendEvtServersAandB.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testSendEvtServersAandB.vi"/>
 					<Item Name="testSendTelServersAandB.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testSendTelServersAandB.vi"/>
 					<Item Name="testStopServersAandB.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testStopServersAandB.vi"/>
+					<Item Name="testStopServersAandBMultipleTimes.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testStopServersAandBMultipleTimes.vi"/>
 					<Item Name="testTwoClientsSendCmdAtSameTime.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testTwoClientsSendCmdAtSameTime.vi"/>
 					<Item Name="testTwoClientsSendEventsAtSameTime.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testTwoClientsSendEventsAtSameTime.vi"/>
 					<Item Name="testTwoClientsSendTelemetryAtSameTime.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testTwoClientsSendTelemetryAtSameTime.vi"/>
@@ -139,15 +146,16 @@
 					<Item Name="testUserStopsServersAandB.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testUserStopsServersAandB.vi"/>
 				</Item>
 				<Item Name="serverInstancesTest.vi" Type="VI" URL="../../tests/ServerInstancesTest/serverInstancesTest.vi"/>
+				<Item Name="connectTcpClientA.vi" Type="VI" URL="../../tests/ServerInstancesTest/connectTcpClientA.vi"/>
+				<Item Name="connectTcpClientB.vi" Type="VI" URL="../../tests/ServerInstancesTest/connectTcpClientB.vi"/>
+				<Item Name="disconnectTcpClient.vi" Type="VI" URL="../../tests/ServerInstancesTest/disconnectTcpClient.vi"/>
 				<Item Name="generateInternalError.vi" Type="VI" URL="../../tests/ServerInstancesTest/generateInternalError.vi"/>
+				<Item Name="instantiateTwoTcpServer.vi" Type="VI" URL="../../tests/ServerInstancesTest/instantiateTwoTcpServer.vi"/>
+				<Item Name="readTcpPacketAsString.vi" Type="VI" URL="../../tests/ServerInstancesTest/readTcpPacketAsString.vi"/>
 				<Item Name="sendCmdFromTcpClient.vi" Type="VI" URL="../../tests/ServerInstancesTest/sendCmdFromTcpClient.vi"/>
 				<Item Name="sendEventsFromTcpClient.vi" Type="VI" URL="../../tests/ServerInstancesTest/sendEventsFromTcpClient.vi"/>
 				<Item Name="sendEventToClient.vi" Type="VI" URL="../../tests/ServerInstancesTest/sendEventToClient.vi"/>
 				<Item Name="sendLogMessage.vi" Type="VI" URL="../../tests/ServerInstancesTest/sendLogMessage.vi"/>
-				<Item Name="connectTcpClientA.vi" Type="VI" URL="../../tests/ServerInstancesTest/connectTcpClientA.vi"/>
-				<Item Name="connectTcpClientB.vi" Type="VI" URL="../../tests/ServerInstancesTest/connectTcpClientB.vi"/>
-				<Item Name="disconnectTcpClient.vi" Type="VI" URL="../../tests/ServerInstancesTest/disconnectTcpClient.vi"/>
-				<Item Name="readTcpPacketAsString.vi" Type="VI" URL="../../tests/ServerInstancesTest/readTcpPacketAsString.vi"/>
 				<Item Name="setDefaultServerA.vi" Type="VI" URL="../../tests/ServerInstancesTest/setDefaultServerA.vi"/>
 				<Item Name="setDefaultServerB.vi" Type="VI" URL="../../tests/ServerInstancesTest/setDefaultServerB.vi"/>
 				<Item Name="startTcpServerA.vi" Type="VI" URL="../../tests/ServerInstancesTest/startTcpServerA.vi"/>
@@ -165,6 +173,9 @@
 				<Item Name="readConfigEvtTel.vi" Type="VI" URL="../../simulator/configFile/readConfigEvtTel.vi"/>
 			</Item>
 			<Item Name="ComponentSimulator.vi" Type="VI" URL="../../simulator/ComponentSimulator.vi"/>
+		</Item>
+		<Item Name="FactoryTcpServer" Type="Folder">
+			<Item Name="FactoryTcpServer.lvclass" Type="LVClass" URL="../FactoryTcpServer/FactoryTcpServer.lvclass"/>
 		</Item>
 		<Item Name="TcpServerBase" Type="Folder">
 			<Item Name="TcpServerBase.lvclass" Type="LVClass" URL="../TcpServerBase/TcpServerBase.lvclass"/>
