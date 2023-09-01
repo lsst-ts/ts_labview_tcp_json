@@ -1,5 +1,12 @@
 # Version History
 
+0.4.9
+
+- Create the **FactoryTcpServer** class, **createTcpServer.vi**, **Read_currentNumber.vi**, and **Write_currentNumber.vi**.
+- Create the `notifierStopServer` to inform the `TcpServer` instances to stop.
+- Create the **destroyReferences.vi** to destroy notifier and user event references after the TCP servers are stopped.
+- Remove the LabVIEW occurrences to stop the TCP servers.
+
 0.4.8
 
 - Add **convertToKeyValuePair_1Dstring.vi**, **stringArrayToStringWithBrackets.vi**, and **testStringArrayToStringWithBrackets.vi**.
