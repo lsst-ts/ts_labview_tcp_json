@@ -3,4 +3,5 @@ TcpServerBase <|-- TcpServerCmd
 TcpServerBase <|-- TcpServerTel
 TcpServer *-- TcpServerCmd
 TcpServer *-- TcpServerTel
+FactoryTcpServer --> TcpServer
 @enduml
