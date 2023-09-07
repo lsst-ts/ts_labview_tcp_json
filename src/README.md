@@ -39,7 +39,7 @@ labview64 src/buildApp.vi
 There is a class called **TcpServerBase** that is the parent.
 This class has two children: a class called **TcpServerCmd**, to handle commands and events, and a class called **TcpServerTel**, to handle telemetry messages.
 Both children are part of the **TcpServer** class.
-The **FactoryTcpServer** class instantiates one or more **TcpServer** depending on how many times the `createTcpServer` method is called.
+The **FactoryTcpServer** class instantiates one or more **TcpServer** depending on how many times the `createTcpServer()` method is called.
 
 The class diagram is in `doc/uml` directory.
 You can follow [here](../doc/uml/TcpServerClass.uml) for detailes.
@@ -132,6 +132,7 @@ If all Python TCP Client instances are connected again, a generic user event is 
 This uses the `GenRead` user event.
 This function is located in every process that needs to send the errors.
 The user must manage them.
+- The `TcpServerBase.waitNotifierStopServer.vi` waits for the notifier to stop the TCP server.
+This is set as preallocated clone reentrant execution.
 - The `TcpServer.getClientStatus.vi` gets the notification from TCP Server that TCP Client connects or disconnects and then sends an user event to the Component.
 This uses the `GenRead` user event with the boolean `connStatus`.
-

@@ -22,8 +22,6 @@
 			</Item>
 			<Item Name="TcpServerBase" Type="Folder">
 				<Item Name="testCase" Type="Folder">
-					<Item Name="testCreateNotifier.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCreateNotifier.vi"/>
-					<Item Name="testCreateNotifierStopServer.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCreateNotifierStopServer.vi"/>
 					<Item Name="testCreateQueues.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCreateQueues.vi"/>
 					<Item Name="testCheckInputAndBroadcast.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCheckInputAndBroadcast.vi"/>
 					<Item Name="testCheckListOfRegMsg.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCheckListOfRegMsg.vi"/>
@@ -148,6 +146,7 @@
 				<Item Name="serverInstancesTest.vi" Type="VI" URL="../../tests/ServerInstancesTest/serverInstancesTest.vi"/>
 				<Item Name="connectTcpClientA.vi" Type="VI" URL="../../tests/ServerInstancesTest/connectTcpClientA.vi"/>
 				<Item Name="connectTcpClientB.vi" Type="VI" URL="../../tests/ServerInstancesTest/connectTcpClientB.vi"/>
+				<Item Name="destroyReferencesTwoTcpServers.vi" Type="VI" URL="../../tests/ServerInstancesTest/destroyReferencesTwoTcpServers.vi"/>
 				<Item Name="disconnectTcpClient.vi" Type="VI" URL="../../tests/ServerInstancesTest/disconnectTcpClient.vi"/>
 				<Item Name="generateInternalError.vi" Type="VI" URL="../../tests/ServerInstancesTest/generateInternalError.vi"/>
 				<Item Name="instantiateTwoTcpServer.vi" Type="VI" URL="../../tests/ServerInstancesTest/instantiateTwoTcpServer.vi"/>
