@@ -26,7 +26,7 @@
 					<Item Name="testCheckInputAndBroadcast.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCheckInputAndBroadcast.vi"/>
 					<Item Name="testCheckListOfRegMsg.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCheckListOfRegMsg.vi"/>
 					<Item Name="testFlushQueueTcpClient.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testFlushQueueTcpClient.vi"/>
-					<Item Name="testGetServerNotifier(base).vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testGetServerNotifier(base).vi"/>
+					<Item Name="testGetNotifierServerStatus_base.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testGetNotifierServerStatus_base.vi"/>
 					<Item Name="testMsgDetailsToJSON.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testMsgDetailsToJSON.vi"/>
 					<Item Name="testSendServerNotification.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testSendServerNotification.vi"/>
 					<Item Name="testClearErrorAndSendExplanation.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testClearErrorAndSendExplanation.vi"/>
@@ -38,7 +38,7 @@
 					<Item Name="testProcessCmd.vi" Type="VI" URL="../../tests/TcpServerCmd/testCase/testProcessCmd.vi"/>
 					<Item Name="testProcessEvt.vi" Type="VI" URL="../../tests/TcpServerCmd/testCase/testProcessEvt.vi"/>
 					<Item Name="testRegUserEvent.vi" Type="VI" URL="../../tests/TcpServerCmd/testCase/testRegUserEvent.vi"/>
-					<Item Name="testGetServerNotifier(cmd).vi" Type="VI" URL="../../tests/TcpServerCmd/testCase/testGetServerNotifier(cmd).vi"/>
+					<Item Name="testGetNotifierServerStatus_cmd.vi" Type="VI" URL="../../tests/TcpServerCmd/testCase/testGetNotifierServerStatus_cmd.vi"/>
 				</Item>
 				<Item Name="testTcpServerCmd.vi" Type="VI" URL="../../tests/TcpServerCmd/testTcpServerCmd.vi"/>
 			</Item>
@@ -50,7 +50,7 @@
 					<Item Name="testFlushTelFromDds.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testFlushTelFromDds.vi"/>
 					<Item Name="testFlushTelToDds.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testFlushTelToDds.vi"/>
 					<Item Name="testGetTel.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testGetTel.vi"/>
-					<Item Name="testGetServerNotifier(tel).vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testGetServerNotifier(tel).vi"/>
+					<Item Name="testGetNotifierServerStatus_tel.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testGetNotifierServerStatus_tel.vi"/>
 					<Item Name="testTelToClient.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testTelToClient.vi"/>
 				</Item>
 				<Item Name="testTcpServerTel.vi" Type="VI" URL="../../tests/TcpServerTel/testTcpServerTel.vi"/>
@@ -69,8 +69,8 @@
 					<Item Name="testRegCmd.vi" Type="VI" URL="../../tests/TcpServer/testCase/testRegCmd.vi"/>
 					<Item Name="testRegEvt.vi" Type="VI" URL="../../tests/TcpServer/testCase/testRegEvt.vi"/>
 					<Item Name="testRegTel.vi" Type="VI" URL="../../tests/TcpServer/testCase/testRegTel.vi"/>
-					<Item Name="testReadStatusNotifier_cmd.vi" Type="VI" URL="../../tests/TcpServer/testCase/testReadStatusNotifier_cmd.vi"/>
-					<Item Name="testReadStatusNotifier_tel.vi" Type="VI" URL="../../tests/TcpServer/testCase/testReadStatusNotifier_tel.vi"/>
+					<Item Name="testReadNotifierServerStatus_cmd.vi" Type="VI" URL="../../tests/TcpServer/testCase/testReadNotifierServerStatus_cmd.vi"/>
+					<Item Name="testReadNotifierServerStatus_tel.vi" Type="VI" URL="../../tests/TcpServer/testCase/testReadNotifierServerStatus_tel.vi"/>
 					<Item Name="testSendCmdStatus.vi" Type="VI" URL="../../tests/TcpServer/testCase/testSendCmdStatus.vi"/>
 					<Item Name="testSendEvt.vi" Type="VI" URL="../../tests/TcpServer/testCase/testSendEvt.vi"/>
 					<Item Name="testSendTel.vi" Type="VI" URL="../../tests/TcpServer/testCase/testSendTel.vi"/>

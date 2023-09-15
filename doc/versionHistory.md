@@ -1,5 +1,20 @@
 # Version History
 
+0.5.0
+
+- Rename the `serverStatusNotifier` attribute to `notifierServerStatus`.
+- Rename the **TcpServerBase.Read_serverStatusNotifier.vi** to **TcpServerBase.Read_notifierServerStatus.vi**.
+- Rename the **TcpServerBase.Write_serverStatusNotifier.vi** to **TcpServerBase.Write_notifierServerStatus.vi**.
+- Rename the **TcpServerBase.getServerNotifier.vi** to **TcpServerBase.getNotifierServerStatus.vi**.
+- Rename the **TcpServerCmd.getSeverNotifier.vi** to **TcpServerCmd.getNotifierServerStatus_cmd.vi**.
+- Rename the **TcpServerTel.getSeverNotifier.vi** to **TcpServerTel.getNotifierServerStatus_tel.vi**.
+- Rename the **TcpServer.readNotifierStatus.vi** to **TcpServer.readNotifierServerStatus.vi**.
+- Rename the **testReadStatusNotifier_cmd.vi** to **testReadNotifierServerStatus_cmd.vi** in **TcpServer** test cases.
+- Rename the **testReadStatusNotifier_tel.vi** to **testReadNotifierServerStatus_tel.vi** in **TcpServer** test cases.
+- Rename the **testGetServerNotifier(base).vi** to **testGetNotifierServerStatus_base.vi** in **TcpServerBase** test cases.
+- Rename the **testGetServerNotifier(cmd).vi** to **testGetNotifierServerStatus_cmd.vi** in **TcpServerCmd** test cases.
+- Rename the **testGetServerNotifier(tel).vi** to **testGetNotifierServerStatus_tel.vi** in **TcpServerTel** test cases.
+
 0.4.9
 
 - Create the **FactoryTcpServer** class, **createTcpServer.vi**, **Read_currentNumber.vi**, and **Write_currentNumber.vi**.
