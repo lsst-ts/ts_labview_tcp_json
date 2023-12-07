@@ -111,13 +111,21 @@ Note:
 1. The polymorphic `convertToKeyValuePair.vi` does not support `Inf` value.
 Please try to avoid use this value.
 
+### List of Reentrant VI in TcpServer
+
+- TcpServerBase.tcpServerSenderLoop.vi.
+- TcpServerBase.waitNotifierStopServer.vi.
+- TcpServerBase.sendServerNotification.vi.
+- TcpServerCmd.runServer.vi
+- TcpServerTel.runServer.vi
+- TcpServerCmd.tcpServerStateMachine.vi
+- TcpServerTel.tcpServerStateMachine.vi
+- TcpServer.runServer.vi
+
 ### TcpServer Design Details
 
 - User must instantiate one or more TCP Servers using the `FactoryTcpServer.createTcpServer.vi`.
 Go to the TcpServer [user manual](../doc/userManual.md) for more details.
-- `tcpServerSenderLoop.vi` is set as preallocated clone reentrant execution, in **tcpServerBase**, **tcpServerCmd** and **tcpServerTel** classes.
-- `runServer.vi` works as Dynamic Dispatch in **tcpServerBase**, **tcpServerCmd** and **tcpServerTel** classes.
-- `tcpServerStateMachine.vi` works as Dynamic Dispatch in **tcpServerBase**, **tcpServerCmd** and **tcpServerTel** classes.
 - User can configure TCP Server to work with a circular buffer when sends telemetry to TCP Client and receives telemetry from TCP Client, through `configServer.vi` when server starts.
 In **queueOptions** control select **lossy enqueue** to use circular buffer, and **normal enqueue** to use standard FIFO technique.
 - User can enable/disable circular buffer through `sendTel.vi` in runtime, only to send telemetry to TCP Client.
@@ -133,6 +141,5 @@ This uses the `GenRead` user event.
 This function is located in every process that needs to send the errors.
 The user must manage them.
 - The `TcpServerBase.waitNotifierStopServer.vi` waits for the notifier to stop the TCP server.
-This is set as preallocated clone reentrant execution.
 - The `TcpServer.getClientStatus.vi` gets the notification from TCP Server that TCP Client connects or disconnects and then sends an user event to the Component.
 This uses the `GenRead` user event with the boolean `connStatus`.
