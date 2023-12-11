@@ -111,7 +111,7 @@ Note:
 1. The polymorphic `convertToKeyValuePair.vi` does not support `Inf` value.
 Please try to avoid use this value.
 
-### List of Reentrant VI in TcpServer
+### List of Preallocated Clones VIs in TcpServer
 
 - TcpServerBase.tcpServerSenderLoop.vi.
 - TcpServerBase.waitNotifierStopServer.vi.
