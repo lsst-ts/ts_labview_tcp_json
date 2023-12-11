@@ -22,7 +22,6 @@
 			</Item>
 			<Item Name="TcpServerBase" Type="Folder">
 				<Item Name="testCase" Type="Folder">
-					<Item Name="testCreateQueues.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCreateQueues.vi"/>
 					<Item Name="testCheckInputAndBroadcast.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCheckInputAndBroadcast.vi"/>
 					<Item Name="testCheckListOfRegMsg.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testCheckListOfRegMsg.vi"/>
 					<Item Name="testFlushQueueTcpClient.vi" Type="VI" URL="../../tests/TcpServerBase/testCase/testFlushQueueTcpClient.vi"/>
@@ -46,7 +45,6 @@
 				<Item Name="testCase" Type="Folder">
 					<Item Name="testCheckQueueFull_TcpClientFromDds.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testCheckQueueFull_TcpClientFromDds.vi"/>
 					<Item Name="testCheckQueueToDdsFull.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testCheckQueueToDdsFull.vi"/>
-					<Item Name="testCreateQueueTcpClientFromDds.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testCreateQueueTcpClientFromDds.vi"/>
 					<Item Name="testFlushTelFromDds.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testFlushTelFromDds.vi"/>
 					<Item Name="testFlushTelToDds.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testFlushTelToDds.vi"/>
 					<Item Name="testGetTel.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testGetTel.vi"/>

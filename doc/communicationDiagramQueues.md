@@ -18,26 +18,32 @@ The following is the list of queues in **TcpServer**:
 | queueTcpServer    |
 | queueTcpClient    |
 | queueTcpClientFromDds    |
+| queueStateMachine |
 
 ## Queues Description
 
 The descriptions of queues are in the following:
 
-- **TcpServerBase.queueTcpServer** stores commands, events and telemetry coming from the TCP Client as TCP Packets.
+- **TcpServerBase.queueTcpServer** stores commands, events, and telemetry coming from the TCP Client as TCP Packets.
 - **TcpServerBase.queueTcpClient** stores telemetry from Component to TCP Client.
 This queue has a max queue size set by the **TcpServer.configServer&#46;vi** with the `maxSizeQueueTcpClient` control.
 User can use the **queueOptionsTypeDef&#46;ctl** to set the Timeout (ms), and how to add new elements into this queue.
 - **TcpServerTel.queueTcpClientFromDds** receives the processed telemetry ready to be sent to Component.
 **TcpServer.configServer&#46;vi** sets: (1) max queue size with the `maxSizeQueueTcpClientFromDds` control, (2) timeout (ms) with the `timeoutQueueTcpClientFromDds` control, and (3) enqueue method with the `EnqueueOptions` control.
+- **TcpServerBase.queueStateMachine** changes the states in the TCP/IP state machine.
 
 The following table shows the queues with their enqueue and dequeue functions:
 
 | Queue | Enqueue | Dequeue |
 |:--------:|:----------:|:-----------:|
-| queueTcpServer  | TcpServerCmd.tcpServerStateMachine&#46;vi   | TcpServerCmd.tcpServerCallBack&#46;vi     |
-| queueTcpServer  | TcpServerTel.tcpServerStateMachine&#46;vi   | TcpServerTel.tcpServerCallBack&#46;vi     |
-| queueTcpClient  |  TcpServerTel.enqueueTelToClient&#46;vi  | TcpServerBase.tcpServerSenderLoop&#46;vi     |
-| queueTcpClientFromDds  | TcpServerTel.enqueueTelToComponent&#46;vi   | TcpServerTel.getTel&#46;vi     |
+| queueTcpServer  | TcpServerCmd.tcpServerStateMachine&#46;vi   | TcpServerCmd.tcpServerCallBack&#46;vi        |
+| queueTcpServer  | TcpServerTel.tcpServerStateMachine&#46;vi   | TcpServerTel.tcpServerCallBack&#46;vi        |
+| queueTcpClient  |  TcpServerTel.enqueueTelToClient&#46;vi  | TcpServerBase.tcpServerSenderLoop&#46;vi        |
+| queueTcpClientFromDds  | TcpServerTel.enqueueTelToComponent&#46;vi   | TcpServerTel.getTel&#46;vi            |
+| queueStateMachine  | TcpServerCmd.runServer&#46;vi   | TcpServerCmd.tcpStateMachine&#46;vi                   |
+| queueStateMachine  | TcpServerTel.runServer&#46;vi   | TcpServerTel.tcpStateMachine&#46;vi                   |
+| queueStateMachine  | TcpServerCmd.tcpServerStateMachine&#46;vi   | TcpServerCmd.tcpServerStateMachine&#46;vi |
+| queueStateMachine  | TcpServerTel.tcpServerStateMachine&#46;vi   | TcpServerTel.tcpServerStateMachine&#46;vi |
 
 ## Communication Diagrams
 

@@ -1,5 +1,15 @@
 # Version History
 
+0.5.1
+
+- Create the `queueStateMachine` in **tcpServerBase** class.
+- Put creation of `queueTcpServer`, `queueTcpClient`, `queueStateMachine`, and `queueTcpClientFromDds` in **FactoryTcpServer.createTcpServer.vi**.
+- Remove **runServer.vi** and **tcpServerStateMachine.vi** from **TcpServerBase** class.
+- Set **runServer.vi** and **tcpServerStateMachine.vi** as `preallocated clones` in **tcpServerCmd** and **tcpServerTel** classes.
+- Release queue references using the **TcpServerBase.releaseQueues.vi**.
+This vi is put into the **TcpServerBase.destroyReferences.vi**.
+- Update unit tests to open and close the queue references properly.
+
 0.5.0
 
 - Rename the `serverStatusNotifier` attribute to `notifierServerStatus`.
