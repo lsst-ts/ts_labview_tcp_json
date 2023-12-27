@@ -1,5 +1,14 @@
 # Version History
 
+0.5.2
+
+- Remove the **TcpServer.waitToStopGetClientStatus.vi**.
+- Remove the **TcpServerBase.waitNotifierStopServer.vi**.
+- Create the `notifierStopServer` attribute in the **TcpServer** class and its accessors.
+- Obtain the `notifierStopServer` sequentially in the **FactoryTcpServer.createTcpServer.vi**.
+- Put the **TcpServer.getClientStatus.vi** as preallocated clone.
+- Force the notifier references to be destroyed by setting the `force destroy?` input to `True` in the **TcpServerBase.releaseNotifiers.vi**.
+
 0.5.1
 
 - Create the `queueStateMachine` in **tcpServerBase** class.
