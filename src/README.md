@@ -114,13 +114,13 @@ Please try to avoid use this value.
 ### List of Preallocated Clones VIs in TcpServer
 
 - TcpServerBase.tcpServerSenderLoop.vi.
-- TcpServerBase.waitNotifierStopServer.vi.
 - TcpServerBase.sendServerNotification.vi.
 - TcpServerCmd.runServer.vi
 - TcpServerTel.runServer.vi
 - TcpServerCmd.tcpServerStateMachine.vi
 - TcpServerTel.tcpServerStateMachine.vi
 - TcpServer.runServer.vi
+- TcpServer.getClientStatus.vi
 
 ### TcpServer Design Details
 
@@ -143,3 +143,5 @@ The user must manage them.
 - The `TcpServerBase.waitNotifierStopServer.vi` waits for the notifier to stop the TCP server.
 - The `TcpServer.getClientStatus.vi` gets the notification from TCP Server that TCP Client connects or disconnects and then sends an user event to the Component.
 This uses the `GenRead` user event with the boolean `connStatus`.
+- The `force destroy?` input is set to `True` in the **TcpServerBase.releaseNotifiers.vi** to ensure the destruction of the notifier references.
+With this, we avoid calling this function multiple times.
