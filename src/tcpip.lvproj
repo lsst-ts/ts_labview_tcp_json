@@ -137,6 +137,7 @@
 					<Item Name="testTwoServersReportConnStatus.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testTwoServersReportConnStatus.vi"/>
 					<Item Name="testTwoServersReportInternalError.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testTwoServersReportInternalError.vi"/>
 					<Item Name="testTwoServersReportLogMessages.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testTwoServersReportLogMessages.vi"/>
+					<Item Name="testTwoServersReportConnStatusMultipleTimes.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testTwoServersReportConnStatusMultipleTimes.vi"/>
 					<Item Name="testUserStopsServersAandB.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testUserStopsServersAandB.vi"/>
 				</Item>
 				<Item Name="serverInstancesTest.vi" Type="VI" URL="../../tests/ServerInstancesTest/serverInstancesTest.vi"/>
