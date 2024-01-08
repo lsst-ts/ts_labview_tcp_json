@@ -1,5 +1,11 @@
 # Version History
 
+0.5.3
+
+- Remove the **TcpServerCmd.getNotifierServerStatus_cmd.vi** and the **TcpServerTel.getNotifierServerStatus_tel.vi**.
+- Remove the **testGetNotifierServerStatus_cmd.vi** and the **testGetNotifierServerStatus_tel.vi**.
+Now the **TcpServer.readNotifierServerStatus.vi** gets the notification directly with the `Wait On Notification` LabVIEW function.
+
 0.5.2
 
 - Remove the **TcpServer.waitToStopGetClientStatus.vi**.

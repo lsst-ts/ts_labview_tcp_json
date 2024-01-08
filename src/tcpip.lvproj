@@ -37,7 +37,6 @@
 					<Item Name="testProcessCmd.vi" Type="VI" URL="../../tests/TcpServerCmd/testCase/testProcessCmd.vi"/>
 					<Item Name="testProcessEvt.vi" Type="VI" URL="../../tests/TcpServerCmd/testCase/testProcessEvt.vi"/>
 					<Item Name="testRegUserEvent.vi" Type="VI" URL="../../tests/TcpServerCmd/testCase/testRegUserEvent.vi"/>
-					<Item Name="testGetNotifierServerStatus_cmd.vi" Type="VI" URL="../../tests/TcpServerCmd/testCase/testGetNotifierServerStatus_cmd.vi"/>
 				</Item>
 				<Item Name="testTcpServerCmd.vi" Type="VI" URL="../../tests/TcpServerCmd/testTcpServerCmd.vi"/>
 			</Item>
@@ -48,7 +47,6 @@
 					<Item Name="testFlushTelFromDds.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testFlushTelFromDds.vi"/>
 					<Item Name="testFlushTelToDds.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testFlushTelToDds.vi"/>
 					<Item Name="testGetTel.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testGetTel.vi"/>
-					<Item Name="testGetNotifierServerStatus_tel.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testGetNotifierServerStatus_tel.vi"/>
 					<Item Name="testTelToClient.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testTelToClient.vi"/>
 				</Item>
 				<Item Name="testTcpServerTel.vi" Type="VI" URL="../../tests/TcpServerTel/testTcpServerTel.vi"/>
@@ -139,6 +137,7 @@
 					<Item Name="testTwoServersReportConnStatus.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testTwoServersReportConnStatus.vi"/>
 					<Item Name="testTwoServersReportInternalError.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testTwoServersReportInternalError.vi"/>
 					<Item Name="testTwoServersReportLogMessages.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testTwoServersReportLogMessages.vi"/>
+					<Item Name="testTwoServersReportConnStatusMultipleTimes.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testTwoServersReportConnStatusMultipleTimes.vi"/>
 					<Item Name="testUserStopsServersAandB.vi" Type="VI" URL="../../tests/ServerInstancesTest/testCase/testUserStopsServersAandB.vi"/>
 				</Item>
 				<Item Name="serverInstancesTest.vi" Type="VI" URL="../../tests/ServerInstancesTest/serverInstancesTest.vi"/>
