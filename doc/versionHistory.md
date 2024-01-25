@@ -1,5 +1,11 @@
 # Version History
 
+0.5.4
+
+- Create the `notifierTcpConnection` element as an attribute of the **TcpServerBase** class.
+- Remove **releaseNotifierStopServer.vi** because it has no callers.
+- Put the **TcpServerCmd.tcpServerCallBack.vi** and **TcpServerTel.tcpServerCallBack.vi** as preallocated clones.
+
 0.5.3
 
 - Remove the **TcpServerCmd.getNotifierServerStatus_cmd.vi** and the **TcpServerTel.getNotifierServerStatus_tel.vi**.
