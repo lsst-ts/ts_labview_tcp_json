@@ -119,6 +119,8 @@ Please try to avoid use this value.
 - TcpServerTel.runServer.vi
 - TcpServerCmd.tcpServerStateMachine.vi
 - TcpServerTel.tcpServerStateMachine.vi
+- TcpServerCmd-tcpServerCallBack.vi
+- TcpServerTel.tcpServerCallBack.vi
 - TcpServer.runServer.vi
 - TcpServer.getClientStatus.vi
 
