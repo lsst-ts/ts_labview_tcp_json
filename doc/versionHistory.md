@@ -1,5 +1,10 @@
 # Version History
 
+0.5.5
+
+- Fix the assertion logic within the **testTwoClientsSendTelemetryAtSameTime.vi**.
+- Modify the comment in the code within the **TcpServerTel.tcpServerStateMachine.vi**.
+
 0.5.4
 
 - Create the `notifierTcpConnection` element as an attribute of the **TcpServerBase** class.
