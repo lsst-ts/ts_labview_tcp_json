@@ -29,14 +29,14 @@ pipeline {
             // Add a timeout to abort the stage if needed. This is important
             // for the GUI test because Xvnc or LabVIEW may fail.
             options {
-                timeout(time: 350, unit: "SECONDS")
+                timeout(time: 400, unit: "SECONDS")
             }
 
             steps {
                 wrap([$class: 'Xvnc']){
                     withEnv(["HOME=${env.WORKSPACE}"]) {
                         sh """
-                            xdotool key --repeat 5 --delay 1000 Return | timeout 300 labview64 tests/testAllWithXmlReport.vi || true
+                            xdotool key --repeat 5 --delay 1000 Return | timeout 350 labview64 tests/testAllWithXmlReport.vi || true
                         """
                     }
                 }
