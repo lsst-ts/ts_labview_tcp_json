@@ -1,5 +1,9 @@
 # Version History
 
+0.5.6
+
+- Fix the **testTwoServersReportInternalError.vi** test case to avoid receiving the generic user event after the the TCP client is connected and disconnected from the TCP server.
+
 0.5.5
 
 - Fix the assertion logic within the **testTwoClientsSendTelemetryAtSameTime.vi**.
