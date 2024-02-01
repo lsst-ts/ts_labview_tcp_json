@@ -111,7 +111,7 @@
 				<Item Name="removeEmptyStrings.vi" Type="VI" URL="../../tests/IntegrationTest/removeEmptyStrings.vi"/>
 				<Item Name="readTcpPackets.vi" Type="VI" URL="../../tests/IntegrationTest/readTcpPackets.vi"/>
 				<Item Name="sendAndReadTelemetry.vi" Type="VI" URL="../../tests/IntegrationTest/sendAndReadTelemetry.vi"/>
-				<Item Name="sendTelFromTcpClient.vi" Type="VI" URL="../../tests/IntegrationTest/sendTelFromTcpClient.vi"/>
+				<Item Name="sendTelFromTcpClientAndGetTelemetry.vi" Type="VI" URL="../../tests/IntegrationTest/sendTelFromTcpClientAndGetTelemetry.vi"/>
 				<Item Name="startTcpServer.vi" Type="VI" URL="../../tests/IntegrationTest/startTcpServer.vi"/>
 			</Item>
 			<Item Name="ServerInstancesTest" Type="Folder">
@@ -152,6 +152,7 @@
 				<Item Name="sendEventsFromTcpClient.vi" Type="VI" URL="../../tests/ServerInstancesTest/sendEventsFromTcpClient.vi"/>
 				<Item Name="sendEventToClient.vi" Type="VI" URL="../../tests/ServerInstancesTest/sendEventToClient.vi"/>
 				<Item Name="sendLogMessage.vi" Type="VI" URL="../../tests/ServerInstancesTest/sendLogMessage.vi"/>
+				<Item Name="sendTelFromTcpClient.vi" Type="VI" URL="../../tests/ServerInstancesTest/sendTelFromTcpClient.vi"/>
 				<Item Name="setDefaultServerA.vi" Type="VI" URL="../../tests/ServerInstancesTest/setDefaultServerA.vi"/>
 				<Item Name="setDefaultServerB.vi" Type="VI" URL="../../tests/ServerInstancesTest/setDefaultServerB.vi"/>
 				<Item Name="startTcpServerA.vi" Type="VI" URL="../../tests/ServerInstancesTest/startTcpServerA.vi"/>
