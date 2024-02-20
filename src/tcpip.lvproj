@@ -169,7 +169,9 @@
 				<Item Name="readKeysFromConfigFile.vi" Type="VI" URL="../../simulator/configFile/readKeysFromConfigFile.vi"/>
 				<Item Name="readConfigEvtTel.vi" Type="VI" URL="../../simulator/configFile/readConfigEvtTel.vi"/>
 			</Item>
-			<Item Name="ComponentSimulator.vi" Type="VI" URL="../../simulator/ComponentSimulator.vi"/>
+			<Item Name="ComponentSimulatorsLauncher.vi" Type="VI" URL="../../simulator/ComponentSimulatorsLauncher.vi"/>
+			<Item Name="ComponentSimulatorA.vi" Type="VI" URL="../../simulator/ComponentSimulatorA.vi"/>
+			<Item Name="ComponentSimulatorB.vi" Type="VI" URL="../../simulator/ComponentSimulatorB.vi"/>
 		</Item>
 		<Item Name="FactoryTcpServer" Type="Folder">
 			<Item Name="FactoryTcpServer.lvclass" Type="LVClass" URL="../FactoryTcpServer/FactoryTcpServer.lvclass"/>
@@ -646,7 +648,7 @@
 				<Property Name="Source[0].itemID" Type="Str">{A4DE72DD-2F81-11ED-A973-B04F130BB390}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
-				<Property Name="Source[1].itemID" Type="Ref">/My Computer/simulator/ComponentSimulator.vi</Property>
+				<Property Name="Source[1].itemID" Type="Ref">/My Computer/simulator/ComponentSimulatorA.vi</Property>
 				<Property Name="Source[1].sourceInclusion" Type="Str">TopLevel</Property>
 				<Property Name="Source[1].type" Type="Str">VI</Property>
 				<Property Name="Source[2].destinationIndex" Type="Int">0</Property>
