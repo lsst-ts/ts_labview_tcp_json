@@ -27,14 +27,27 @@ Execute Component Simulator:
 ./ComponentSimulator
 ```
 
+Note: this command will start two instances of the Component Simulator.
+
 From LabVIEW project:
 
-Go to the `simulator/` directory, find `ComponentSimulator.vi`, press right click on it and select **Run**.
+Go to the `simulator/` directory, find `ComponentSimulatorLauncher.vi`, press right click on it and select **Run**.
 
-Please check:
+Please check these settings in one of the instance:
 
-- cmdServerPort = 8888
-- telServerPort = 8889
+- cmdServerPort = 50000
+- telServerPort = 50001
+- timeoutServerInMs = 100
+- serverBytesToRead = 32768
+- maxSizeQueueTcpClientFromDds = 1000
+- EnqueueOptions = lossy enqueue
+- timeoutQueueTcpClientFromDds (ms) = 50
+- maxSizeQueueTcpClient = 100
+
+Plese check in the other instance these settings:
+
+- cmdServerPort = 50010
+- telServerPort = 50011
 - timeoutServerInMs = 100
 - serverBytesToRead = 32768
 - maxSizeQueueTcpClientFromDds = 1000
