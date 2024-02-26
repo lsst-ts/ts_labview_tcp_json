@@ -1,5 +1,11 @@
 # Version History
 
+0.5.7
+
+- Remove the **ComponentSimulator.vi** and create the **ComponentSimulatorA.vi** and **ComponentSimulatorB.vi**.
+- Create the **ComponentSimulatorLauncher.vi**.
+- Create the **clientA.py** and **clientB.py** scripts to issue commands, events, and telemetry to the component simulators.
+
 0.5.6
 
 - Fix the **testTwoServersReportInternalError.vi** test case to avoid receiving the generic user event after the the TCP client is connected and disconnected from the TCP server.

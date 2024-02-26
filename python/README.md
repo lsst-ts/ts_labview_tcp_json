@@ -32,7 +32,10 @@ For the test purpose, you can put `cmdExpect` in command details to get the resu
 
 ## Use TCP/IP Client
 
-Assume the IPython is used.
+You can use either the IPython or the `client.py` python script in order to use the TCP/IP Client.
+
+### Using the IPython
+
 To set up the client and connects to the localhost server (assume the ports of command and telemetry are 8888 and 8889), do:
 
 ```python
@@ -154,4 +157,38 @@ await asyncio.gather(
     tcp_client_cmd.close(),
     tcp_client_tel.close(),
 )
+```
+
+### Using the Python Script
+
+The `python/client.py` script will connect and disconnect to the TCP server, and will issue commands, events, and telemetry by you.
+The script uses the `argparse` library to let the user set the command and telemetry ports, the number of commands, event, and telemetry to be sent to the TCP server, using the terminal.
+
+To set the command to 50000 and telemetry port to 50001, for instance, do:
+
+```python
+python client.py 50000 50001
+```
+
+To set the number of commands to be sent, do:
+
+```python
+python client.py 50000 50001 --ncmd 20
+```
+
+where the default value is 10.
+
+To set the frecuency in Hz and the duration in seconds of the telemetry to be published, do:
+
+```python
+python client.py 50000 50001 --frec 10 --dur 2
+```
+
+if you want to send 10 Hz during 2 seconds.
+The default is 10 Hz and 2 seconds.
+
+To use the help, do:
+
+```python
+python3 client.py -h
 ```
