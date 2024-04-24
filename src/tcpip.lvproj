@@ -47,9 +47,9 @@
 					<Item Name="testFlushTelFromDds.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testFlushTelFromDds.vi"/>
 					<Item Name="testFlushTelToDds.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testFlushTelToDds.vi"/>
 					<Item Name="testGetTel.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testGetTel.vi"/>
+					<Item Name="testTcpServerTel.vi" Type="VI" URL="../../tests/TcpServerTel/testTcpServerTel.vi"/>
 					<Item Name="testTelToClient.vi" Type="VI" URL="../../tests/TcpServerTel/testCase/testTelToClient.vi"/>
 				</Item>
-				<Item Name="testTcpServerTel.vi" Type="VI" URL="../../tests/TcpServerTel/testTcpServerTel.vi"/>
 			</Item>
 			<Item Name="TcpServer" Type="Folder">
 				<Item Name="testCase" Type="Folder">
@@ -104,6 +104,8 @@
 					<Item Name="testSendTelFromClient.vi" Type="VI" URL="../../tests/IntegrationTest/testCase/testSendTelFromClient.vi"/>
 					<Item Name="testSendTelAndCmdFromClient.vi" Type="VI" URL="../../tests/IntegrationTest/testCase/testSendTelAndCmdFromClient.vi"/>
 					<Item Name="testSendTelToClientAndCmdToServer.vi" Type="VI" URL="../../tests/IntegrationTest/testCase/testSendTelToClientAndCmdToServer.vi"/>
+					<Item Name="testTelPacketsSentFromTcpClient.vi" Type="VI" URL="../../tests/IntegrationTest/testCase/testTelPacketsSentFromTcpClient.vi"/>
+					<Item Name="testTelPacketsSentFromTcpServer.vi" Type="VI" URL="../../tests/IntegrationTest/testCase/testTelPacketsSentFromTcpServer.vi"/>
 				</Item>
 				<Item Name="integrationTest.vi" Type="VI" URL="../../tests/IntegrationTest/integrationTest.vi"/>
 				<Item Name="connectTcpClients.vi" Type="VI" URL="../../tests/IntegrationTest/connectTcpClients.vi"/>
