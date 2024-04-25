@@ -1,5 +1,11 @@
 # Version History
 
+0.5.8
+
+- Remove the `wait in ms` LabVIEW function from state machine in **TcpServerTel.tcpServerStateMachine.vi**.
+- Add the controls `numPackets` and `telFrecuencyInHz` in the **sendAndReadTelemetry.vi**.
+- Add the **testTelPacketsSentFromTcpClient.vi** and **testTelPacketsSentFromTcpServer.vi**.
+
 0.5.7
 
 - Remove the **ComponentSimulator.vi** and create the **ComponentSimulatorA.vi** and **ComponentSimulatorB.vi**.
