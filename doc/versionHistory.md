@@ -1,5 +1,12 @@
 # Version History
 
+0.5.9
+
+- Add the **testSentTelToTcpServerAtDiffRates.vi** to test `TcpServer` can send different number of telemetry at different rates (Hz).
+- Remove the Wait function in the **readTcpPackets.vi**.
+- Create the **python/subscribe_telemetry.py** script to test the TCP client can receive telemetry from Component Simulator.
+- Remove the **destroyQueueTcpClientFromDds.vi** because it has no callers.
+
 0.5.8
 
 - Remove the `wait in ms` LabVIEW function from state machine in **TcpServerTel.tcpServerStateMachine.vi**.

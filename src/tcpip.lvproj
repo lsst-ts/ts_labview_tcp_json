@@ -105,6 +105,7 @@
 					<Item Name="testSendTelAndCmdFromClient.vi" Type="VI" URL="../../tests/IntegrationTest/testCase/testSendTelAndCmdFromClient.vi"/>
 					<Item Name="testSendTelToClientAndCmdToServer.vi" Type="VI" URL="../../tests/IntegrationTest/testCase/testSendTelToClientAndCmdToServer.vi"/>
 					<Item Name="testTelPacketsSentFromTcpClient.vi" Type="VI" URL="../../tests/IntegrationTest/testCase/testTelPacketsSentFromTcpClient.vi"/>
+					<Item Name="testSentTelToTcpClientAtDiffRates.vi" Type="VI" URL="../../tests/IntegrationTest/testCase/testSentTelToTcpClientAtDiffRates.vi"/>
 					<Item Name="testTelPacketsSentFromTcpServer.vi" Type="VI" URL="../../tests/IntegrationTest/testCase/testTelPacketsSentFromTcpServer.vi"/>
 				</Item>
 				<Item Name="integrationTest.vi" Type="VI" URL="../../tests/IntegrationTest/integrationTest.vi"/>
