@@ -1,5 +1,10 @@
 # Version History
 
+0.5.9
+
+- Support the priority in **TcpServer.sendCmdStatus.vi** and **TcpServer.sendEvt.vi**.
+- Use the 0 ms timeout for the notifier in **TcpServerBase.tcpServerSenderLoop.vi** and **TcpServerCmd.tcpServerCallBack.vi**.
+
 0.5.8
 
 - Remove the `wait in ms` LabVIEW function from state machine in **TcpServerTel.tcpServerStateMachine.vi**.
