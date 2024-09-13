@@ -1,5 +1,21 @@
 # Version History
 
+0.6.0
+
+- Update the following vis in **FactoryTcpServer**:
+  - Allow the user to assign the maximum numbers of telemetry queues in **createTcpServer.vi**.
+- Update the following vis in **TcpServerCmd**:
+  - Update the **runServer.vi** to have the 0ms timeout when reading the notifier of stopping servers.
+  - Update the **runServer.vi** to use the "Clear Errors" to replace the "Disable Structures".
+  - Update the **tcpServerStateMachine.vi** to clear the possible errors when closing the connection ID. Note this needs to be done before the enqueue function to make sure the "wait_on_listener" state can be queued.
+  - update the **tcpServerStateMachine.vi** to flush the queue of state machine after getting the new connection ID. This will remove the possible element from the sender loop if it is not consumed yet.
+- Update the following vis in **TcpServerTel**:
+  - Update the **runServer.vi** to have the 0ms timeout when reading the notifier of stopping servers.
+  - Update the **tcpServerStateMachine.vi** to clear the possible errors when closing the connection ID. Note this needs to be done before the enqueue function to make sure the "wait_on_listener" state can be queued.
+  - update the **tcpServerStateMachine.vi** to flush the queue of state machine after getting the new connection ID. This will remove the possible element from the sender loop if it is not consumed yet.
+- Update the following vis in **TcpServerBase**:
+  - Update the **tcpServerSenderLoop.vi** to notify the reading loop in state machine to close the connection when the error (1 or 66) happens.
+
 0.5.9
 
 - Support the priority in **TcpServer.sendCmdStatus.vi** and **TcpServer.sendEvt.vi**.

@@ -19,6 +19,7 @@ However, you only need to use the public functions of the **TcpServer** class.
 
 The [Factory Method Pattern](https://en.wikipedia.org/wiki/Factory_method_pattern) is used to instantiate one or more `TcpServer`.
 You should use the **FactoryTcpServer.createTcpServer.vi** to get the new `TcpServer` instance.
+Note the arguments of **maxSizeQueueTcpClientFromDds** and **maxSizeQueueTcpClient** should be the same as the [TCP server configuration](#server-configuration-cluster).
 
 ## TcpServer Library
 
