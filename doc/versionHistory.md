@@ -1,5 +1,9 @@
 # Version History
 
+0.6.1
+
+- Upgrade the Caraya Unit Test Framework to v1.4.3.147.
+
 0.6.0
 
 - Update the following vis in **FactoryTcpServer**:
