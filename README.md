@@ -8,7 +8,7 @@ The Python client might have the service abstraction layer (SAL) support.
 
 - CentOS 7
 - LabVIEW 2018 SP1 64-bit Professional Version
-- Caraya Unit Test Framework v1.0.2.115 ([download here](https://github.com/JKISoftware/Caraya/releases/tag/1.0.2))
+- Caraya Unit Test Framework v1.4.3.147 ([download here](https://github.com/JKISoftware/Caraya/releases/tag/1.4.3))
 
 ## Python Test Script
 
