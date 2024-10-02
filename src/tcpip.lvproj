@@ -71,6 +71,7 @@
 					<Item Name="testSendEvt.vi" Type="VI" URL="../../tests/TcpServer/testCase/testSendEvt.vi"/>
 					<Item Name="testSendTel.vi" Type="VI" URL="../../tests/TcpServer/testCase/testSendTel.vi"/>
 					<Item Name="testStopServer.vi" Type="VI" URL="../../tests/TcpServer/testCase/testStopServer.vi"/>
+					<Item Name="testSendTelMultiple.vi" Type="VI" URL="../../tests/TcpServer/testCase/testSendTelMultiple.vi"/>
 				</Item>
 				<Item Name="testTcpServer.vi" Type="VI" URL="../../tests/TcpServer/testTcpServer.vi"/>
 			</Item>
