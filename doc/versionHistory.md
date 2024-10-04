@@ -1,5 +1,12 @@
 # Version History
 
+0.6.2
+
+- Update the **TcpServer.getClientStatus.vi** to call the **TcpServerBase.clearErrorAndSendExplanation.vi** directly.
+- Fix the **ComponentSimulator.vi** by using the **FactoryTcpServer** to create the **TcpServer** instance.
+- Add the **TcpServer.sendTelMultiple.vi**.
+- Put the **TcpServerTel.enqueueTelToClient.vi** to be public.
+
 0.6.1
 
 - Upgrade the Caraya Unit Test Framework to v1.4.3.147.

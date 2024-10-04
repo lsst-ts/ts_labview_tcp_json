@@ -157,6 +157,10 @@ In this case the `Timeout (ms)` value is not used.
 There is a polymorphic VI to help the user write the JSON string easily.
 It is called **convertToKeyValuePair.vi** and you can go [here](../src/README.md#utility) for more details about this function.
 
+## sendTelMultiple&#46;vi
+
+The sendTelMultiple VI is an alternative of sendTel.vi to optimize the system resource.
+
 ## getTelElement&#46;vi
 
 The getTelElement VI is used to get telemetry elements one by one from the telemetry queue.
