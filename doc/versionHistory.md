@@ -1,5 +1,9 @@
 # Version History
 
+0.6.3
+
+- Update the **testMsgDetailsToJSON.vi**, **testSendEvtToClient.vi**, and **sendEventToClient.vi** to let **testAll.vi** pass in different operative systems.
+
 0.6.2
 
 - Update the **TcpServer.getClientStatus.vi** to call the **TcpServerBase.clearErrorAndSendExplanation.vi** directly.
